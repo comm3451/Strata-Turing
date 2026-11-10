@@ -133,6 +133,44 @@ class Calibrate(unittest.TestCase):
         res, _ = self.run_with(lambda f, p, w: 50.0)
         self.assertEqual(res["settings"], {})
 
+    def refining_default(self, startup, speed):
+        starts = []
+        requests = []
+
+        class RefiningEngine(FakeEngine):
+            def __init__(self, args):
+                super().__init__(args, speed, starts=starts)
+                self.info["pcie_frac"] = startup
+
+            def generate(self, ids, max_new, sampling, cancel):
+                requests.append(dict(sampling.get("strata_tune") or {}))
+                # The real engine refines its automatic share to 0.25 after warmup,
+                # without updating the server's startup INFO snapshot.
+                tune = {"pcie_frac": float(CAL.arg_value(self.args, "--pcie-frac") or 0.25),
+                        "spec_min_p": self.info["spec_min_p"], **sampling.get("strata_tune", {})}
+                yield from super().generate(ids, max_new, {**sampling, "strata_tune": tune}, cancel)
+
+        res = CAL.measure(BASE, [[1, 2, 3]] * 3, RefiningEngine, say=lambda *_: None)
+        return res, starts, requests
+
+    def test_candidate_equal_to_startup_info_still_needs_confirmation(self):
+        res, starts, requests = self.refining_default(0.1, lambda f, p, w: 100.0 if f == 0.1 and p == 0.5 else 80.0)
+        self.assertEqual(res["settings"]["--pcie-frac"], "0.10")
+        self.assertEqual(res["report"]["confirm"]["default"], [80.0] * 3)
+        self.assertEqual(res["report"]["confirm"]["0.1/0.5"], [100.0] * 3)
+        self.assertTrue(all(CAL.arg_value(a, "--pcie-frac") == "0.10" for a in starts[1:]))
+        # Three prompts per sample; confirmation alternates A/B, B/A, A/B.
+        sweep_end = (2 + (len(set(CAL.PCIE_FRACS) | {0.1}) + len(CAL.SPEC_MIN_PS)) * CAL.SWEEP_ROUNDS) * 3
+        confirmation = requests[sweep_end:sweep_end + 18:3]
+        self.assertEqual([bool(t) for t in confirmation], [False, True, True, False, False, True])
+
+    def test_auto_share_must_beat_candidate_and_survive_worker_restarts(self):
+        res, starts, _ = self.refining_default(0.55, lambda f, p, w: {0.25: 100.0, 0.2: 90.0}.get(f, 50.0))
+        self.assertEqual(res["settings"], {})
+        self.assertEqual(res["report"]["confirm"]["default"], [100.0] * 3)
+        self.assertTrue(all(CAL.arg_value(a, "--pcie-frac") is None for a in starts))
+        self.assertEqual(res["report"]["workers"]["6"], [100.0] * 2)
+
     def test_measure_reports_bounded_stages_and_stops_between_samples(self):
         events = []
         stopped = threading.Event()

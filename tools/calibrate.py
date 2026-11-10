@@ -47,7 +47,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT))
 
 MIN_GAIN = 0.03                    # a setting must beat the default by this much to be kept
-PCIE_FRACS = (0.0, 0.2, 0.35, 0.55, 0.75, 0.9, 1.0)   # 1.0: every miss over PCIe, the CPU pool gets no expert
+PCIE_FRACS = (0.0, 0.1, 0.2, 0.35, 0.55, 0.75, 0.9, 1.0)   # 1.0: every miss over PCIe, the CPU pool gets no expert
 SPEC_MIN_PS = (0.3, 0.5, 0.7)
 SWEEP_ROUNDS = 3                   # how many times the sweep visits each value (see `sweep`)
 # the adaptive tier's candidates (every, swaps, decay) against the engine's own (None): swapping more and remembering
@@ -327,7 +327,8 @@ def measure(base_args: list[str], ids_list, start_engine, say=print, extra_worke
             say("  Measuring the prompt chunks of the layer split ...")
             pipe, rep_pipe = measure_pipe(eng, long_prompt, say)
             report.update(rep_pipe)
-        # 1. the PCIe share, at the default draft floor
+        # 1. the PCIe share, at the default draft floor. Include 0.10 explicitly:
+        # TITAN RTX + E5-2680 v4 preferred it even after PcieAuto refined to 0.25.
         by_pcie = sweep(s, sorted(set(PCIE_FRACS) | {round(d_pcie, 2)}), {"spec_min_p": d_minp}, "pcie_frac",
                         "PCIe share", say, progress, "pcie_share")
         best_pcie = max(by_pcie, key=lambda k: statistics.median(by_pcie[k]))
@@ -335,23 +336,24 @@ def measure(base_args: list[str], ids_list, start_engine, say=print, extra_worke
         by_minp = sweep(s, sorted(set(SPEC_MIN_PS) | {round(d_minp, 2)}), {"pcie_frac": best_pcie}, "spec_min_p",
                         "draft floor", say, progress, "draft_floor")
         best_minp = max(by_minp, key=lambda k: statistics.median(by_minp[k]))
-        # 3. the winner against the default, interleaved, the same number of rounds
-        dflt, cand = (round(d_pcie, 2), round(d_minp, 2)), (best_pcie, best_minp)
+        # 3. Compare with real default requests. INFO contains the startup PCIe share;
+        # PcieAuto can refine it during warmup. Forcing INFO's old value would measure
+        # a different baseline and could even skip confirmation of a useful candidate.
+        dflt, cand = None, (best_pcie, best_minp)
         confirm = {dflt: [], cand: []}
-        confirm_total = SWEEP_ROUNDS * 2 if cand != dflt else 1
+        confirm_total = SWEEP_ROUNDS * 2
         _progress(progress, "confirmation", 0, confirm_total)
-        if cand != dflt:
-            for _ in range(SWEEP_ROUNDS):
-                for k in (dflt, cand):
-                    confirm[k].append(s.rate({"pcie_frac": k[0], "spec_min_p": k[1]}))
-                    _progress(progress, "confirmation", sum(map(len, confirm.values())), confirm_total)
-        else:
-            _progress(progress, "confirmation", 1, 1)
-        chosen = pick(confirm, dflt) if cand != dflt else dflt
-        report.update(default={"pcie_frac": dflt[0], "spec_min_p": dflt[1], "pool_workers": d_workers},
+        for r in range(SWEEP_ROUNDS):
+            for k in ((dflt, cand) if r % 2 == 0 else (cand, dflt)):
+                confirm[k].append(s.rate(None if k is None else {"pcie_frac": k[0], "spec_min_p": k[1]}))
+                _progress(progress, "confirmation", sum(map(len, confirm.values())), confirm_total)
+        chosen = pick(confirm, dflt)
+        report.update(default={"pcie_frac": round(d_pcie, 2), "spec_min_p": round(d_minp, 2),
+                               "pool_workers": d_workers},
+                      confirmation_baseline="unmodified requests; default.pcie_frac is startup INFO only",
                       pcie_sweep={str(k): v for k, v in by_pcie.items()},
                       min_p_sweep={str(k): v for k, v in by_minp.items()},
-                      confirm={f"{k[0]}/{k[1]}": v for k, v in confirm.items()})
+                      confirm={"default" if k is None else f"{k[0]}/{k[1]}": v for k, v in confirm.items()})
     finally:
         close(eng)
     settings = {}
@@ -364,7 +366,7 @@ def measure(base_args: list[str], ids_list, start_engine, say=print, extra_worke
     # 4. fewer CPU workers (a restart each), with the chosen settings.  #1337's rule covers a death during a
     # measurement too: an engine that exits mid-rate is that candidate losing; the measurements so far stay.
     if d_workers and len(worker_candidates(d_workers, extra_workers)) > 1:
-        tuned = with_arg(with_arg(base_args, "--pcie-frac", f"{chosen[0]:.2f}"), "--spec-min-p", f"{chosen[1]:.2f}")
+        tuned = apply(base_args, settings)
         by_workers = {}
         workers = worker_candidates(d_workers, extra_workers)
         _progress(progress, "cpu_workers", 0, len(workers))
