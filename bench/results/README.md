@@ -4,7 +4,7 @@ Raw results and short reports from measurement runs, one folder per run, named b
 the Strata version, hardware and method of its own day, and none is a statement about a later release. Current numbers are in the
 [docs](../../docs/README.md) and the [README](../../README.md); how to measure is in [BENCHMARK_PROTOCOL.md](../../docs/BENCHMARK_PROTOCOL.md).
 
-This page is built by `python tools/bench_results_index.py` (`--check` fails when a folder is missing from it). 144 folders and 3 loose files, 2330 files in all.
+This page is built by `python tools/bench_results_index.py` (`--check` fails when a folder is missing from it). 145 folders and 3 loose files, 2351 files in all.
 
 
 ## 2026-09
@@ -165,6 +165,7 @@ This page is built by `python tools/bench_results_index.py` (`--check` fails whe
 | --- | --- | ---: |
 | [2026-11-11-titan-rtx-native-iq](2026-11-11-titan-rtx-native-iq/) | TITAN RTX QFN: native IQ CUDA build and long-prompt profile | 70 |
 | [2026-11-11-titan-rtx-qfn-sm75](2026-11-11-titan-rtx-qfn-sm75/) | TITAN RTX + Xeon E5-2680 v4: QFN IQ3_XXS tuning | 75 |
+| [2026-11-11-titan-rtx-rusting-probe](2026-11-11-titan-rtx-rusting-probe/) | TITAN RTX QFN: RustingStrata compatibility and speed probe | 21 |
 
 ## Loose files
 

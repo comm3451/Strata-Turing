@@ -1,0 +1,31 @@
+{
+  "args": [
+    "<repo>/.turing/research/rusting-target/release/rustingstrata",
+    "serve",
+    "--model",
+    "<installed-strata>/Strata-data/models/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+    "--gpu",
+    "--backend",
+    "cuda",
+    "--ctx",
+    "262144",
+    "--kv",
+    "q8",
+    "--threads",
+    "13",
+    "--chunk",
+    "1024",
+    "--vram-margin",
+    "2048",
+    "--mtp",
+    "4",
+    "--cache-ram",
+    "0",
+    "--addr",
+    "127.0.0.1:18081"
+  ],
+  "binary_sha256": "579c370b6446c4087cfe49addccbd96419ab773decf49abd4aceca7b9d23cf05",
+  "source_ref": "main",
+  "source_commit": "e1c2d6e1722a33ca75da9757761c9df6246cba60",
+  "note": "Compatibility probe; distinct kernels, KV layout, MTP support and expert placement. Not a controlled language comparison."
+}

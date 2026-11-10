@@ -1,0 +1,24 @@
+listening on http://127.0.0.1:18081/ (models folder: <repo>/.turing/data/rusting_strata/models)
+loading <installed-strata>/Strata-data/models/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf
+cuda device 0: NVIDIA TITAN RTX, sm_75 (Turing, m16n8k8)
+compiling CUDA kernels for sm_75 with NVRTC 13.0 (first run only, ~15 s)
+cuda shared memory: opt-in 65536 B per block, attn_decode_gqa*: 2112 B static, dynamic max 63424 B, carveout default
+cuda shared memory: opt-in 65536 B per block, attn_prefill_*: 0 B static, dynamic max 53760 B, carveout default
+cuda shared memory: opt-in 65536 B per block, gemvn_*: 0 B static, dynamic max 65536 B, carveout default
+--mtp 4: not supported for this model (hyper-connections): decoding without drafts
+plan: weights+state+scratch 7872 MB (KV 3264 MB for 262144 tokens, prefill 438 MB), expert slots 13890 MB, resident experts 8341/24576
+expert traffic: 22.2 MB per layer active set (top-10), 799.3 MB per token over 48 MoE layers
+chat template: Xml
+loaded Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002
+request: POST /v1/chat/completions key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=15 tok stream=true tools=0
+done: key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=15 tok (0 cached) -> 9 tok in 1.21 s, decode 7.4 tok/s, prefill 7.2 tok/s, finish=stop
+request: POST /v1/chat/completions key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=34 tok stream=true tools=0
+done: key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=34 tok (0 cached) -> 128 tok in 10.59 s, decode 12.1 tok/s, prefill 11.1 tok/s, finish=length
+request: POST /v1/chat/completions key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=31 tok stream=true tools=0
+done: key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=31 tok (0 cached) -> 128 tok in 8.09 s, decode 15.8 tok/s, prefill 20.2 tok/s, finish=length
+request: POST /v1/chat/completions key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=4349 tok stream=true tools=0
+done: key=open model=Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002 prompt=4349 tok (0 cached) -> 32 tok in 2.38 s, decode 13.4 tok/s, prefill 207.9 tok/s, finish=length
+stopped
+expert hit rate 74.2% (47621 misses), cache swaps 10554
+worker busy 53874.5 µs/token, worker stalls 0
+mailbox traffic: 336 GPU writes, 15360 host routing reads (fast path off, 8341/24576 experts resident)

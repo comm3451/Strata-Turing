@@ -1,0 +1,4 @@
+listening on http://127.0.0.1:18081/ (models folder: <repo>/.turing/data/rusting_strata/models)
+loading <installed-strata>/Strata-data/models/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf
+cuda device 0: NVIDIA TITAN RTX, sm_75 (Volta, m8n8k4)
+Error: NVRTC 13.0 cannot compile for sm_75: 13.x removed Volta (sm_70) support; install toolkit/NVRTC 12.x

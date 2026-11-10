@@ -166,6 +166,22 @@ for the comparison against the installed engine, numerical checks and quality
 limits. `STRATA_PREFILL_ROUTED_STREAM=1` was tested but is not selected: its
 median prefill gains were only 0.3% at 4K and 0.8% at 32K on this node.
 
+## RustingStrata candidate
+
+RustingStrata was built at `e1c2d6e1722a33ca75da9757761c9df6246cba60` for Broadwell
+and run on the same model at 262,144 capacity. It loaded on sm_75, but currently
+disables MTP for QFN's hyper-connections. After cache adaptation, its repeated
+128-token code responses decoded at about 18 tok/s; the matched Strata fast
+probe decoded the identical response at 69.2 tok/s. Its warm 4K TTFT was about
+6.2 seconds against 3.7 seconds in the Strata probe.
+
+Keep the Strata engine selected. This is a limited engine comparison, not a
+language benchmark or a full tuning sweep. See the
+[Rust compatibility and repeated-run report](../bench/results/2026-11-11-titan-rtx-rusting-probe/README.md)
+for the official-release failure, latest-source success, exact configurations,
+warmup effects and raw responses. RustingStrata was tested as a separate
+executable; no code from its custom-licensed implementation was imported.
+
 ## Run the A/B measurement
 
 `tools/qfn_turing_bench.py` compares the existing `STRATA_SM75_PERF` switch at

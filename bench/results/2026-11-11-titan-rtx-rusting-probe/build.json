@@ -1,0 +1,21 @@
+{
+  "source_commit": "e1c2d6e1722a33ca75da9757761c9df6246cba60",
+  "rustc": "1.99.1 (58cf8f9c3 2026-10-13)",
+  "cpu_target": "broadwell",
+  "jobs": 4,
+  "cargo_args": [
+    "build",
+    "--release",
+    "--locked",
+    "--bin",
+    "rustingstrata"
+  ],
+  "nvrtc": "13.0.88",
+  "gcc": "14.4.0",
+  "binary_sha256": "579c370b6446c4087cfe49addccbd96419ab773decf49abd4aceca7b9d23cf05",
+  "cargo_lock_sha256": "7faa1d41e71cf08b41b74a201f90051d63627edd2bcafe2c1a83293e506acaa9",
+  "release_binary_sha256": "713e1182cb265429c23b584c75a72210acb326bff004f5d0780fac0ed916d616",
+  "release_commit": "d5afeb0386c9b42e89e29f74a876cf23df262a05",
+  "upstream": "https://github.com/RustingStudio/RustingStrata",
+  "credit": "Uses RustingStrata by Vasyl Trefilov. Tested as a separate executable; no RustingStrata code incorporated into the MIT engine."
+}

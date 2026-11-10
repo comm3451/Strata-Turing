@@ -1,0 +1,33 @@
+[
+  {
+    "case": "warmup",
+    "prompt": "Say hello.",
+    "metrics": {
+      "ok": false,
+      "err": "RemoteDisconnected('Remote end closed connection without response')",
+      "ttft_s": null,
+      "total_s": 1.006,
+      "prompt_tokens": null,
+      "reused_tokens": null,
+      "read_tokens": null,
+      "generated_tokens": 0,
+      "prompt_tps": null,
+      "prompt_tps_source": null,
+      "decode_tps": null,
+      "decode_tps_source": null,
+      "prompt_ms": null,
+      "decode_ms": null,
+      "drafts_offered": null,
+      "drafts_accepted": null
+    },
+    "response": {
+      "first": null,
+      "total": 1.0055451009993703,
+      "text": "",
+      "usage": null,
+      "timings": null,
+      "err": "RemoteDisconnected('Remote end closed connection without response')",
+      "pieces": 0
+    }
+  }
+]
