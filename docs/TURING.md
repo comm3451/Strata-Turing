@@ -166,6 +166,45 @@ for the comparison against the installed engine, numerical checks and quality
 limits. `STRATA_PREFILL_ROUTED_STREAM=1` was tested but is not selected: its
 median prefill gains were only 0.3% at 4K and 0.8% at 32K on this node.
 
+### TITAN RTX pipeline profile
+
+`--titan-throughput` includes the three fast switches above and adds the
+measured CPU/GPU scheduling group, cost-aware MTP (still capped at four
+tokens), and `--prefill auto:32768`. The larger prompt chunk reuses streamed
+expert weights across more tokens. It borrows more of the expert cache for
+temporary GPU buffers; it does not reduce the 262,144-token context limit.
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_turing_profile.py \
+  --source /path/to/recent-qfn-launch.json \
+  --exe "$PWD/build/qfn-turing/strata" --out .turing/launch/qfn-turing-tuned.json \
+  --titan-throughput
+```
+
+This profile is specific to this 24 GB GPU / 64 GB RAM node. It uses
+`STRATA_ADAPT_OVERLAP=1`, `STRATA_SPEC_COST=1`, `STRATA_CPU_IQ_ALL_EXACT1=1`,
+`STRATA_SIDE_MIXER=2`, `STRATA_B6_MMVQ_ROWS=1`, `STRATA_ATTN_DAILY=1` and
+`STRATA_QSA_ROWS=1`. It explicitly restores `STRATA_ADAPT_NOWAIT=0` and
+`STRATA_ADAPT_LAG=1`, which are required by the overlap schedule. Check the
+engine log for `adaptive overlap` being active: explicit asynchronous-tier,
+pipeline-window, DMA-batch or resident-expert overrides can prevent it.
+Other hardware and memory budgets need their own comparison.
+
+The [pipeline measurements](../bench/results/2026-11-11-titan-rtx-pipeline/README.md)
+compare it with the previous fast profile using the **same executable**.
+Three alternating pairs improved short code decode by 14.0%, Korean decode
+by 3.2%, and 31,610-token prefill by 15.9%. A separate pair after 252,100 input
+tokens improved decode of the same 466-token program from 76.4 to 84.4 tok/s.
+They include larger-window MTP candidates, fresh-engine repetitions, near-256K
+retrieval, answer checks and memory observations. These are measured workload
+improvements, not proof of the hardware's absolute maximum throughput.
+
+`tools/qfn_mtp_sweep.py` can explore draft windows and confidence thresholds
+without restarting for every request. Its cache adapts across requests and
+it uses the calibrator's direct token template, so use it to select candidates;
+confirm a winner with the HTTP A/B harness below. Do not report a warmed
+repeated answer as an independent configuration speedup.
+
 ## RustingStrata candidate
 
 RustingStrata was built at `e1c2d6e1722a33ca75da9757761c9df6246cba60` for Broadwell

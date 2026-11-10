@@ -1,0 +1,8 @@
+{
+  "cases_sha256": "a2e6000c9bcee8d5e277c021fd6df58f4fa23f7751246253732378d490f98194",
+  "cases_bytes": 1656147,
+  "case": "long-code-252k",
+  "words_in_background": 240000,
+  "generator": "make-near-code-prompt.py",
+  "ab_engine_sha256": "694b563dc7d422a61be05523c75d6bfd473530dee257b71ac65517886f918f77"
+}

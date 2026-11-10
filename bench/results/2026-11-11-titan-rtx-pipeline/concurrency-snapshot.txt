@@ -1,0 +1,5 @@
+memory.used [MiB], memory.free [MiB], temperature.gpu, power.draw [W]
+22050 MiB, 1972 MiB, 58, 171.18 W
+               total        used        free      shared  buff/cache   available
+Mem:           61887       49604        3102        4387       14219       12282
+Swap:           8191         208        7983

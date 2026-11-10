@@ -1,0 +1,16 @@
+[
+  {
+    "arm": "baseline",
+    "code_sha256": "9c43f56d01da9f22c1efae7d597c8bfddfb3a0ba4285f14c23cbc33567371df1",
+    "embedded_cases": 2,
+    "random_cases": 100,
+    "inputs_unchanged": true
+  },
+  {
+    "arm": "candidate",
+    "code_sha256": "9c43f56d01da9f22c1efae7d597c8bfddfb3a0ba4285f14c23cbc33567371df1",
+    "embedded_cases": 2,
+    "random_cases": 100,
+    "inputs_unchanged": true
+  }
+]

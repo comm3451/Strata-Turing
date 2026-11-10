@@ -26,7 +26,10 @@ def set_arg(args: list[str], flag: str, value: str | None) -> list[str]:
 
 
 def make_config(source: dict, exe: Path, log: Path, fp16_prefill: bool = False,
-                native_iq_prefill: bool = False, turing_attention: bool = False) -> dict:
+                native_iq_prefill: bool = False, turing_attention: bool = False,
+                titan_throughput: bool = False) -> dict:
+    if titan_throughput:
+        fp16_prefill = native_iq_prefill = turing_attention = True
     cfg = copy.deepcopy(source)
     args = cfg["args"]
     native = args[args.index("--native") + 1] if "--native" in args else ""
@@ -36,7 +39,7 @@ def make_config(source: dict, exe: Path, log: Path, fp16_prefill: bool = False,
         "--max-context": "262144", "--kv": "int8", "--kv-resident": "32768",
         "--spec": "4", "--spec-min-p": "0.5", "--pcie-frac": None,
         "--pool-workers": "13", "--vram-reserve-mib": "2048",
-        "--expert-cache": "auto", "--prefill": "auto",
+        "--expert-cache": "auto", "--prefill": "auto:32768" if titan_throughput else "auto",
         "--adapt-every": None, "--adapt-swaps": None, "--adapt-decay": None,
     }
     for flag, value in settings.items():
@@ -50,6 +53,13 @@ def make_config(source: dict, exe: Path, log: Path, fp16_prefill: bool = False,
                   "STRATA_PA_V2T": "1" if turing_attention else "0"}
     if native_iq_prefill:
         cfg["env"].update(STRATA_PF_FUSED="1", STRATA_PF_FUSED_SM75="1")
+    if titan_throughput:
+        cfg["env"].update(
+            STRATA_CPU_IQ_ALL_EXACT1="1", STRATA_SIDE_MIXER="2",
+            STRATA_B6_MMVQ_ROWS="1", STRATA_ATTN_DAILY="1", STRATA_QSA_ROWS="1",
+            STRATA_ADAPT_OVERLAP="1", STRATA_ADAPT_NOWAIT="0", STRATA_ADAPT_LAG="1",
+            STRATA_SPEC_COST="1",
+        )
     cfg.setdefault("host", "127.0.0.1")
     return cfg
 
@@ -65,6 +75,8 @@ def main() -> None:
                         help="opt in to the fork's native IQ Turing kernels; requires the new build and can change rounding")
     parser.add_argument("--turing-attention", action="store_true",
                         help="opt in to the FP32 tiled QSA scorer and Turing v2 prompt attention; rounding can differ")
+    parser.add_argument("--titan-throughput", action="store_true",
+                        help="use the measured TITAN RTX/64 GB pipeline and 32K prefill profile; includes all three fast switches")
     args = parser.parse_args()
     if os.environ.get("STRATA_TURING_ISOLATED") != "1":
         parser.error("run through bash tools/turing-run.sh")
@@ -73,7 +85,7 @@ def main() -> None:
     if not out.is_relative_to(ROOT) or not exe.is_absolute() or not exe.is_file():
         parser.error("out must be inside the checkout and exe must be an existing absolute path")
     cfg = make_config(json.loads(Path(args.source).read_text()), exe, out.with_suffix(".engine.log"),
-                      args.fp16_prefill, args.native_iq_prefill, args.turing_attention)
+                      args.fp16_prefill, args.native_iq_prefill, args.turing_attention, args.titan_throughput)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Preserve an existing API key without printing it or creating a world-readable copy.
     fd = os.open(out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
