@@ -1,5 +1,30 @@
 # AGENTS.md
 
+## Strata-Turing fork: owner requirements
+
+- Work in `/home/eesdf/Strata-Turing` only. All changes, builds, downloads, temporary files,
+  caches, logs and benchmark outputs must stay inside this directory. Do not change system
+  packages, drivers, shell profiles, global Git settings or other checkouts. Do not create
+  worktrees outside this directory.
+- The owner permits read-only inspection and reuse of the existing Strata installation and
+  model files under `/home/eesdf`. Keep those files unchanged. Use `tools/turing-run.sh` for
+  experiments: it mounts the filesystem read-only except for this checkout and redirects
+  common runtime caches into `.turing/`.
+- Commit coherent, verified changes to the fork `https://github.com/comm3451/Strata-Turing`.
+  Keep upstream attribution and licenses. Do not report an untested change as an optimization.
+- Target: one TITAN RTX (24 GiB, sm_75), Xeon E5-2680 v4 (14 cores / 28 threads, AVX2),
+  DDR4 32 GB x 2. Inference only.
+- Workload: Qwen3.8-Flash-Next (QFN), IQ3_XXS, 262144 total context tokens. Preserve the
+  user's model and context. Prioritize single-user latency and quality; evaluate two concurrent
+  requests separately after the single-user baseline. Do not assume that 256K context fits
+  at every concurrency level.
+- Compare changes on the same model files, engine build, prompts, sampling and memory budgets.
+  Record prefill, decode, time to first token, RAM/VRAM and output correctness. Treat upstream
+  measurements as references, not measurements on this node. See [docs/TURING.md](docs/TURING.md).
+
+The upstream reference follows. Its installation examples do not override the directory
+restriction above; do not run installers that write to the home directory or system paths.
+
 Version 0.2.13, engine 0.1.59. The public model families are DeepSeekV4.1-Flash-1017,
 Qwen3.8-Flash-Next and Qwen3.6-35B-A3B. DeepSeek V4.1-Flash runs in the app and in the Terminal
 (`strata launch --family deepseek41 --model ist-das-2.00bpw`; sets in

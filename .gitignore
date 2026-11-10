@@ -95,3 +95,6 @@ node_modules/
 /build-spark/
 /build-vision-spark/
 /.venv-build/
+
+# Strata-Turing: local caches, benchmark configs, logs and runtime state.
+/.turing/

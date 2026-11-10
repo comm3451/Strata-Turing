@@ -40,6 +40,18 @@
       }
     },
     {
+      "name": "qfn-turing",
+      "displayName": "QFN on TITAN RTX (sm_75, AVX2)",
+      "description": "Flash-Next geometry and Turing code only. Uses the portable AVX2 CPU backend for the Xeon E5 v4. Runtime tuning remains opt-in; see docs/TURING.md.",
+      "inherits": "cuda-compile",
+      "binaryDir": "${sourceDir}/build/qfn-turing",
+      "cacheVariables": {
+        "CMAKE_CUDA_ARCHITECTURES": "75-real;75-virtual",
+        "STRATA_GEOMETRY": "flash_next",
+        "STRATA_PORTABLE": "ON"
+      }
+    },
+    {
       "name": "hip-compile",
       "displayName": "HIP compile-only (the release flags of packaging/build_hip_linux.sh, no tests)",
       "description": "Builds the strata target for gfx1100 and gfx1201 with ROCm's hipcc. ggml is the vendored third_party/strata-ggml (-DSTRATA_GGML_DIR=<llama.cpp checkout> overrides it); if hipcc is not on PATH pass -DCMAKE_HIP_COMPILER=<rocm>/llvm/bin/clang++.",
@@ -60,6 +72,7 @@
     { "name": "cpu-check", "configurePreset": "cpu-check", "jobs": 0 },
     { "name": "cpu-check-native", "configurePreset": "cpu-check-native", "jobs": 0 },
     { "name": "cuda-compile", "configurePreset": "cuda-compile", "targets": ["strata", "strata_kq"], "jobs": 0 },
+    { "name": "qfn-turing", "configurePreset": "qfn-turing", "targets": ["strata", "strata_kq"], "jobs": 4 },
     { "name": "hip-compile", "configurePreset": "hip-compile", "targets": ["strata"], "jobs": 0 }
   ],
   "testPresets": [
