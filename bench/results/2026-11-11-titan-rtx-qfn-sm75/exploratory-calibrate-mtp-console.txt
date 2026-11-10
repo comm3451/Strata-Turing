@@ -1,0 +1,209 @@
+  Loading the model for the measurements ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.68 GiB/s (35 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    round 1/3 PCIe share: 0 84.3  0.1 85.3  0.2 79.1  0.35 81.8  0.55 74.2  0.75 68.4  0.9 67.9  1 58.6
+    round 2/3 PCIe share: 0 82.9  0.1 85.4  0.2 83.1  0.35 82.0  0.55 74.6  0.75 69.8  0.9 67.6  1 57.8
+    round 3/3 PCIe share: 0 82.2  0.1 82.4  0.2 85.5  0.35 81.0  0.55 72.7  0.75 68.1  0.9 66.2  1 57.2
+    PCIe share, median of 3: 0: 82.9 (82.2-84.3), 0.1: 85.3 (82.4-85.4), 0.2: 83.1 (79.1-85.5), 0.35: 81.8 (81.0-82.0), 0.55: 74.2 (72.7-74.6), 0.75: 68.4 (68.1-69.8), 0.9: 67.6 (66.2-67.9), 1: 57.8 (57.2-58.6) -> best 0.1
+    round 1/3 draft floor: 0.3 82.4  0.5 84.5  0.7 86.2
+    round 2/3 draft floor: 0.3 82.2  0.5 83.2  0.7 84.9
+    round 3/3 draft floor: 0.3 80.2  0.5 82.8  0.7 86.1
+    draft floor, median of 3: 0.3: 82.2 (80.2-82.4), 0.5: 83.2 (82.8-84.5), 0.7: 86.1 (84.9-86.2) -> best 0.7
+  Measuring with 13 CPU workers (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.68 GiB/s (34 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    13 workers: 87.1 tok/s
+  Measuring with 9 CPU workers (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.70 GiB/s (34 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    9 workers: 81.5 tok/s
+  Measuring with 6 CPU workers (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.68 GiB/s (34 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    6 workers: 75.4 tok/s
+  Measuring with 3 CPU workers (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.71 GiB/s (34 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    3 workers: 60.9 tok/s
+  Measuring the expert tier (the engine default) (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.68 GiB/s (35 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    the expert tier default: 84.7 tok/s
+  Measuring the expert tier every 1, 80 swaps, decay 0.97 (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.61 GiB/s (35 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    the expert tier 1/80/0.97: 88.5 tok/s
+  Measuring the expert tier every 1, 160 swaps, decay 0.97 (restarts the engine) ...
+[strata] starting the engine: reading the model's weights ...
+[strata] loading the experts into RAM (about 47 GB) and locking part of them for the GPU.
+         YOUR PC CAN BE SLOW OR STOP RESPONDING FOR 1-3 MINUTES NOW - this is normal.
+         Please wait and don't close this window; the server says when it is ready.
+[strata] still starting (25 s) - please wait ...
+[strata] experts loaded: 39.97 GiB at 1.69 GiB/s (34 s so far)
+[strata] filling the GPU's expert cache (9342 experts, 15.14 GiB of VRAM) ...
+[strata] almost ready ...
+    the expert tier 1/160/0.97: 89.9 tok/s
+{
+ "settings": {
+  "--pcie-frac": "0.10",
+  "--spec-min-p": "0.70",
+  "--adapt-every": "1",
+  "--adapt-swaps": "160",
+  "--adapt-decay": "0.97"
+ },
+ "env": {},
+ "report": {
+  "default": {
+   "pcie_frac": 0.1,
+   "spec_min_p": 0.5,
+   "pool_workers": 13
+  },
+  "pcie_sweep": {
+   "0.0": [
+    84.3325866385558,
+    82.86935128835945,
+    82.20409736047782
+   ],
+   "0.1": [
+    85.27648234510328,
+    85.40165465705898,
+    82.37338310058561
+   ],
+   "0.2": [
+    79.13935946580932,
+    83.11688311688312,
+    85.45867271998932
+   ],
+   "0.35": [
+    81.84143222506394,
+    82.02499198974688,
+    80.96653804794737
+   ],
+   "0.55": [
+    74.17279944370401,
+    74.56600256320634,
+    72.74380541032053
+   ],
+   "0.75": [
+    68.40895729784619,
+    69.80041443996075,
+    68.1068426093434
+   ],
+   "0.9": [
+    67.94776515553669,
+    67.57113445599958,
+    66.24230191999172
+   ],
+   "1.0": [
+    58.573193611861065,
+    57.78520157103517,
+    57.18370264474625
+   ]
+  },
+  "min_p_sweep": {
+   "0.3": [
+    82.37868451538165,
+    82.23050237697547,
+    80.2407221664995
+   ],
+   "0.5": [
+    84.51634202707164,
+    83.19251267385935,
+    82.76218802534592
+   ],
+   "0.7": [
+    86.1662739818243,
+    84.89752603303045,
+    86.09672428869307
+   ]
+  },
+  "confirm": {
+   "0.1/0.5": [
+    84.49960390810668,
+    83.6218723459855,
+    83.18710599857022
+   ],
+   "0.1/0.7": [
+    88.82103948372772,
+    88.69179600886918,
+    82.89081725165134
+   ]
+  },
+  "workers": {
+   "13": [
+    88.40389529663649,
+    85.76214405360135
+   ],
+   "9": [
+    83.50185922108422,
+    79.50804397788681
+   ],
+   "6": [
+    75.21447878716653,
+    75.63670743957927
+   ],
+   "3": [
+    60.272166501859964,
+    61.50888995675156
+   ]
+  },
+  "adapt": {
+   "default": [
+    84.24560835049877,
+    85.19402705612507
+   ],
+   "1/80/0.97": [
+    88.83338438700252,
+    88.1713313161876
+   ],
+   "1/160/0.97": [
+    89.31787077720955,
+    90.44377080952145
+   ]
+  },
+  "seconds": 725,
+  "tok_s": 89.9
+ }
+}

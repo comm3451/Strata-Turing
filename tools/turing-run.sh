@@ -20,11 +20,20 @@ if [[ -L "$strata_state" ]]; then
 fi
 mkdir -p -- "$strata_state"
 
+# Expose GPU character devices, but keep the host's /dev/shm out of the sandbox.
+strata_devices=()
+for strata_device in /dev/nvidia* /dev/nvidia-caps/*; do
+    if [[ -c "$strata_device" ]]; then
+        strata_devices+=(--dev-bind "$strata_device" "$strata_device")
+    fi
+done
+
 # Make directories after mounting: even an existing nested symlink cannot cause a write
 # outside the checkout. HOME stays unchanged so the existing install remains readable.
 exec bwrap --die-with-parent --unshare-pid \
     --ro-bind / / --bind "$strata_root" "$strata_root" \
-    --dev-bind /dev /dev --proc /proc --chdir "$strata_root" \
+    --dev /dev "${strata_devices[@]}" --proc /proc --chdir "$strata_root" \
+    --setenv STRATA_TURING_ISOLATED 1 \
     --setenv TMPDIR "$strata_state/tmp" \
     --setenv TMP "$strata_state/tmp" --setenv TEMP "$strata_state/tmp" \
     --setenv XDG_CACHE_HOME "$strata_state/cache" \

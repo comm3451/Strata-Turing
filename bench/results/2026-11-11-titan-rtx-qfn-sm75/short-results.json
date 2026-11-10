@@ -1,0 +1,920 @@
+[
+  {
+    "round": 0,
+    "sm75_perf": 0,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.335,
+      "total_s": 2.008,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 109.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 75.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 310.7,
+      "decode_ms": 1689.7,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.33544725000001563,
+      "total": 2.007902675999958,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 310.7,
+        "prompt_per_token_ms": 9.138,
+        "prompt_per_second": 109.4,
+        "predicted_n": 128,
+        "predicted_ms": 1689.7,
+        "predicted_per_token_ms": 13.201,
+        "predicted_per_second": 75.8,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 0,
+    "sm75_perf": 0,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.374,
+      "total_s": 2.253,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 106.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 346.5,
+      "decode_ms": 1899.0,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.3737447369999245,
+      "total": 2.253093999999919,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 346.5,
+        "prompt_per_token_ms": 9.365,
+        "prompt_per_second": 106.8,
+        "predicted_n": 128,
+        "predicted_ms": 1899.0,
+        "predicted_per_token_ms": 14.836,
+        "predicted_per_second": 67.4,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 0,
+    "sm75_perf": 0,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.73,
+      "total_s": 5.592,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1176.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 61.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3696.4,
+      "decode_ms": 1884.0,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.730045986999812,
+      "total": 5.592383673999848,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3696.4,
+        "prompt_per_token_ms": 0.85,
+        "prompt_per_second": 1176.6,
+        "predicted_n": 116,
+        "predicted_ms": 1884.0,
+        "predicted_per_token_ms": 16.241,
+        "predicted_per_second": 61.6,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 0,
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.331,
+      "total_s": 1.977,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 111.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 77.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 306.4,
+      "decode_ms": 1662.7,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.33128853500011246,
+      "total": 1.9766465120001158,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 306.4,
+        "prompt_per_token_ms": 9.012,
+        "prompt_per_second": 111.0,
+        "predicted_n": 128,
+        "predicted_ms": 1662.7,
+        "predicted_per_token_ms": 12.99,
+        "predicted_per_second": 77.0,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 0,
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.366,
+      "total_s": 2.229,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 109.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 68.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 338.3,
+      "decode_ms": 1882.7,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.36566680300029475,
+      "total": 2.2286300959999608,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 338.3,
+        "prompt_per_token_ms": 9.143,
+        "prompt_per_second": 109.4,
+        "predicted_n": 128,
+        "predicted_ms": 1882.7,
+        "predicted_per_token_ms": 14.709,
+        "predicted_per_second": 68.0,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 0,
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.64,
+      "total_s": 5.471,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1205.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3606.5,
+      "decode_ms": 1851.8,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.64039711300029,
+      "total": 5.470563947000301,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3606.5,
+        "prompt_per_token_ms": 0.829,
+        "prompt_per_second": 1205.9,
+        "predicted_n": 116,
+        "predicted_ms": 1851.8,
+        "predicted_per_token_ms": 15.964,
+        "predicted_per_second": 62.6,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.329,
+      "total_s": 1.963,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 111.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 77.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 303.8,
+      "decode_ms": 1651.5,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.32868951500040566,
+      "total": 1.9628523510000377,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 303.8,
+        "prompt_per_token_ms": 8.935,
+        "prompt_per_second": 111.9,
+        "predicted_n": 128,
+        "predicted_ms": 1651.5,
+        "predicted_per_token_ms": 12.902,
+        "predicted_per_second": 77.5,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.361,
+      "total_s": 2.232,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 110.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 334.0,
+      "decode_ms": 1890.0,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.36125834699987536,
+      "total": 2.2315969409996796,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 334.0,
+        "prompt_per_token_ms": 9.027,
+        "prompt_per_second": 110.8,
+        "predicted_n": 128,
+        "predicted_ms": 1890.0,
+        "predicted_per_token_ms": 14.766,
+        "predicted_per_second": 67.7,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.65,
+      "total_s": 5.477,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1202.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3616.6,
+      "decode_ms": 1848.6,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.6503846559999147,
+      "total": 5.477381020999928,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3616.6,
+        "prompt_per_token_ms": 0.832,
+        "prompt_per_second": 1202.5,
+        "predicted_n": 116,
+        "predicted_ms": 1848.6,
+        "predicted_per_token_ms": 15.936,
+        "predicted_per_second": 62.8,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 0,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.335,
+      "total_s": 2.009,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 109.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 75.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 310.5,
+      "decode_ms": 1691.2,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.335288199000388,
+      "total": 2.0092408840000644,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 310.5,
+        "prompt_per_token_ms": 9.132,
+        "prompt_per_second": 109.5,
+        "predicted_n": 128,
+        "predicted_ms": 1691.2,
+        "predicted_per_token_ms": 13.213,
+        "predicted_per_second": 75.7,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 0,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.373,
+      "total_s": 2.254,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 107.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 345.4,
+      "decode_ms": 1901.3,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.3727379080000901,
+      "total": 2.254331600000114,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 345.4,
+        "prompt_per_token_ms": 9.335,
+        "prompt_per_second": 107.1,
+        "predicted_n": 128,
+        "predicted_ms": 1901.3,
+        "predicted_per_token_ms": 14.854,
+        "predicted_per_second": 67.3,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 1,
+    "sm75_perf": 0,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.736,
+      "total_s": 5.601,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1174.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 61.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3702.1,
+      "decode_ms": 1886.2,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.736130844999934,
+      "total": 5.600569698000072,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3702.1,
+        "prompt_per_token_ms": 0.851,
+        "prompt_per_second": 1174.7,
+        "predicted_n": 116,
+        "predicted_ms": 1886.2,
+        "predicted_per_token_ms": 16.26,
+        "predicted_per_second": 61.5,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 0,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.336,
+      "total_s": 2.031,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 109.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 74.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 310.7,
+      "decode_ms": 1712.8,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.3355605720003041,
+      "total": 2.0310103950000666,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 310.7,
+        "prompt_per_token_ms": 9.138,
+        "prompt_per_second": 109.4,
+        "predicted_n": 128,
+        "predicted_ms": 1712.8,
+        "predicted_per_token_ms": 13.381,
+        "predicted_per_second": 74.7,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 0,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.373,
+      "total_s": 2.253,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 107.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 345.6,
+      "decode_ms": 1900.3,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.3727811579997251,
+      "total": 2.2534105729996554,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 345.6,
+        "prompt_per_token_ms": 9.341,
+        "prompt_per_second": 107.1,
+        "predicted_n": 128,
+        "predicted_ms": 1900.3,
+        "predicted_per_token_ms": 14.846,
+        "predicted_per_second": 67.4,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 0,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.738,
+      "total_s": 5.601,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1174.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 61.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3704.1,
+      "decode_ms": 1884.5,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.7381458610002483,
+      "total": 5.600843205000274,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3704.1,
+        "prompt_per_token_ms": 0.852,
+        "prompt_per_second": 1174.1,
+        "predicted_n": 116,
+        "predicted_ms": 1884.5,
+        "predicted_per_token_ms": 16.246,
+        "predicted_per_second": 61.6,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.336,
+      "total_s": 1.988,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 128,
+      "prompt_tps": 109.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 76.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 310.6,
+      "decode_ms": 1669.8,
+      "drafts_offered": 112,
+      "drafts_accepted": 106
+    },
+    "response": {
+      "first": 0.33556806699971276,
+      "total": 1.987998306999998,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 128,
+        "total_tokens": 162,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 310.6,
+        "prompt_per_token_ms": 9.135,
+        "prompt_per_second": 109.5,
+        "predicted_n": 128,
+        "predicted_ms": 1669.8,
+        "predicted_per_token_ms": 13.045,
+        "predicted_per_second": 76.7,
+        "draft_n": 112,
+        "draft_n_accepted": 106
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.366,
+      "total_s": 2.231,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 128,
+      "prompt_tps": 109.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 338.5,
+      "decode_ms": 1884.7,
+      "drafts_offered": 99,
+      "drafts_accepted": 70
+    },
+    "response": {
+      "first": 0.36586324800009606,
+      "total": 2.2307334600000104,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 128,
+        "total_tokens": 165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 338.5,
+        "prompt_per_token_ms": 9.149,
+        "prompt_per_second": 109.3,
+        "predicted_n": 128,
+        "predicted_ms": 1884.7,
+        "predicted_per_token_ms": 14.724,
+        "predicted_per_second": 67.9,
+        "draft_n": 99,
+        "draft_n_accepted": 70
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 2,
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.658,
+      "total_s": 5.487,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1200.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3624.0,
+      "decode_ms": 1850.9,
+      "drafts_offered": 66,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.658004167999934,
+      "total": 5.48716965299991,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, canyon, river, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including anchor, harbor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear frequently, with words like winter, market, thunder, and ember recurring throughout the text. Overall, the vocabulary is dominated by concrete, tangible items rather than abstract ideas or complex verbs.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3624.0,
+        "prompt_per_token_ms": 0.833,
+        "prompt_per_second": 1200.1,
+        "predicted_n": 116,
+        "predicted_ms": 1850.9,
+        "predicted_per_token_ms": 15.956,
+        "predicted_per_second": 62.7,
+        "draft_n": 66,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 115
+    }
+  }
+]

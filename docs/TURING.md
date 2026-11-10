@@ -41,6 +41,58 @@ bash tools/turing-run.sh cmake --build --preset qfn-turing
 The preset is a build target, not evidence of a speedup. Record the compiler,
 toolkit, driver, source commit and executable hash with each measured build.
 
+## Run the A/B measurement
+
+`tools/qfn_turing_bench.py` compares the existing `STRATA_SM75_PERF` switch at
+0 and 1 with a fresh server for each arm, alternating order over three rounds.
+It records complete response text, engine timings and client time to first token.
+Its default cases are a coding prompt, a Korean prompt and a synthetic long input.
+
+Prepare a **separate local JSON config** under `.turing/` with an absolute `exe`,
+the existing read-only model/tokenizer paths and local output paths. Start from
+the **recent launch config and resolved engine command**, not an old installer
+config. Set `drafting: "mtp"` explicitly for the owner's current workload; keep
+its vision configuration and VRAM reserve equal between arms (no images are
+sent). Use `parallel: 1` and replace the cache options with `--prompt-cache 0
+--conversation-cache-mib 0` for cold-input comparisons. Do not modify the original
+config. Use the same server and Python environment for both arms:
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_turing_bench.py \
+  --config .turing/bench/base.json --server /path/to/serve/server.py \
+  --out .turing/bench/sm75-ab --rounds 3 --long-words 4096 --max-new 128
+```
+
+The output directory must be new. To check a near-limit prompt, use another
+output directory with `--only-long --retrieval --long-words 240000 --max-new 64`.
+Use the **reported token count**, not the word count, when describing its length.
+The three-marker retrieval is a smoke test, not a general long-context quality
+evaluation. Inspect the engine command in the log: newer servers may resolve
+an old MTP config to DFlash2 automatically. The harness does not freeze that
+policy across server versions, so keep the server version fixed.
+
+To compare a CPU/GPU tuning candidate against the real current configuration,
+pass `--candidate-config .turing/bench/candidate.json`. Both configs must use the
+same executable; their SM75 settings are preserved. Without this argument the
+harness tests only the SM75 switch. Keep all changes outside the candidate's
+intended tuning settings identical.
+
+## Automatic calibration and this CPU/GPU pair
+
+`tools/calibrate.py` now confirms candidates against requests with no tuning
+override. The engine can refine its PCIe share after startup, so forcing the
+old share from startup `INFO` does not measure its current automatic policy.
+Confirmation alternates A/B, B/A, A/B, including when a candidate equals that
+startup value. If automatic sharing wins, worker-count tests keep it automatic.
+The sweep explicitly includes 0.10, a useful candidate on this node.
+
+The installed 0.1.57 calibrator was used to explore this machine before that
+fix. Its confirmation numbers are retained as exploratory data, not as gains
+over the owner's actual automatic configuration. Its English corpus is also
+insufficient for selecting the owner's mixed Korean/code/long-input profile;
+all proposed settings need a separate workload comparison. See the
+[node measurements](../bench/results/2026-11-11-titan-rtx-qfn-sm75/README.md).
+
 ## First comparisons
 
 The fork starts from Strata commit `dbb2d168`. Upstream already supports Turing

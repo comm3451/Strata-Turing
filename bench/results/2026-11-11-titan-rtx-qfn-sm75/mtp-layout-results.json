@@ -1,0 +1,938 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.319,
+      "total_s": 3.945,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 115.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 70.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 293.4,
+      "decode_ms": 3643.7,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.31885641000008036,
+      "total": 3.9450044079999316,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 293.4,
+        "prompt_per_token_ms": 8.629,
+        "prompt_per_second": 115.9,
+        "predicted_n": 256,
+        "predicted_ms": 3643.7,
+        "predicted_per_token_ms": 14.233,
+        "predicted_per_second": 70.3,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.322,
+      "total_s": 3.224,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 125.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 294.1,
+      "decode_ms": 2922.4,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.3220692750001035,
+      "total": 3.224436032000085,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 294.1,
+        "prompt_per_token_ms": 7.949,
+        "prompt_per_second": 125.8,
+        "predicted_n": 256,
+        "predicted_ms": 2922.4,
+        "predicted_per_token_ms": 11.416,
+        "predicted_per_second": 87.6,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.768,
+      "total_s": 5.518,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1164.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3734.3,
+      "decode_ms": 1771.4,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.7681689119999646,
+      "total": 5.518206847999863,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3734.3,
+        "prompt_per_token_ms": 0.859,
+        "prompt_per_second": 1164.6,
+        "predicted_n": 114,
+        "predicted_ms": 1771.4,
+        "predicted_per_token_ms": 15.539,
+        "predicted_per_second": 64.4,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.331,
+      "total_s": 4.015,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 111.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 69.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 304.0,
+      "decode_ms": 3701.9,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.3305206640002325,
+      "total": 4.01456486699999,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 304.0,
+        "prompt_per_token_ms": 8.941,
+        "prompt_per_second": 111.8,
+        "predicted_n": 256,
+        "predicted_ms": 3701.9,
+        "predicted_per_token_ms": 14.461,
+        "predicted_per_second": 69.2,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.343,
+      "total_s": 3.388,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 117.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 83.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 314.1,
+      "decode_ms": 3065.9,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.3425764559997333,
+      "total": 3.388468009999997,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 314.1,
+        "prompt_per_token_ms": 8.489,
+        "prompt_per_second": 117.8,
+        "predicted_n": 256,
+        "predicted_ms": 3065.9,
+        "predicted_per_token_ms": 11.976,
+        "predicted_per_second": 83.5,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.76,
+      "total_s": 5.555,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1167.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3725.8,
+      "decode_ms": 1816.5,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.7599264720001884,
+      "total": 5.554768663000232,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3725.8,
+        "prompt_per_token_ms": 0.857,
+        "prompt_per_second": 1167.3,
+        "predicted_n": 114,
+        "predicted_ms": 1816.5,
+        "predicted_per_token_ms": 15.934,
+        "predicted_per_second": 62.8,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.336,
+      "total_s": 4.015,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 109.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 69.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 309.9,
+      "decode_ms": 3697.3,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.3356390479998481,
+      "total": 4.015132699999867,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 309.9,
+        "prompt_per_token_ms": 9.115,
+        "prompt_per_second": 109.7,
+        "predicted_n": 256,
+        "predicted_ms": 3697.3,
+        "predicted_per_token_ms": 14.443,
+        "predicted_per_second": 69.2,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.342,
+      "total_s": 3.383,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 117.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 83.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 314.4,
+      "decode_ms": 3060.7,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.34236202100009905,
+      "total": 3.3830701990000307,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 314.4,
+        "prompt_per_token_ms": 8.497,
+        "prompt_per_second": 117.7,
+        "predicted_n": 256,
+        "predicted_ms": 3060.7,
+        "predicted_per_token_ms": 11.956,
+        "predicted_per_second": 83.6,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.762,
+      "total_s": 5.555,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1166.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3728.2,
+      "decode_ms": 1814.0,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.7624242009997033,
+      "total": 5.554691906999778,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3728.2,
+        "prompt_per_token_ms": 0.857,
+        "prompt_per_second": 1166.5,
+        "predicted_n": 114,
+        "predicted_ms": 1814.0,
+        "predicted_per_token_ms": 15.912,
+        "predicted_per_second": 62.8,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.319,
+      "total_s": 3.965,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 116.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 69.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 293.2,
+      "decode_ms": 3664.3,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.31869827599985,
+      "total": 3.965482479000002,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 293.2,
+        "prompt_per_token_ms": 8.624,
+        "prompt_per_second": 116.0,
+        "predicted_n": 256,
+        "predicted_ms": 3664.3,
+        "predicted_per_token_ms": 14.314,
+        "predicted_per_second": 69.9,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.323,
+      "total_s": 3.221,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 125.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 294.7,
+      "decode_ms": 2918.7,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.32261653199975626,
+      "total": 3.2213548609997815,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 294.7,
+        "prompt_per_token_ms": 7.965,
+        "prompt_per_second": 125.6,
+        "predicted_n": 256,
+        "predicted_ms": 2918.7,
+        "predicted_per_token_ms": 11.401,
+        "predicted_per_second": 87.7,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.772,
+      "total_s": 5.527,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1163.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3738.0,
+      "decode_ms": 1776.6,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.772137004999877,
+      "total": 5.527121521000026,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3738.0,
+        "prompt_per_token_ms": 0.86,
+        "prompt_per_second": 1163.5,
+        "predicted_n": 114,
+        "predicted_ms": 1776.6,
+        "predicted_per_token_ms": 15.584,
+        "predicted_per_second": 64.2,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.323,
+      "total_s": 3.981,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 114.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 69.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 297.3,
+      "decode_ms": 3676.1,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.3228037159997257,
+      "total": 3.9812816629996632,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 297.3,
+        "prompt_per_token_ms": 8.744,
+        "prompt_per_second": 114.4,
+        "predicted_n": 256,
+        "predicted_ms": 3676.1,
+        "predicted_per_token_ms": 14.36,
+        "predicted_per_second": 69.6,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.323,
+      "total_s": 3.226,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 125.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 294.7,
+      "decode_ms": 2923.6,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.32254426300005434,
+      "total": 3.226197690999925,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 294.7,
+        "prompt_per_token_ms": 7.965,
+        "prompt_per_second": 125.6,
+        "predicted_n": 256,
+        "predicted_ms": 2923.6,
+        "predicted_per_token_ms": 11.42,
+        "predicted_per_second": 87.6,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.761,
+      "total_s": 5.512,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1166.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3727.3,
+      "decode_ms": 1772.0,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.7611210539998865,
+      "total": 5.511668707999888,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3727.3,
+        "prompt_per_token_ms": 0.857,
+        "prompt_per_second": 1166.8,
+        "predicted_n": 114,
+        "predicted_ms": 1772.0,
+        "predicted_per_token_ms": 15.544,
+        "predicted_per_second": 64.3,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.332,
+      "total_s": 4.033,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 256,
+      "prompt_tps": 110.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 68.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 306.8,
+      "decode_ms": 3718.5,
+      "drafts_offered": 217,
+      "drafts_accepted": 184
+    },
+    "response": {
+      "first": 0.3324288600001637,
+      "total": 4.033207806000064,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 =",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 256,
+        "total_tokens": 290,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 306.8,
+        "prompt_per_token_ms": 9.024,
+        "prompt_per_second": 110.8,
+        "predicted_n": 256,
+        "predicted_ms": 3718.5,
+        "predicted_per_token_ms": 14.525,
+        "predicted_per_second": 68.8,
+        "draft_n": 217,
+        "draft_n_accepted": 184
+      },
+      "err": null,
+      "pieces": 226
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.342,
+      "total_s": 3.384,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 117.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 83.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 313.8,
+      "decode_ms": 3061.9,
+      "drafts_offered": 205,
+      "drafts_accepted": 162
+    },
+    "response": {
+      "first": 0.34175571800005855,
+      "total": 3.3836832090000826,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 256,
+        "total_tokens": 293,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 313.8,
+        "prompt_per_token_ms": 8.481,
+        "prompt_per_second": 117.9,
+        "predicted_n": 256,
+        "predicted_ms": 3061.9,
+        "predicted_per_token_ms": 11.961,
+        "predicted_per_second": 83.6,
+        "draft_n": 205,
+        "draft_n_accepted": 162
+      },
+      "err": null,
+      "pieces": 241
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.778,
+      "total_s": 5.572,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 114,
+      "prompt_tps": 1161.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3743.2,
+      "decode_ms": 1816.2,
+      "drafts_offered": 80,
+      "drafts_accepted": 56
+    },
+    "response": {
+      "first": 3.777509108999766,
+      "total": 5.571917793000011,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional concepts appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted toward outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of tangible items and environmental descriptors rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 114,
+        "total_tokens": 4463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3743.2,
+        "prompt_per_token_ms": 0.861,
+        "prompt_per_second": 1161.8,
+        "predicted_n": 114,
+        "predicted_ms": 1816.2,
+        "predicted_per_token_ms": 15.932,
+        "predicted_per_second": 62.8,
+        "draft_n": 80,
+        "draft_n_accepted": 56
+      },
+      "err": null,
+      "pieces": 113
+    }
+  }
+]

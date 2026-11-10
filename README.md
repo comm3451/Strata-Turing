@@ -1,3 +1,8 @@
+> **Strata-Turing:** this fork targets Qwen3.8-Flash-Next IQ3_XXS at 256K context on
+> TITAN RTX + Xeon E5-2680 v4. Single-user latency and quality are the priority.
+> [Build, workspace rules and measurement plan](docs/TURING.md).
+> The upstream Strata documentation follows.
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="apps/host/public/brand/strata-lockup-dark.svg">
