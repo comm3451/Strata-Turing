@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""Copy a QFN IQ3_XXS launch config into this checkout with the measured node profile.
+
+The source and model files are read-only inputs. Use tools/turing-run.sh to serve
+the resulting config; its measured backend is the installed 0.1.57 CUDA engine.
+"""
+from __future__ import annotations
+
+import argparse
+import copy
+import json
+import os
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def set_arg(args: list[str], flag: str, value: str | None) -> list[str]:
+    out = list(args)
+    while flag in out:
+        i = out.index(flag)
+        if i + 1 == len(out) or out[i + 1].startswith("--"):
+            raise ValueError(f"missing value for {flag}")
+        del out[i:i + 2]
+    return out if value is None else out + [flag, value]
+
+
+def make_config(source: dict, exe: Path, log: Path, fp16_prefill: bool = False) -> dict:
+    cfg = copy.deepcopy(source)
+    args = cfg["args"]
+    native = args[args.index("--native") + 1] if "--native" in args else ""
+    if "flash-next" not in native.lower() or "iq3_xxs" not in native.lower() or "--mtp" not in args:
+        raise ValueError("this profile requires Qwen Flash-Next IQ3_XXS with an existing MTP pack")
+    settings = {
+        "--max-context": "262144", "--kv": "int8", "--kv-resident": "32768",
+        "--spec": "4", "--spec-min-p": "0.5", "--pcie-frac": None,
+        "--pool-workers": "13", "--vram-reserve-mib": "2048",
+        "--expert-cache": "auto", "--prefill": "auto",
+        "--adapt-every": None, "--adapt-swaps": None, "--adapt-decay": None,
+    }
+    for flag, value in settings.items():
+        args = set_arg(args, flag, value)
+    cfg.update(args=args, exe=str(exe), cwd=str(ROOT), log=str(log),
+               drafting="mtp", parallel=1, open_browser=False)
+    cfg["env"] = {**cfg.get("env", {}), "STRATA_SM75_PERF": "1", "STRATA_EXP_MODE": "8",
+                  "STRATA_NO_PRESET": "1", "STRATA_BF16_TC": "1" if fp16_prefill else "0"}
+    cfg.setdefault("host", "127.0.0.1")
+    return cfg
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", required=True, help="existing launch JSON; read only")
+    parser.add_argument("--exe", required=True, help="absolute path to the measured engine executable")
+    parser.add_argument("--out", required=True, help="new JSON file inside this checkout")
+    parser.add_argument("--fp16-prefill", action="store_true",
+                        help="opt in to FP16 tensor-core projections; rounding and replies can differ")
+    args = parser.parse_args()
+    if os.environ.get("STRATA_TURING_ISOLATED") != "1":
+        parser.error("run through bash tools/turing-run.sh")
+    out = Path(args.out).resolve()
+    exe = Path(args.exe)
+    if not out.is_relative_to(ROOT) or not exe.is_absolute() or not exe.is_file():
+        parser.error("out must be inside the checkout and exe must be an existing absolute path")
+    cfg = make_config(json.loads(Path(args.source).read_text()), exe, out.with_suffix(".engine.log"), args.fp16_prefill)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    # Preserve an existing API key without printing it or creating a world-readable copy.
+    fd = os.open(out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(fd, "w") as stream:
+        json.dump(cfg, stream, ensure_ascii=False, indent=2)
+        stream.write("\n")
+    print(out)
+
+
+if __name__ == "__main__":
+    main()

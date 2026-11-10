@@ -41,6 +41,52 @@ bash tools/turing-run.sh cmake --build --preset qfn-turing
 The preset is a build target, not evidence of a speedup. Record the compiler,
 toolkit, driver, source commit and executable hash with each measured build.
 
+## Local launch profiles
+
+`tools/qfn_turing_profile.py` creates a separate JSON config for this exact node.
+It reads the recent QFN IQ3_XXS MTP config and preserves its model paths,
+tokenizer, vision, API key, network settings and conversation-cache budget.
+The output must be new and inside this checkout; it is created with mode 0600.
+The engine log and working directory are moved inside the checkout.
+
+The conservative profile keeps INT8 KV with 32,768 resident cells, 262,144 total
+context, MTP depth 4 / confidence 0.5, automatic PCIe sharing and the default
+expert-cache adaptation. It pins the worker count to 13, keeps the existing
+SM75 series and expert mode 8, and uses the 2048 MiB reserve from the recent
+resolved launch. Forced share 0.10 and the combined tuner candidate were not
+adopted because the mixed-workload comparison did not support them.
+
+Use the same Python/server/engine version as the measurements. For example,
+from the checkout, with your actual paths substituted:
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_turing_profile.py \
+  --source /path/to/recent-qfn-launch.json --exe /path/to/strata \
+  --out .turing/launch/qfn-balanced.json
+bash tools/turing-run.sh /path/to/python /path/to/serve/server.py \
+  --engine strata --config .turing/launch/qfn-balanced.json
+```
+
+`--fp16-prefill` creates an **opt-in** alternative with `STRATA_BF16_TC=1`.
+This converts BF16 projection operands to FP16 for Turing tensor cores, with
+FP32 accumulation. Rounding and replies can change; values outside FP16 range
+are clamped by the existing engine. It does not change the IQ3_XXS model files.
+Keep this separate from the conservative profile and inspect the measurements
+before choosing it. Neither profile is a newly compiled engine or a promise of
+the same performance on a different engine build.
+
+The measured FP16 gain was 4.0% prefill throughput on a 4,349-token input (three
+rounds). One 252,146-token pair reduced TTFT from 184.580 to 156.039 seconds;
+both paths retrieved three markers correctly. The longer case needs more
+repetitions and broader quality evaluation. This is an opt-in speed/rounding
+tradeoff, not a universal quality-preserving acceleration.
+
+Keep `parallel: 1` for now. Two short simultaneous requests worked through its
+queue; a `parallel: 2` / `--batch-mtp` attempt at 262,144 capacity failed to
+become ready within 600 seconds and was stopped. The server started vision
+eagerly in that mode, and host swap use increased. Do not turn on two slots
+automatically based on the short-request queue test.
+
 ## Run the A/B measurement
 
 `tools/qfn_turing_bench.py` compares the existing `STRATA_SM75_PERF` switch at
@@ -56,6 +102,10 @@ its vision configuration and VRAM reserve equal between arms (no images are
 sent). Use `parallel: 1` and replace the cache options with `--prompt-cache 0
 --conversation-cache-mib 0` for cold-input comparisons. Do not modify the original
 config. Use the same server and Python environment for both arms:
+
+The benchmark binds to loopback and requires a separate config without an
+`api_key`. Keep the generated launch profiles, which preserve authentication,
+in the ignored `.turing/` directory.
 
 ```sh
 bash tools/turing-run.sh /path/to/python tools/qfn_turing_bench.py \

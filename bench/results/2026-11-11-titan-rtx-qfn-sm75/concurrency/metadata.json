@@ -1,0 +1,23 @@
+{
+  "engine": "<home>/.local/share/strata/components/engine/0.1.57-linux-x86_64-cuda-cuda13/strata",
+  "server": "<home>/.local/share/strata/components/control/0.1.57/serve/server.py",
+  "engine_sha256": "9980139c6119dec0de3801aa5233b7f33b50bc814917cae24a7a098fcafbbe63",
+  "source_commit": "7db45b02a4fe2596d72d01a4cdc53611c840fe02",
+  "runner_sha256": "a10d31891d454e926f941bb33ebf3254f872b08b7cfe7ea5dbbba0ae68260325",
+  "load_command": "tools/serve_load.py http://127.0.0.1:18080 --clients 1,2 --rounds 3 --max-tokens 256 --nonce turing-20261111 --save <answers> --json <results>",
+  "setup": "One fresh server per slot count, a 16-token hello warmup, clients=1 then clients=2, three bursts each. No FP16 projection override.",
+  "slots_1": {
+    "status": "completed",
+    "requests": 9,
+    "errors": 0
+  },
+  "slots_2": {
+    "status": "startup_timeout",
+    "ready_timeout_seconds": 600,
+    "requests_sent": 0,
+    "batch_mtp": true,
+    "note": "The server eagerly started the vision encoder for parallel=2, although no image was sent. No explicit OOM was reported in captured logs."
+  },
+  "cleanup": "No GPU compute processes remained after cleanup.",
+  "after_cleanup_free_mib": "               total        used        free      shared  buff/cache   available\nMem:           61887        1704       59728           0         955       60182\nSwap:           8191         208        7983\n"
+}

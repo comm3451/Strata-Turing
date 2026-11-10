@@ -4,6 +4,14 @@ Measured on 2026-11-11 (Asia/Seoul) on the owner's inference node. These are
 targeted experiments, not the Strata standard benchmark and not measurements
 of a newly compiled Strata-Turing engine.
 
+The conservative profile keeps 13 CPU workers, expert mode 8, automatic PCIe
+sharing and the current MTP/cache policy. The tested fixed-share and combined
+tuner candidates did not improve the mixed workload enough to replace them.
+FP16 tensor-core prefill is offered separately: it improved 4K prefill by 4.0%
+in three rounds, with different rounding and some different replies.
+A single near-limit MTP pair read 252,146 tokens: FP16 reduced TTFT from
+184.580 to 156.039 seconds, and both paths retrieved all three markers correctly.
+
 ## Hardware and executable
 
 - One NVIDIA TITAN RTX, 24,576 MiB VRAM, compute capability 7.5; driver 595.99.02.
@@ -113,6 +121,115 @@ The combined candidate's English tuning score did not predict the mixed workload
 [Responses and timings](mtp-combined-results.json),
 [metadata](mtp-combined-metadata.json).
 
+Keeping the default draft/cache settings and changing **only** `--pcie-frac 0.10`
+also did not establish a useful general decode improvement. In another three
+interleaved rounds at maximum 512 output tokens:
+
+| Case | Automatic share decode tok/s | Fixed 0.10 decode tok/s |
+| --- | ---: | ---: |
+| Code | 77.2 | 77.8 |
+| Korean | 94.1 | 94.9 |
+| After 4,349 input tokens | 60.8 | 58.9 |
+
+Korean TTFT fell from 0.331 to 0.276 seconds, but the two short-case decode gains
+were below 1%, and long responses differed (122 versus 113 tokens). Retain
+automatic sharing in the general profile. The fixed fraction is an experiment,
+not a universal improvement on this CPU/GPU. [Data](mtp-pcie-results.json),
+[metadata](mtp-pcie-metadata.json).
+
+## FP16 tensor-core prefill: a separate opt-in profile
+
+Only `STRATA_BF16_TC=1` changes here; PCIe sharing, MTP and cache adaptation
+remain automatic/default as in the recent configuration. Three interleaved
+rounds, maximum 512 output tokens:
+
+| Metric | Current path | FP16 tensor-core projections |
+| --- | ---: | ---: |
+| 4,349-token input, prefill tok/s | 1162.3 | 1208.5 |
+| Same input, client TTFT | 3.779 s | 3.637 s |
+| Short code, decode tok/s | 76.9 | 77.0 |
+| Short Korean, decode tok/s | 93.6 | 94.1 |
+
+The measured prefill gain is **4.0%** on this node. Short-case decode is
+essentially unchanged. Do not apply other Turing cards' reported 20–34% gains
+to this machine and IQ3_XXS pack.
+
+The full code response matched across all six runs. Korean/long responses were
+not identical across the sample set; baseline repetitions also varied. The
+FP16 long response had 111 tokens versus 114–122 in the baseline. This path
+converts operands, clamps finite values outside FP16 range and changes rounding;
+it remains a separate opt-in profile, not a bitwise-preserving default.
+[Responses and timings](mtp-fp16-results.json), [metadata](mtp-fp16-metadata.json).
+
+Across the combined, fixed-share and FP16 experiments, all 18 complete code
+responses contained the same merge program. That one inspected program passed
+its two embedded tests plus 100 deterministic cases including empty inputs,
+duplicates and negative numbers; inputs were unchanged. Reproduce with
+[check-code.py](check-code.py); [record](code-quality.json). This is one coding
+task, not a broad quality benchmark. The Korean answers hit the output cap and
+contain imperfect generalizations in both paths; no overall quality score is
+claimed.
+
+### Near-limit MTP input
+
+One ordered baseline/candidate pair used the same 252,146-token three-marker
+prompt, maximum 64 output tokens. Both returned exactly
+`729183, 416927, 853204` (23 tokens).
+
+| Projection path | Prefill tok/s | Client TTFT | Retrieval |
+| --- | ---: | ---: | --- |
+| Current BF16 path | 1368.1 | 184.580 s | all three correct |
+| FP16 tensor cores | 1618.8 | 156.039 s | all three correct |
+
+This pair observed +18.3% prefill throughput and 28.541 seconds less TTFT
+(-15.5%). It is **one pair, not three-round evidence of a sustained gain**.
+The context capacity was 262,144 in both arms; setting that capacity alone was
+not the test. There are too few output tokens to claim a sustained decode gain.
+[Responses/timings](mtp-near-256k-results.json),
+[metadata](mtp-near-256k-metadata.json).
+
+A [single snapshot during baseline prefill](mtp-near-256k-r0-baseline-memory.json)
+showed 22,068 MiB GPU memory used, 1,954 MiB free, and 12.6 GiB host memory
+available. The snapshot also records 70 C / 241.29 W / 1845 MHz SM clock; these
+are point readings, not peaks or a power/thermal trace. Host swap use at that
+point was the same 24 KiB already present before the experiments.
+
+## Concurrent requests: keep the one-slot queue for this profile
+
+The conservative MTP configuration, without FP16 projections, was started once
+per slot count. After a short hello warmup, `tools/serve_load.py` sent one client
+and then two simultaneous clients, three bursts each, maximum 256 output tokens
+and fixed nonce `turing-20261111`. Prompts were short and cold. These are
+end-to-end load figures, not engine-only decode rates.
+
+| Server slots | Simultaneous clients | Aggregate tok/s | TTFT p50 / p95 | Latency p50 / p95 |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 1 | 64.4 | 0.604 / 0.673 s | 3.978 / 4.923 s |
+| 1, queued | 2 | 67.2 | 2.430 / 4.467 s | 5.678 / 7.666 s |
+
+All nine requests completed without errors. [Load results](concurrency/slots-1-results.json),
+[console](concurrency/slots-1-load.txt), [metadata](concurrency/metadata.json).
+Full answers, configuration and engine/server logs are retained in that folder.
+
+The `parallel: 2` / `--batch-mtp` attempt **did not become ready within 600
+seconds**, so no requests or throughput were measured for it. The server also
+started the vision encoder eagerly in this mode, despite receiving no images.
+The engine reported two 0.95 GiB slot sessions and two 50 MiB draft states,
+then stopped making visible startup progress after GPU detection. See the
+[engine log](concurrency/slots-2-engine.txt) and
+[server log](concurrency/slots-2-server.txt).
+
+After the failed attempt, host swap use was about 216 MiB versus 24 KiB before
+the experiments. This indicates memory pressure during the attempt, but the
+captured logs do not establish an OOM kill or the exact failure cause. The test's
+processes were stopped; no GPU compute processes remained and about 58.7 GiB
+host memory was available after cleanup. No system memory settings were changed.
+
+Keep one slot with queued requests for this node's general 256K profile. This
+does not prove that every two-slot configuration is impossible; memory budgets
+and a text-only batch setup would need their own investigation. The successful
+short-request load test also does not prove two full 256K sessions fit.
+
 ## Exploratory SM75 kernel check (DFlash2)
 
 This separate experiment toggles only `STRATA_SM75_PERF` between 0 and 1 on
@@ -154,6 +271,6 @@ installed 0.1.57 server and its bundled Python 3.12 environment. The corpus is
 deterministic in the script; individual outputs and timing samples are retained.
 
 No source build, CUDA kernel-level parity suite, broad perplexity evaluation,
-power measurement or thermal/clock trace has been completed. A matching response
+or sustained power/thermal/clock trace has been completed. A matching response
 on these prompts is not a quality guarantee. Upstream measurements from other
 GPUs are not counted as results on this node.

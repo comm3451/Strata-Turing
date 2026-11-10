@@ -1,0 +1,15 @@
+{
+  "experiments": [
+    "mtp-balanced",
+    "mtp-pcie",
+    "mtp-fp16"
+  ],
+  "code_responses": 18,
+  "unique_programs": 1,
+  "code_sha256": "7dc23c5495ca5073d9dac6f0c13ffef3543fdd722b5e1152dec2bed3592347ce",
+  "embedded_tests_passed": 2,
+  "additional_seeded_cases_passed": 100,
+  "seed": 75,
+  "inputs_unchanged": true,
+  "note": "One coding task only; not a general model-quality evaluation."
+}

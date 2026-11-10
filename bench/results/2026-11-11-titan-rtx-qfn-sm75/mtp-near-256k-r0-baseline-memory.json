@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-10T20:38:40.519755+00:00",
+  "gpu": "memory.used [MiB], memory.free [MiB], temperature.gpu, power.draw [W], clocks.current.sm [MHz], clocks.current.memory [MHz]\n22068 MiB, 1954 MiB, 70, 241.29 W, 1845 MHz, 6500 MHz",
+  "host_memory": {
+    "MemTotal": "63372640 kB",
+    "MemAvailable": "13211984 kB",
+    "SwapTotal": "8388604 kB",
+    "SwapFree": "8388580 kB"
+  },
+  "note": "One snapshot during prefill; not a peak or a thermal/power trace."
+}
