@@ -1,0 +1,14 @@
+NEWHASH a2b66adde65ad11a
+PASS int8 IMMA ctx 32768, 256 queries: vs FP64 4.25e-06 (v2 4.25e-06, FP32 1.94e-06); IMMA vs v2 0 (0 of scale); v2 1.831 -> IMMA 1.838 ms per chunk (1.00x)
+PASS int8 ctx 32768, 256 queries: vs FP64 old 1.94e-06 new 4.25e-06 (output scale 3.5); new vs old 7.24e-06 (2e-06 of scale); 4.259 -> 1.840 ms per chunk (2.32x); new output checksum a2b66adde65ad11a
+NEWHASH f43c6b47e3db7e93
+PASS fp16 ctx 32768, 256 queries: vs FP64 old 1.24e-06 new 3.31e-06 (output scale 2.74); new vs old 4.98e-06 (1.4e-06 of scale); 9.244 -> 4.124 ms per chunk (2.24x); new output checksum f43c6b47e3db7e93
+SKIP q4_0 ctx 32768: the tensor-core kernel takes Q4_0 KV on sm_80+ only (this device: sm_7)
+SKIP q4_0 ctx 1500: the tensor-core kernel takes Q4_0 KV on sm_80+ only (this device: sm_7)
+NEWHASH d9258523f93fa250
+PASS int8 IMMA ctx 1500, 256 queries: vs FP64 3.27e-06 (v2 3.27e-06, FP32 2.05e-06); IMMA vs v2 0 (0 of scale); v2 1.208 -> IMMA 1.208 ms per chunk (1.00x)
+PASS int8 ctx 1500, 256 queries: vs FP64 old 2.05e-06 new 3.27e-06 (output scale 3.75); new vs old 5.99e-06 (1.6e-06 of scale); 2.856 -> 1.209 ms per chunk (2.36x); new output checksum d9258523f93fa250
+NEWHASH e1c782f246d9928d
+PASS int8 IMMA ctx 2100, 256 queries: vs FP64 3.32e-06 (v2 3.32e-06, FP32 2.03e-06); IMMA vs v2 0 (0 of scale); v2 1.698 -> IMMA 1.699 ms per chunk (1.00x)
+PASS int8 ctx 2100, 256 queries: vs FP64 old 2.03e-06 new 3.32e-06 (output scale 3.61); new vs old 6.2e-06 (1.7e-06 of scale); 3.962 -> 1.711 ms per chunk (2.32x); new output checksum e1c782f246d9928d
+FAILURES: 0

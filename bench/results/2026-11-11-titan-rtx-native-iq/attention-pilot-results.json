@@ -1,0 +1,106 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 17.178,
+      "total_s": 19.022,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 114,
+      "prompt_tps": 1846.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 61.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 17116.4,
+      "decode_ms": 1865.7,
+      "drafts_offered": 92,
+      "drafts_accepted": 58
+    },
+    "response": {
+      "first": 17.17771481300042,
+      "total": 19.021553687998676,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and anchor. Several terms describe materials or textures, with frequent appearances of velvet, copper, needle, and lantern. Abstract or commercial concepts are present through the repeated use of market, ledger, winter, and thunder. Overall, the vocabulary is a diverse mix of physical objects, environmental features, and abstract ideas without forming coherent sentences.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 114,
+        "total_tokens": 31724,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 17116.4,
+        "prompt_per_token_ms": 0.541,
+        "prompt_per_second": 1846.8,
+        "predicted_n": 114,
+        "predicted_ms": 1865.7,
+        "predicted_per_token_ms": 16.366,
+        "predicted_per_second": 61.1,
+        "draft_n": 92,
+        "draft_n_accepted": 58
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 16.614,
+      "total_s": 18.479,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 109,
+      "prompt_tps": 1909.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 57.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 16552.3,
+      "decode_ms": 1886.9,
+      "drafts_offered": 90,
+      "drafts_accepted": 54
+    },
+    "response": {
+      "first": 16.613543673000095,
+      "total": 18.478624788998786,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and anchor. Several terms describe materials or textures, with frequent appearances of copper, velvet, needle, and lantern. Abstract or commercial concepts are present through repeated instances of market, ledger, winter, and harbor. Overall, the vocabulary is dominated by concrete objects and environmental descriptors rather than verbs or adjectives.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 109,
+        "total_tokens": 31719,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 16552.3,
+        "prompt_per_token_ms": 0.524,
+        "prompt_per_second": 1909.7,
+        "predicted_n": 109,
+        "predicted_ms": 1886.9,
+        "predicted_per_token_ms": 17.311,
+        "predicted_per_second": 57.8,
+        "draft_n": 90,
+        "draft_n_accepted": 54
+      },
+      "err": null,
+      "pieces": 108
+    }
+  }
+]

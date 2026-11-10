@@ -1,0 +1,19 @@
+{
+  "build_base": "1fca7e7aab1b5309f4b5f541146d790dabc81aec",
+  "engine_sha256": "875efc6063f1977648bea649664b21e3745a278406c226e7a06b8d8801ab3420",
+  "upstream_patch": "https://github.com/Niko1221/Strata/pull/3277",
+  "upstream_patch_head": "4450012270c81f89bbf415cc77ab04adf731e5fb",
+  "cuda": "13.0.88",
+  "gcc": "14.4.0",
+  "architecture": "75-real;75-virtual",
+  "geometry": "flash_next",
+  "driver": "595.99.02",
+  "source_sha256": {
+    "src/prefill/moe_fused_iq.cu": "07c4161b1e9bf872029ffc5a55b25f067128c46bb071ded0c5aca32d9a3cb1c0",
+    "include/strata/core/sm75_series.hpp": "2a6699eae7641895dd98584215a0dfc45b4aca6ac82c99887f182c5687c52a23",
+    "include/strata/prefill/moe_fused_iq.hpp": "3c19f5790b62e445d69a474def0787a95a2f30ba557f58a1a9da9871420b5175",
+    "tests/cuda/prefill_fused_iq_test.cpp": "716abbcbfe3184a88f6beac06f416a3043a55374c907748f54b80541c7200ee5",
+    "CMakePresets.json": "ee7dfd7a499035b8378f77cbe5acf5a004e5bdd505d704586ac09abaace4d8f9",
+    "tools/turing-toolchain-linux-64.txt": "45d38eaf17f85f1e5f8df6278cd47c6811b10bc153f208b15ba7f848ac8130b5"
+  }
+}

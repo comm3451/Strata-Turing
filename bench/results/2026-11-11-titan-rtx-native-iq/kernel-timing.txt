@@ -1,0 +1,43 @@
+IQ3_XXS / Q5_0: not set up on this device (skipped)
+IQ4_XS / Q5_0: not set up on this device (skipped)
+  (MMQ's products alone, no gathers: 11.606 ms - fused 1.32x)
+  (fused back to back: median 8.927 ms, min 8.823; alternating min 8.709; MMQ min 14.722)
+  fused output bits hash a7febd73741103a9
+IQ2_S / Q2_0 - timing part: 2048 tokens x top 10 over 512 experts, one layer: MMQ path 14.864 ms, fused 8.775 ms (1.69x); fused vs MMQ rel RMS 1.904e-04 worst row 4.512e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.455e-02 worst 2.036e-02, fused rel RMS 1.455e-02 worst 2.036e-02
+  (MMQ's products alone, no gathers: 32.410 ms - fused 1.25x)
+  (fused back to back: median 26.327 ms, min 26.090; alternating min 25.809; MMQ min 35.294)
+  fused output bits hash 7d3158bae5a4ca32
+IQ2_S / Q2_0 - timing part: 8192 tokens x top 10 over 512 experts, one layer: MMQ path 35.409 ms, fused 25.852 ms (1.37x); fused vs MMQ rel RMS 1.727e-04 worst row 4.786e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.449e-02 worst 2.338e-02, fused rel RMS 1.449e-02 worst 2.338e-02
+  (MMQ's products alone, no gathers: 9.253 ms - fused 1.16x)
+  (fused back to back: median 8.017 ms, min 7.918; alternating min 7.921; MMQ min 12.069)
+  fused output bits hash df3117001bca7905
+IQ2_XXS / Q2_0 - timing part: 2048 tokens x top 10 over 512 experts, one layer: MMQ path 12.155 ms, fused 8.010 ms (1.52x); fused vs MMQ rel RMS 1.358e-04 worst row 3.173e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.465e-02 worst 2.273e-02, fused rel RMS 1.465e-02 worst 2.273e-02
+  (MMQ's products alone, no gathers: 27.900 ms - fused 1.17x)
+  (fused back to back: median 23.958 ms, min 23.736; alternating min 23.628; MMQ min 30.771)
+  fused output bits hash d13d8bf728b17c8b
+IQ2_XXS / Q2_0 - timing part: 8192 tokens x top 10 over 512 experts, one layer: MMQ path 30.818 ms, fused 23.757 ms (1.30x); fused vs MMQ rel RMS 1.386e-04 worst row 3.467e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.474e-02 worst 2.098e-02, fused rel RMS 1.474e-02 worst 2.098e-02
+  (MMQ's products alone, no gathers: 10.408 ms - fused 1.06x)
+  (fused back to back: median 9.888 ms, min 9.834; alternating min 9.681; MMQ min 15.120)
+  fused output bits hash e3b7ba4788a5b75f
+IQ3_S / IQ4_NL - timing part: 2048 tokens x top 10 over 512 experts, one layer: MMQ path 15.172 ms, fused 9.795 ms (1.55x); fused vs MMQ rel RMS 1.379e-04 worst row 3.011e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.482e-02 worst 2.591e-02, fused rel RMS 1.483e-02 worst 2.591e-02
+  (MMQ's products alone, no gathers: 28.572 ms - fused 1.03x)
+  (fused back to back: median 28.319 ms, min 27.981; alternating min 27.713; MMQ min 33.235)
+  fused output bits hash 5c2b4ccfaba002e8
+IQ3_S / IQ4_NL - timing part: 8192 tokens x top 10 over 512 experts, one layer: MMQ path 33.316 ms, fused 27.799 ms (1.20x); fused vs MMQ rel RMS 1.544e-04 worst row 4.250e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.472e-02 worst 2.591e-02, fused rel RMS 1.472e-02 worst 2.591e-02
+  (MMQ's products alone, no gathers: 9.939 ms - fused 1.06x)
+  (fused back to back: median 9.423 ms, min 9.375; alternating min 9.325; MMQ min 14.349)
+  fused output bits hash 66ccdb4026abf111
+IQ3_XXS / IQ4_NL - timing part: 2048 tokens x top 10 over 512 experts, one layer: MMQ path 14.451 ms, fused 9.404 ms (1.54x); fused vs MMQ rel RMS 1.500e-04 worst row 3.095e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.429e-02 worst 2.267e-02, fused rel RMS 1.429e-02 worst 2.267e-02
+  (MMQ's products alone, no gathers: 27.486 ms - fused 1.01x)
+  (fused back to back: median 27.343 ms, min 27.255; alternating min 27.015; MMQ min 31.934)
+  fused output bits hash 2008894cedb4cf25
+IQ3_XXS / IQ4_NL - timing part: 8192 tokens x top 10 over 512 experts, one layer: MMQ path 32.110 ms, fused 27.107 ms (1.18x); fused vs MMQ rel RMS 1.468e-04 worst row 3.588e-03
+  sample of 96 pairs vs FP32 reference: MMQ rel RMS 1.447e-02 worst 2.152e-02, fused rel RMS 1.447e-02 worst 2.152e-02
+prefill fused MoE (native formats) parity passed

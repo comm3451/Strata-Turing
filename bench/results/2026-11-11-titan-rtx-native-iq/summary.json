@@ -1,0 +1,436 @@
+{
+  "attention-pilot-results": {
+    "long": {
+      "baseline": {
+        "requests": 1,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1846.8,
+        "decode_tps": 61.1,
+        "ttft_s": 17.178,
+        "total_s": 19.022
+      },
+      "candidate": {
+        "requests": 1,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1909.7,
+        "decode_tps": 57.8,
+        "ttft_s": 16.614,
+        "total_s": 18.479
+      },
+      "change_percent": {
+        "prompt_tps": 3.4058912713883505,
+        "decode_tps": -5.400981996726683,
+        "ttft_s": -3.2832692979392286,
+        "total_s": -2.8545894227736235
+      }
+    }
+  },
+  "final-ab-results": {
+    "code": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 114.9,
+        "decode_tps": 76.6,
+        "ttft_s": 0.321,
+        "total_s": 6.547
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 114.4,
+        "decode_tps": 76.6,
+        "ttft_s": 0.322,
+        "total_s": 6.557
+      },
+      "change_percent": {
+        "prompt_tps": -0.435161009573537,
+        "decode_tps": 0.0,
+        "ttft_s": 0.31152647975078995,
+        "total_s": 0.15274171376202794
+      }
+    },
+    "korean": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.7,
+        "decode_tps": 93.4,
+        "ttft_s": 0.333,
+        "total_s": 5.791
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.9,
+        "decode_tps": 93.4,
+        "ttft_s": 0.332,
+        "total_s": 5.789
+      },
+      "change_percent": {
+        "prompt_tps": 0.16299918500408683,
+        "decode_tps": 0.0,
+        "ttft_s": -0.30030030030030463,
+        "total_s": -0.03453634950786322
+      }
+    },
+    "long32k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1487.2,
+        "decode_tps": 74.9,
+        "ttft_s": 21.319,
+        "total_s": 22.843
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1929.0,
+        "decode_tps": 74.6,
+        "ttft_s": 16.448,
+        "total_s": 17.954
+      },
+      "change_percent": {
+        "prompt_tps": 29.70683162990855,
+        "decode_tps": -0.4005340453938744,
+        "ttft_s": -22.848163609925408,
+        "total_s": -21.40261786980694
+      }
+    },
+    "long4k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1158.8,
+        "decode_tps": 60.3,
+        "ttft_s": 3.791,
+        "total_s": 5.787
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1205.8,
+        "decode_tps": 62.6,
+        "ttft_s": 3.644,
+        "total_s": 5.552
+      },
+      "change_percent": {
+        "prompt_tps": 4.0559199171556815,
+        "decode_tps": 3.814262023217263,
+        "ttft_s": -3.8776048536006247,
+        "total_s": -4.060825989286332
+      }
+    }
+  },
+  "native-ab-results": {
+    "code": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 114.3,
+        "decode_tps": 76.5,
+        "ttft_s": 0.322,
+        "total_s": 6.551
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 114.8,
+        "decode_tps": 76.5,
+        "ttft_s": 0.321,
+        "total_s": 6.549
+      },
+      "change_percent": {
+        "prompt_tps": 0.43744531933507247,
+        "decode_tps": 0.0,
+        "ttft_s": -0.31055900621117516,
+        "total_s": -0.030529690123637376
+      }
+    },
+    "korean": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.6,
+        "decode_tps": 93.5,
+        "ttft_s": 0.332,
+        "total_s": 5.79
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.8,
+        "decode_tps": 93.6,
+        "ttft_s": 0.332,
+        "total_s": 5.779
+      },
+      "change_percent": {
+        "prompt_tps": 0.16313213703100793,
+        "decode_tps": 0.10695187165774556,
+        "ttft_s": 0.0,
+        "total_s": -0.18998272884283018
+      }
+    },
+    "long32k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1485.1,
+        "decode_tps": 74.8,
+        "ttft_s": 21.347,
+        "total_s": 22.873
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1548.5,
+        "decode_tps": 75.5,
+        "ttft_s": 20.477,
+        "total_s": 21.962
+      },
+      "change_percent": {
+        "prompt_tps": 4.269072789711137,
+        "decode_tps": 0.9358288770053624,
+        "ttft_s": -4.075514123764467,
+        "total_s": -3.9828618895641155
+      }
+    },
+    "long4k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1157.6,
+        "decode_tps": 60.4,
+        "ttft_s": 3.795,
+        "total_s": 5.791
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1184.5,
+        "decode_tps": 61.0,
+        "ttft_s": 3.709,
+        "total_s": 5.668
+      },
+      "change_percent": {
+        "prompt_tps": 2.323773324118883,
+        "decode_tps": 0.9933774834437026,
+        "ttft_s": -2.2661396574439996,
+        "total_s": -2.123985494733205
+      }
+    }
+  },
+  "near-256k-results": {
+    "long": {
+      "baseline": {
+        "requests": 1,
+        "prompt_tokens": [
+          252146
+        ],
+        "prompt_tps": 1361.8,
+        "decode_tps": 57.6,
+        "ttft_s": 185.432,
+        "total_s": 185.808
+      },
+      "candidate": {
+        "requests": 1,
+        "prompt_tokens": [
+          252146
+        ],
+        "prompt_tps": 1733.7,
+        "decode_tps": 57.2,
+        "ttft_s": 145.714,
+        "total_s": 146.093
+      },
+      "change_percent": {
+        "prompt_tps": 27.309443383756804,
+        "decode_tps": -0.694444444444442,
+        "ttft_s": -21.4191725268562,
+        "total_s": -21.374214242659097
+      }
+    }
+  },
+  "routed-ab-results": {
+    "code": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 114.3,
+        "decode_tps": 76.5,
+        "ttft_s": 0.322,
+        "total_s": 6.55
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          34
+        ],
+        "prompt_tps": 113.9,
+        "decode_tps": 76.6,
+        "ttft_s": 0.323,
+        "total_s": 6.545
+      },
+      "change_percent": {
+        "prompt_tps": -0.34995625546805353,
+        "decode_tps": 0.13071895424836555,
+        "ttft_s": 0.31055900621117516,
+        "total_s": -0.07633587786259888
+      }
+    },
+    "korean": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.8,
+        "decode_tps": 93.4,
+        "ttft_s": 0.332,
+        "total_s": 5.789
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          37
+        ],
+        "prompt_tps": 122.8,
+        "decode_tps": 93.5,
+        "ttft_s": 0.332,
+        "total_s": 5.782
+      },
+      "change_percent": {
+        "prompt_tps": 0.0,
+        "decode_tps": 0.10706638115631772,
+        "ttft_s": 0.0,
+        "total_s": -0.12091898428052694
+      }
+    },
+    "long32k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1857.7,
+        "decode_tps": 68.6,
+        "ttft_s": 17.079,
+        "total_s": 18.665
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          31610
+        ],
+        "prompt_tps": 1873.0,
+        "decode_tps": 68.8,
+        "ttft_s": 16.938,
+        "total_s": 18.513
+      },
+      "change_percent": {
+        "prompt_tps": 0.8235990741239041,
+        "decode_tps": 0.291545189504383,
+        "ttft_s": -0.8255752678728356,
+        "total_s": -0.8143584248593516
+      }
+    },
+    "long4k": {
+      "baseline": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1206.3,
+        "decode_tps": 63.0,
+        "ttft_s": 3.643,
+        "total_s": 5.476
+      },
+      "candidate": {
+        "requests": 3,
+        "prompt_tokens": [
+          4349
+        ],
+        "prompt_tps": 1210.0,
+        "decode_tps": 62.9,
+        "ttft_s": 3.631,
+        "total_s": 5.469
+      },
+      "change_percent": {
+        "prompt_tps": 0.30672303738705775,
+        "decode_tps": -0.15873015873015817,
+        "ttft_s": -0.32939884710403433,
+        "total_s": -0.12783053323592863
+      }
+    }
+  },
+  "final-ab-memory": {
+    "samples": 247,
+    "max_gpu_used_mib": 22182.0,
+    "min_gpu_free_mib": 1840.0,
+    "max_gpu_temperature_c": 70.0,
+    "min_host_available_gib": 12.564998626708984,
+    "max_swap_used_mib": 191.09375
+  },
+  "native-ab-memory": {
+    "samples": 250,
+    "max_gpu_used_mib": 22104.0,
+    "min_gpu_free_mib": 1918.0,
+    "max_gpu_temperature_c": 72.0,
+    "min_host_available_gib": 12.584678649902344,
+    "max_swap_used_mib": 191.54296875
+  },
+  "near-256k-memory": {
+    "samples": 207,
+    "max_gpu_used_mib": 22150.0,
+    "min_gpu_free_mib": 1872.0,
+    "max_gpu_temperature_c": 77.0,
+    "min_host_available_gib": 12.452400207519531,
+    "max_swap_used_mib": 190.9921875
+  },
+  "routed-ab-memory": {
+    "samples": 239,
+    "max_gpu_used_mib": 22182.0,
+    "min_gpu_free_mib": 1840.0,
+    "max_gpu_temperature_c": 71.0,
+    "min_host_available_gib": 12.569316864013672,
+    "max_swap_used_mib": 191.49609375
+  }
+}

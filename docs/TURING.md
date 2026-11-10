@@ -119,8 +119,8 @@ This converts BF16 projection operands to FP16 for Turing tensor cores, with
 FP32 accumulation. Rounding and replies can change; values outside FP16 range
 are clamped by the existing engine. It does not change the IQ3_XXS model files.
 Keep this separate from the conservative profile and inspect the measurements
-before choosing it. Neither profile is a newly compiled engine or a promise of
-the same performance on a different engine build.
+before choosing it. The original profiles were measured with the installed
+0.1.57 engine; the newly compiled fork has its own results below.
 
 The measured FP16 gain was 4.0% prefill throughput on a 4,349-token input (three
 rounds). One 252,146-token pair reduced TTFT from 184.580 to 156.039 seconds;
@@ -133,6 +133,38 @@ queue; a `parallel: 2` / `--batch-mtp` attempt at 262,144 capacity failed to
 become ready within 600 seconds and was stopped. The server started vision
 eagerly in that mode, and host swap use increased. Do not turn on two slots
 automatically based on the short-request queue test.
+
+## Profiles for the newly compiled engine
+
+`--native-iq-prefill` opts into the new IQ kernels and requires this fork's
+compiled engine. On the same TITAN RTX build, three alternating pairs measured
+4,349-token prefill at 1157.6 → 1184.5 tok/s (+2.3%) and 31,610-token prefill at
+1485.1 → 1548.5 tok/s (+4.3%). Short code/Korean generation was essentially flat.
+
+The faster profile also adds `--fp16-prefill --turing-attention`. The latter
+selects the FP32 tiled QSA scorer (`STRATA_SELECT_SIMT=2`) and the Turing v2
+prompt attention kernel (`STRATA_PA_V2T=1`). It retains IQ3_XXS weights, INT8 KV,
+262,144 total capacity, 32,768 resident KV cells, 13 workers and one request slot.
+It changes summation order and can change generated tokens. These are explicit
+options in the generated config; the engine's global defaults are unchanged.
+
+One 252,146-token retrieval pair measured 1361.8 → 1733.7 prefill tok/s and
+185.432 → 145.714 seconds to the first response; both retrieved all three
+markers. With the production conversation-cache budget restored, nine short
+requests from one/two clients completed without errors through one slot's queue.
+Neither result establishes general 256K answer quality or two-slot capacity.
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_turing_profile.py \
+  --source /path/to/recent-qfn-launch.json \
+  --exe "$PWD/build/qfn-turing/strata" --out .turing/launch/qfn-turing-fast.json \
+  --native-iq-prefill --fp16-prefill --turing-attention
+```
+
+See the [new CUDA build measurements](../bench/results/2026-11-11-titan-rtx-native-iq/README.md)
+for the comparison against the installed engine, numerical checks and quality
+limits. `STRATA_PREFILL_ROUTED_STREAM=1` was tested but is not selected: its
+median prefill gains were only 0.3% at 4K and 0.8% at 32K on this node.
 
 ## Run the A/B measurement
 

@@ -1,0 +1,8 @@
+{
+  "cases": 78,
+  "format_pairs": 13,
+  "mmq_max_relative_rms": 0.0004522,
+  "mmq_max_worst_row_relative": 0.005599,
+  "rounded_reference_max_relative_rms": 0.0004522,
+  "passed": true
+}

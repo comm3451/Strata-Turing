@@ -10,7 +10,7 @@ mkdir -p .turing/downloads .turing/mamba-bootstrap
 strata_archive="$strata_root/.turing/downloads/micromamba.tar.bz2"
 if [[ ! -f "$strata_archive" ]]; then
     curl --fail --location --retry 3 \
-        https://micro.mamba.pm/api/micromamba/linux-64/2.10.0 -o "$strata_archive"
+        https://conda.anaconda.org/conda-forge/linux-64/micromamba-2.10.0-0.tar.bz2 -o "$strata_archive"
 fi
 echo "9a97976244929bbae28fb1fae504e74a3e7e6d1932870e3a03321f01b7fbd07b  $strata_archive" | sha256sum --check -
 python3 - "$strata_archive" <<'PY'

@@ -1,0 +1,10 @@
+c=1 round=0: 256 tokens in 5.3s = 48.6 tok/s total
+c=1 round=1: 256 tokens in 3.8s = 67.5 tok/s total
+c=1 round=2: 256 tokens in 3.8s = 67.1 tok/s total
+c=2 round=0: 512 tokens in 7.7s = 66.6 tok/s total
+c=2 round=1: 512 tokens in 7.5s = 68.2 tok/s total
+c=2 round=2: 512 tokens in 8.0s = 63.6 tok/s total
+
+clients  total tok/s  per-req tok/s  first p50/p95 (s)  latency p50/p95 (s)  errors
+      1         67.1           82.6     0.72/0.97         3.81/5.12      0
+      2         66.6           78.4     2.46/4.78         5.81/7.96      0

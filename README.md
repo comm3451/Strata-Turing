@@ -1,6 +1,7 @@
 > **Strata-Turing:** this fork targets Qwen3.8-Flash-Next IQ3_XXS at 256K context on
 > TITAN RTX + Xeon E5-2680 v4. Single-user latency and quality are the priority.
-> [Build, workspace rules and measurement plan](docs/TURING.md).
+> [Build, workspace rules and measured profiles](docs/TURING.md).
+> [TITAN RTX CUDA build and benchmark results](bench/results/2026-11-11-titan-rtx-native-iq/README.md).
 > The upstream Strata documentation follows.
 
 <p align="center">

@@ -1,0 +1,18 @@
+{
+  "requests": 72,
+  "passed_by_arm_and_task": {
+    "baseline/code": 6,
+    "baseline/korean": 6,
+    "baseline/math": 6,
+    "baseline/json": 6,
+    "baseline/logic": 6,
+    "baseline/tool": 6,
+    "candidate/code": 6,
+    "candidate/korean": 6,
+    "candidate/math": 6,
+    "candidate/json": 6,
+    "candidate/logic": 6,
+    "candidate/tool": 6
+  },
+  "reviewed_algorithm_ast_sha256": "25633dea2349ab23106fca69e36768c25e0ab6a87126bfaf16767d89b03720d2"
+}

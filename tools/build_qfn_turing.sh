@@ -15,6 +15,6 @@ cmake --preset qfn-turing \
     -DCMAKE_CUDA_HOST_COMPILER="$strata_tc/bin/x86_64-conda-linux-gnu-g++" \
     -DCUDAToolkit_ROOT="$strata_tc" -DSTRATA_BUILD_TESTS=ON
 if (( $# == 0 )); then
-    set -- strata strata_kq prefill_fused_iq_test
+    set -- strata strata_kq prefill_fused_iq_test qsa_select_bench qsa_prompt_attn_parity
 fi
 cmake --build build/qfn-turing --parallel 4 --target "$@"
