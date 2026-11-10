@@ -1690,18 +1690,29 @@ native_f16_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
 
 unsigned blocks(int64_t n, int per) { return (unsigned) ((n + per - 1) / per); }
 
+// Native-IQ admission on Turing, adapted from c3c's upstream PR #3277.
+// Keep the earlier Q2_0 opt-in independent: IQ changes rounding relative to MMQ.
+bool sm75_native_on() {
+    static const bool on = [] {
+        const char* v = std::getenv("STRATA_PF_FUSED_NATIVE_SM75");
+        return v != nullptr && v[0] == '1';
+    }();
+    return on;
+}
+
 // per device: whether every kernel here runs (sm_80+, device code in this build, fits), and their occupancy
 struct DevInfo {
     bool done = false, ok = false;
     bool g1151 = false; // gfx1151 (Strix Halo): Q8_0 down layers on the F16 kernel by default (q8d_f16_default)
     bool w12 = false;   // gfx12 (RDNA4): the native kernels only - the Q2_0 pack's (moe_fused.cu) are not ported there
-    bool t75 = false;   // Turing (STRATA_PF_FUSED_SM75): the Q2_0 / Q2_0 layers only (what was set up and checked there)
+    bool t75 = false;   // Turing: only the specializations qualified for this device below
     bool q2n = false;   // sm_80+ with STRATA_PF_FUSED_Q2N=1: the native Q2_0 pack's Q2_0 gate/up is set up as well (opt-in)
     bool s120 = false;  // compute capability 12.0 (sm120_series.hpp): the default for the formats measured there
     bool s121 = false;  // GB10 (sm_121, DGX Spark): 128-row tiles win from 65,536 routed rows a launch up (pick_ww)
     int sms = 0, occ = 1;
     int occ_nt = 0;     // blocks per multiprocessor of the NT = 256 kernels (0: not set up)
     bool ws = false;    // STRATA_PF_FUSED_WS: the warp-specialized kernels are set up
+    bool t75_gu[64] = {}, t75_d[64] = {};
 };
 std::mutex g_mu;
 DevInfo g_dev[32];
@@ -1732,6 +1743,14 @@ template <int T, bool GU, int WW, int NT = THREADS, bool F16 = false> bool setup
     return true;
 }
 template <int T, bool GU> bool setup_one(int& occ) { return setup_ww<T, GU, 4>(occ) && setup_ww<T, GU, 2>(occ); }
+// IQ codebooks at WW=4 exceed Turing's 64 KiB shared-memory limit. Qualify only
+// the WW=2 (128-row) specialization; a failed format must not disable the others.
+template <int T, bool GU> bool setup_t75(DevInfo& d) {
+    int occ = 1 << 20;
+    const bool ok = setup_ww<T, GU, 2>(occ);
+    if (ok) d.occ = std::min(d.occ, occ);
+    return ok;
+}
 // STRATA_PF_FUSED_NT=256 (sm_80+, opt-in): the 256-thread kernels (native_kernel's NT)
 // STRATA_PF_FUSED_F16=1 (sm_80+, opt-in, changes the output at rounding level): the NT = 256 kernels' F16 products
 bool f16c_requested() {
@@ -1839,10 +1858,22 @@ const DevInfo& dev_info() {
     static const bool sm75 = [] { const char* v = std::getenv("STRATA_PF_FUSED_SM75"); return v != nullptr && v[0] == '1'; }();
     if (major < 8 && !(major == 7 && minor == 5 && sm75)) return d;
     int occ = 1 << 20;
-    if (major < 8) {   // Turing: the canonical Q2_0 pack's kernels (the codebook formats' do not fit 64 KB at 4 warps a row)
+    if (major < 8) {   // Turing: Q2_0 as before, native IQ only with its separate opt-in
         d.t75 = true;
-        d.ok = setup_one<T_Q2_0, true>(occ) && setup_one<T_Q2_0, false>(occ);
-        d.occ = d.ok ? occ : 1;
+        d.occ = 1 << 20;
+        d.t75_gu[T_Q2_0] = setup_one<T_Q2_0, true>(d.occ);
+        d.t75_d[T_Q2_0] = setup_one<T_Q2_0, false>(d.occ);
+        if (sm75_native_on()) {
+            d.t75_gu[T_IQ2_XXS] = setup_t75<T_IQ2_XXS, true>(d);
+            d.t75_gu[T_IQ2_XS] = setup_t75<T_IQ2_XS, true>(d);
+            d.t75_gu[T_IQ2_S] = setup_t75<T_IQ2_S, true>(d);
+            d.t75_gu[T_IQ3_XXS] = setup_t75<T_IQ3_XXS, true>(d);
+            d.t75_gu[T_IQ3_S] = setup_t75<T_IQ3_S, true>(d);
+            d.t75_gu[T_IQ4_XS] = setup_t75<T_IQ4_XS, true>(d);
+            d.t75_d[T_IQ4_NL] = setup_t75<T_IQ4_NL, false>(d);
+        }
+        d.ok = d.t75_gu[T_Q2_0] && d.t75_d[T_Q2_0];
+        if (!d.ok) d.occ = 1;
         cudaGetLastError();
         return d;
     }
@@ -2085,7 +2116,9 @@ bool native_supported(int gu_type, int d_type) {
         !(gfx12_iq2s_default() && (gu_type == T_IQ2_S || gu_type == T_IQ4_XS))) return false;
     const DevInfo& d = dev_info();
     if (!d.ok || !d_covered_on(d_type, d)) return false;
-    if (d.t75 && (gu_type != T_Q2_0 || d_type != T_Q2_0)) return false;
+    if (d.t75 && (gu_type < 0 || gu_type >= 64 || d_type < 0 || d_type >= 64 ||
+                  (gu_type != T_Q2_0 && !sm75_native_on()) ||
+                  !d.t75_gu[gu_type] || !d.t75_d[d_type])) return false;
     if (env < 0) return d.w12;
     return requested() || d.w12;
 }
@@ -2107,7 +2140,9 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
     g_dm16_used = false;
     if (b.e1 <= b.e0 || n <= 0) return;
     const DevInfo& d = dev_info();
-    if (!d.ok || !gu_covered(g.gu_type) || !d_covered_on(g.d_type, d)) {
+    if (!d.ok || !gu_covered(g.gu_type) || !d_covered_on(g.d_type, d) ||
+        (d.t75 && (g.gu_type < 0 || g.gu_type >= 64 || g.d_type < 0 || g.d_type >= 64 ||
+                   !d.t75_gu[g.gu_type] || !d.t75_d[g.d_type]))) {
         std::fprintf(stderr, "prefill fused experts (native): types %d / %d are not covered here\n", g.gu_type, g.d_type);
         std::exit(1);
     }
@@ -2207,7 +2242,8 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
         experts_native(w, g, n_expert, n, scratch, xa, src, ha, dm, stream);
         return;
     }
-    const int ww = pick_ww(n, n_expert);
+    // Launch exactly the specialization qualified above, including tiny/tail batches.
+    const int ww = d.t75 && g.gu_type != T_Q2_0 ? 2 : pick_ww(n, n_expert);
     // the most 64-row tiles the batch can have (every row in it, plus a partial tile per expert) - the items of the
     // ones inside a larger item end at once
     const int64_t tiles = (n + kTileRows - 1) / kTileRows + (b.e1 - b.e0);

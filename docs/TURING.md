@@ -41,6 +41,53 @@ bash tools/turing-run.sh cmake --build --preset qfn-turing
 The preset is a build target, not evidence of a speedup. Record the compiler,
 toolkit, driver, source commit and executable hash with each measured build.
 
+This fork also includes a project-local CUDA 13.0 / GCC 14.4 toolchain recipe:
+
+```sh
+bash tools/bootstrap_turing_toolchain.sh
+bash tools/build_qfn_turing.sh
+```
+
+Both scripts enter `turing-run.sh` automatically. The bootstrap verifies the
+micromamba archive and installs the exact packages in
+`tools/turing-toolchain-linux-64.txt` into `.turing/toolchain`. It uses an empty
+local Conda prefix with `install`, avoiding `create`'s home-directory environment
+registration. It never activates a shell environment or changes a driver.
+The engine is `build/qfn-turing/strata`; its toolchain libraries stay in `.turing/`.
+
+## Native IQ prompt kernels on Turing
+
+The CUDA dispatch adapts [c3c's upstream PR #3277](https://github.com/Niko1221/Strata/pull/3277),
+revision `4450012270c81f89bbf415cc77ab04adf731e5fb`, to this fork's newer kernel
+code. It admits six IQ gate/up formats with Q2_0 or IQ4_NL down on sm_75.
+Each specialization must pass CUDA shared-memory and occupancy checks. IQ layers
+use the qualified 128-row shape (`WW=2`) to fit Turing's 64 KiB shared-memory
+limit. Other formats retain their previous fallback.
+
+The new path requires all three switches:
+
+```text
+STRATA_PF_FUSED=1
+STRATA_PF_FUSED_SM75=1
+STRATA_PF_FUSED_NATIVE_SM75=1
+```
+
+It is separate from `STRATA_SM75_PERF` and the older Q2_0 opt-in. Set the new
+variable to `0` to compare MMQ using the same binary. It changes prompt expert
+arithmetic; answers need not be byte-identical. Decode dispatch is unchanged.
+The test matrix covers all 12 IQ format pairs, Q2_0, and token counts around
+tile boundaries. Dispatch tests check both opt-in gates and unsupported pairs.
+
+Run the focused checks on a Turing GPU after building:
+
+```sh
+bash tools/turing-run.sh .turing/toolchain/bin/ctest --test-dir build/qfn-turing \
+  -R 'prefill_fused_iq_(test_sm75|sm75_)' --output-on-failure
+```
+
+The source retains the upstream MIT license and attribution. The original PR's
+RTX 2080 Super Max-Q speedup is not a measurement of this TITAN RTX.
+
 ## Local launch profiles
 
 `tools/qfn_turing_profile.py` creates a separate JSON config for this exact node.
@@ -126,6 +173,12 @@ pass `--candidate-config .turing/bench/candidate.json`. Both configs must use th
 same executable; their SM75 settings are preserved. Without this argument the
 harness tests only the SM75 switch. Keep all changes outside the candidate's
 intended tuning settings identical.
+
+An explicit `--compare-builds` permits different executables and records both
+SHA-256 hashes. Keep compiler/version comparisons separate from a kernel flag
+comparison on one binary. `--cases` accepts a local JSON list of `[name, prompt]`
+pairs, and `--dump-first-logits` saves the FP32 first-token logits per arm (file
+0 is the warmup). These are diagnostics, not a general quality score.
 
 ## Automatic calibration and this CPU/GPU pair
 

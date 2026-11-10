@@ -269,6 +269,18 @@ macro(strata_cuda_mmq)
       target_link_libraries(prefill_fused_iq_test PRIVATE strata_mmq ggml-base ${_strata_gpu_runtime_target})
       add_test(NAME prefill_fused_iq_test COMMAND prefill_fused_iq_test)
       set_tests_properties(prefill_fused_iq_test PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+      add_test(NAME prefill_fused_iq_test_sm75 COMMAND prefill_fused_iq_test --edge --no-timing)
+      set_tests_properties(prefill_fused_iq_test_sm75 PROPERTIES
+        ENVIRONMENT "STRATA_PF_FUSED_SM75=1;STRATA_PF_FUSED_NATIVE_SM75=1" SKIP_RETURN_CODE 77 TIMEOUT 600)
+      foreach(_native75 IN ITEMS 0 1)
+        add_test(NAME prefill_fused_iq_sm75_dispatch_${_native75}
+          COMMAND prefill_fused_iq_test --sm75-dispatch=${_native75})
+        set_tests_properties(prefill_fused_iq_sm75_dispatch_${_native75} PROPERTIES
+          ENVIRONMENT "STRATA_PF_FUSED_SM75=1;STRATA_PF_FUSED_NATIVE_SM75=${_native75}" SKIP_RETURN_CODE 77 TIMEOUT 60)
+      endforeach()
+      add_test(NAME prefill_fused_iq_sm75_requires_master COMMAND prefill_fused_iq_test --sm75-dispatch=0)
+      set_tests_properties(prefill_fused_iq_sm75_requires_master PROPERTIES
+        ENVIRONMENT "STRATA_PF_FUSED_SM75=0;STRATA_PF_FUSED_NATIVE_SM75=1" SKIP_RETURN_CODE 77 TIMEOUT 60)
       # the opt-in STRATA_PF_FUSED_Q2N=1 on its own (the test leaves STRATA_PF_FUSED unset): the native Q2_0 pack's Q2_0 / Q2_0
       # layers on sm_80+ (77 below sm_80 and without a card)
       add_test(NAME prefill_fused_iq_test_q2n COMMAND prefill_fused_iq_test "--only=Q2_0 / Q2_0" --unset-pf-fused)

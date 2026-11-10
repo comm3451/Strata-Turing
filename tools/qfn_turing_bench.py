@@ -84,6 +84,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", required=True)
     parser.add_argument("--candidate-config", help="compare two local configs instead of toggling SM75_PERF")
+    parser.add_argument("--compare-builds", action="store_true", help="explicitly allow different executables; records both hashes")
     parser.add_argument("--server", default=str(ROOT / "serve/server.py"))
     parser.add_argument("--out", required=True, help="new result directory inside the checkout")
     parser.add_argument("--port", type=int, default=18080)
@@ -94,6 +95,8 @@ def main() -> int:
     parser.add_argument("--max-new", type=int, default=128)
     parser.add_argument("--only-long", action="store_true")
     parser.add_argument("--retrieval", action="store_true", help="use a three-marker retrieval smoke test for the long case")
+    parser.add_argument("--cases", help="local JSON list of [name, prompt] pairs, replacing built-in cases")
+    parser.add_argument("--dump-first-logits", action="store_true", help="save first-token FP32 logits separately for each engine run")
     parser.add_argument("--ready-timeout", type=float, default=600)
     args = parser.parse_args()
     if os.environ.get("STRATA_TURING_ISOLATED") != "1":
@@ -109,10 +112,15 @@ def main() -> int:
     if base.get("api_key"):
         parser.error("use an isolated local benchmark config without an API key")
     if candidate is not None:
-        if candidate.get("api_key") or candidate.get("exe") != base.get("exe"):
-            parser.error("candidate must use the same executable and no API key")
+        candidate_exe = Path(candidate.get("exe", ""))
+        if candidate.get("api_key") or not candidate_exe.is_absolute() or not candidate_exe.is_file():
+            parser.error("candidate must have an existing absolute executable and no API key")
+        if candidate.get("exe") != base.get("exe") and not args.compare_builds:
+            parser.error("different executables require --compare-builds")
         if args.sm75 != [0, 1]:
             parser.error("--candidate-config cannot be combined with a custom --sm75 list")
+    elif args.compare_builds:
+        parser.error("--compare-builds requires --candidate-config")
     # Never attach to an existing service or kill it.
     with socket.socket() as check:
         check.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -124,9 +132,12 @@ def main() -> int:
     metadata = {
         "engine": str(exe), "server": str(Path(args.server).resolve()),
         "engine_sha256": engine_hash,
+        "candidate_engine_sha256": hashlib.sha256(Path(candidate["exe"]).read_bytes()).hexdigest() if candidate else None,
+        "server_sha256": hashlib.sha256(Path(args.server).read_bytes()).hexdigest(),
         "harness_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "config": base, "candidate_config": candidate, "arguments": vars(args),
         "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        "source_diff_sha256": hashlib.sha256(subprocess.check_output(["git", "diff", "HEAD"], cwd=ROOT)).hexdigest(),
         "note": "Local raw data; review paths/config/answers before publishing. Prompts are shorter than context capacity.",
     }
     (out / "metadata.json").write_text(json.dumps(metadata, indent=2))
@@ -137,6 +148,12 @@ def main() -> int:
     ]
     if args.only_long:
         cases = cases[-1:]
+    if args.cases:
+        cases = json.loads(local_path(args.cases).read_text())
+        if not cases or any(not isinstance(c, list) or len(c) != 2 or not all(isinstance(v, str) and v for v in c) for c in cases):
+            parser.error("cases must be a nonempty list of [nonempty name, nonempty prompt] pairs")
+        if len({c[0] for c in cases}) != len(cases):
+            parser.error("case names must be unique")
     (out / "prompts.json").write_text(json.dumps(cases, ensure_ascii=False, indent=2))
     url = f"http://127.0.0.1:{args.port}"
     with (out / "results.jsonl").open("w") as results:
@@ -150,6 +167,8 @@ def main() -> int:
                 cfg.update(cwd=str(ROOT), port=args.port, host="127.0.0.1", open_browser=False,
                            log=str(out / f"{label}-engine.log"))
                 cfg["env"] = dict(cfg.get("env", {}), STRATA_SM75_PERF=str(enabled), STRATA_NO_PRESET="1")
+                if args.dump_first_logits:
+                    cfg["env"]["STRATA_DUMP_FIRST_LOGITS"] = str(out / f"{label}-first")
                 path = out / f"{label}.json"
                 path.write_text(json.dumps(cfg, indent=2))
                 with (out / f"{label}-server.log").open("w") as log:

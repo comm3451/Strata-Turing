@@ -662,8 +662,34 @@ int main(int argc, char** argv) {
 #endif
         int n = 0;
         if (cudaGetDeviceCount(&n) != cudaSuccess || n == 0) { std::printf("no CUDA device: skipped\n"); return 77; }
+        // With the native Turing opt-in requested, silently skipping an IQ pair
+        // would hide a failed specialization setup. Require the complete matrix.
+        int major = 0, minor = 0;
+        ck(cudaDeviceGetAttribute(&major, cudaDevAttrComputeCapabilityMajor, 0), "major");
+        ck(cudaDeviceGetAttribute(&minor, cudaDevAttrComputeCapabilityMinor, 0), "minor");
+        const char* native75 = std::getenv("STRATA_PF_FUSED_NATIVE_SM75");
+        const bool require_iq75 = major == 7 && minor == 5 && native75 && native75[0] == '1';
+        for (int i = 1; i < argc; ++i) {
+            if (std::strncmp(argv[i], "--sm75-dispatch=", 16) != 0) continue;
+            if (major != 7 || minor != 5) return 77;
+            const bool expected = argv[i][16] == '1';
+            for (int gu : {GGML_TYPE_IQ2_XXS, GGML_TYPE_IQ2_XS, GGML_TYPE_IQ2_S,
+                           GGML_TYPE_IQ3_XXS, GGML_TYPE_IQ3_S, GGML_TYPE_IQ4_XS}) {
+                for (int down : {GGML_TYPE_Q2_0, GGML_TYPE_IQ4_NL}) {
+                    if (fused::native_supported(gu, down) != expected)
+                        throw std::runtime_error("native SM75 dispatch differs from requested expectation");
+                }
+            }
+            if (fused::native_supported(-1, GGML_TYPE_Q2_0) ||
+                fused::native_supported(GGML_TYPE_IQ3_XXS, 64) ||
+                fused::native_supported(GGML_TYPE_IQ3_XXS, GGML_TYPE_Q8_0))
+                throw std::runtime_error("unsupported SM75 pair was admitted");
+            std::printf("native SM75 dispatch passed (%s)\n", expected ? "enabled" : "disabled");
+            return 0;
+        }
         // gfx12: only the native kernels exist (fused::available() is the Q2_0 pack's), so they decide there
         if (!fused::available() && !fused::native_supported(GGML_TYPE_IQ3_XXS, GGML_TYPE_IQ4_NL)) {
+            if (require_iq75) throw std::runtime_error("requested native SM75 kernels are unavailable");
             std::printf("the fused kernels need sm_80 or newer (or gfx11 / gfx12 matrix cores): skipped\n");
             return 77;
         }
@@ -699,7 +725,10 @@ int main(int argc, char** argv) {
             // UD-IQ4_XS-v31's Q5_0 down layers (HIP gfx12, STRATA_PF_FUSED_Q50=1; checked against the reference, the build has no Q5_0 MMQ)
             {GGML_TYPE_IQ3_XXS, GGML_TYPE_Q5_0, "IQ3_XXS / Q5_0"},   {GGML_TYPE_IQ4_XS, GGML_TYPE_Q5_0, "IQ4_XS / Q5_0"},
             // the canonical Q2_0 pack (gate/up and down Q2_0; CUDA)
-            {GGML_TYPE_Q2_0, GGML_TYPE_Q2_0, "Q2_0 / Q2_0"}};
+            {GGML_TYPE_Q2_0, GGML_TYPE_Q2_0, "Q2_0 / Q2_0"},
+            // Complete all six IQ gate/up formats crossed with Q2_0 and IQ4_NL down.
+            {GGML_TYPE_IQ2_XXS, GGML_TYPE_IQ4_NL, "IQ2_XXS / IQ4_NL"},
+            {GGML_TYPE_IQ2_XS, GGML_TYPE_Q2_0, "IQ2_XS / Q2_0"}};
         const char* only = nullptr;   // --only=NAME: the pairs whose name contains NAME
         for (int i = 1; i < argc; ++i)
             if (std::strncmp(argv[i], "--only=", 7) == 0) only = argv[i] + 7;
@@ -724,13 +753,15 @@ int main(int argc, char** argv) {
         for (const Pair& p : pairs) {
             if (only ? std::string(p.name).find(only) == std::string::npos : p.gu == GGML_TYPE_Q4_K || p.gu == GGML_TYPE_Q5_K) continue;
             if (!fused::native_supported((int) p.gu, (int) p.d)) {
-                // the Q2_0 / Q2_0 pair is the Turing opt-in's (STRATA_PF_FUSED_SM75=1; the only pair set up there) or, on sm_80+,
+                // the Q2_0 / Q2_0 pair is the Turing opt-in's (STRATA_PF_FUSED_SM75=1) or, on sm_80+,
                 // STRATA_PF_FUSED_Q2N=1's: skip what this device does not take (--only=NAME still insists)
                 const bool turing_pair = p.gu == GGML_TYPE_Q2_0 && p.d == GGML_TYPE_Q2_0;
                 const bool q50_pair = p.d == GGML_TYPE_Q5_0;   // (gfx12 / gfx1151 only: the CUDA kernels have no Q5_0 down)
                 int major = 0;
                 cudaDeviceGetAttribute(&major, cudaDevAttrComputeCapabilityMajor, 0);
-                if ((major < 8 || turing_pair || q50_pair) && !only) { std::printf("%s: not set up on this device (skipped)\n", p.name); continue; }
+                if ((major < 8 || turing_pair || q50_pair) && !only && !(require_iq75 && !q50_pair)) {
+                    std::printf("%s: not set up on this device (skipped)\n", p.name); continue;
+                }
                 throw std::runtime_error(std::string(p.name) + ": not covered by the native kernels");
             }
             if (ref) reference_part(p, s);
@@ -747,7 +778,7 @@ int main(int argc, char** argv) {
             // the IQ2_XS pack's layers (34 of 48 IQ2_S / Q2_0, 11 IQ2_XXS / Q2_0), the IQ3_S pack's most common, IQ3_XXS's
             for (const Pair& p : only ? pairs : std::vector<Pair>{pairs[0], pairs[1], pairs[4], pairs[3]}) {
                 if (only && std::string(p.name).find(only) == std::string::npos) continue;
-                if (!fused::native_supported((int) p.gu, (int) p.d)) continue;   // (Turing: the Q2_0 pair only)
+                if (!fused::native_supported((int) p.gu, (int) p.d)) continue;
                 for (int T : chunks) timing_part(p, T, s);
             }
         }
