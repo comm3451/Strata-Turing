@@ -1,0 +1,7 @@
+{
+  "production_flags_all_zero": true,
+  "both_generators_override_previous_ones": true,
+  "source_unchanged": true,
+  "credentials_network_model_fields_preserved": true,
+  "python_syntax": true
+}

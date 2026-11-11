@@ -1,9 +1,11 @@
 # QFN on TITAN RTX
 
-This fork targets Qwen3.8-Flash-Next IQ3_XXS on one TITAN RTX with a
+This fork targets Qwen3.8-Flash-Next on one TITAN RTX with a
 Xeon E5-2680 v4 and 64 GB DDR4 (two 32 GB DIMMs). The required context is
 262,144 tokens, including the prompt and generated answer. Single-user latency
 and answer quality come first. Two concurrent requests are a separate measurement.
+The initial target was IQ3_XXS. The owner now uses IQ3_S with BF16 N-grams;
+the separate measurements and serving profile below keep that configuration.
 
 ## Keep work inside the checkout
 
@@ -301,6 +303,61 @@ the existing 1,048,576-row cache, the cache payload rises by 230 MiB;
 warmed engine RSS measures about 52.70 → 52.92 GiB. Keep the IQ3_S pinning
 limit and one actual request slot. File hashes, actual long-context checks
 and the limits of the answer checks are in the report.
+
+### Repeated conversations and GPU memory
+
+The [serving-speed report](../bench/results/2026-11-12-titan-rtx-iq3s-speed/README.md)
+compares the owner's IQ3_S/BF16 configuration with additional CPU, GPU-cache
+and DFlash2 settings. The previous serving config had `--prompt-cache 0`,
+so even an unchanged long history was read again. Cache reuse reduces the
+time before an answer on matching prefixes; it does not increase cold-input
+prefill throughput by the same factor.
+
+`tools/qfn_iq3s_speed_profile.py` copies the existing IQ3_S/BF16/DFlash2
+configuration with two prompt checkpoints, a 1 GiB parked-conversation
+budget, a 3 GiB free-RAM floor, and 512 MiB additional VRAM reserve.
+It sets `STRATA_ADAPT_FETCH=2` with `STRATA_ADAPT_OVERLAP=0` to use
+fetch admission into the GPU expert cache on this node.
+It avoids parking chats shorter than 4,096 tokens and avoids replacing a
+parked prefix until it advances another 4,096 tokens. Model paths, KV
+precision, 262,144 context, one serving slot, credentials and network
+settings stay unchanged. The output is a new mode-0600 file inside the
+checkout. Both node profile generators now explicitly set
+`STRATA_ROUTE_PRIOR`, `STRATA_ROUTE_TAIL_SKIP`, `STRATA_KVA`,
+`STRATA_PREFILL_CPU_SHARE` and `STRATA_HC_Q8` to `0`, as required by the
+owner. Earlier measurements with these features enabled are a separate
+configuration and cannot establish the speed of this profile.
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_iq3s_speed_profile.py \
+  --source .turing/launch/qfn-iq3s-256k.json \
+  --out .turing/launch/qfn-iq3s-speed.json
+```
+
+Use `tools/qfn_cache_bench.py --config <cache-off.json>
+--candidate-config <cache-on.json> --server <server.py> --out <new-directory>
+--words 30000 --rounds 3` through the isolation wrapper to compare repeated
+turns, edits, an interleaved conversation and two queued clients. Both
+benchmark configs must omit the API key. A separate `--words 240000
+--continuity-only --prime-parked` run checks near-limit continuity while a
+smaller conversation remains parked. The actual token counts and content
+checks are in its results; this is a synthetic smoke test.
+
+In three alternating pairs with all five flags off, median short-code
+decode rose from 75.0 to 86.9 tok/s, and code after 4K input rose from
+56.7 to 71.0 tok/s. Korean throughput was effectively unchanged. With
+prompt caching, median 32K follow-up TTFT fell from 14.538 to 0.444 seconds.
+
+Filling the GPU with expert weights is not always faster: a zero-reserve
+pilot under the earlier feature defaults repeatedly discarded CUDA graphs
+and more than doubled the 32K prefill time. That diagnostic is separate
+from the all-five-off confirmation. The selected reserve leaves room for
+working allocations.
+Two clients still queue through one actual slot. A 1 GiB parked cache cannot
+retain two independent full 256K histories; switching away from a large
+history or editing its prefix can require another cold prefill. At 252K,
+ordinary continuation took 0.417 seconds to its first token, but changing
+the last question took 110.109 seconds because most tokens were read again.
 
 ### Start the measured profile from the system service
 

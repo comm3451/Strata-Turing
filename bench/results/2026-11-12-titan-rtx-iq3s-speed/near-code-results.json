@@ -1,0 +1,54 @@
+[
+  {
+    "round": 0,
+    "arm": "sm75-1",
+    "sm75_perf": 1,
+    "case": "long-code-252k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 124.077,
+      "total_s": 130.753,
+      "prompt_tokens": 252100,
+      "reused_tokens": 0,
+      "read_tokens": 252100,
+      "generated_tokens": 580,
+      "prompt_tps": 2036.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 123766.5,
+      "decode_ms": 6713.4,
+      "drafts_offered": 532,
+      "drafts_accepted": 455
+    },
+    "response": {
+      "first": 124.07698335300029,
+      "total": 130.7526646719998,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merges two sorted lists into a single sorted list.\n    \n    Args:\n        list1 (list): The first sorted list.\n        list2 (list): The second sorted list.\n        \n    Returns:\n        list: A new list containing all elements from list1 and list2 in sorted order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    # Traverse both lists and append the smaller element to the merged list\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n            \n    # Append any remaining elements from list1\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n        \n    # Append any remaining elements from list2\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n        \n    return merged\n\n# Test Case 1: Standard merge of two non-empty sorted lists\ndef test_merge_sorted_lists_standard():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    expected = [1, 2, 3, 4, 5, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\n# Test Case 2: Merge with one empty list and duplicate values\ndef test_merge_sorted_lists_edge_cases():\n    # One list is empty\n    list1 = []\n    list2 = [1, 2, 3]\n    expected = [1, 2, 3]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n    \n    # Lists with duplicates\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4]\n    expected = [1, 1, 1, 2, 3, 4]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists_standard()\n    test_merge_sorted_lists_edge_cases()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 252100,
+        "completion_tokens": 580,
+        "total_tokens": 252680,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252100,
+        "prompt_ms": 123766.5,
+        "prompt_per_token_ms": 0.491,
+        "prompt_per_second": 2036.9,
+        "predicted_n": 580,
+        "predicted_ms": 6713.4,
+        "predicted_per_token_ms": 11.575,
+        "predicted_per_second": 86.4,
+        "draft_n": 532,
+        "draft_n_accepted": 455
+      },
+      "err": null,
+      "pieces": 529
+    }
+  }
+]

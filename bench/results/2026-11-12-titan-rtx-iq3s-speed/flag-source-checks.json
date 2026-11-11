@@ -1,0 +1,31 @@
+{
+  "method": "Static source inspection; separate engine-environment.json verifies actual process inputs",
+  "checks": {
+    "STRATA_ROUTE_PRIOR": {
+      "file": "include/strata/core/sm120_series.hpp",
+      "resolver": "route_prior_resolve: explicit atof(\"0\") returns 0",
+      "source_sha256": "3f3b542e58b4553d7de68943d5d6e059fb46883ad203dd77d67e7db9628d3c83"
+    },
+    "STRATA_ROUTE_TAIL_SKIP": {
+      "file": "src/core/expert_source.cpp",
+      "resolver": "tail_skip_rank: only ranks 1..9 are active; zero is off",
+      "source_sha256": "e1e695fd6f1dc911af0ffaeb1d08817f0f95e46f9dc71c5efb5db970392da57b",
+      "startup_guard": "src/program/generate.cpp: tail_default_path requires the environment variable to be absent, so explicit 0 prevents the serve default of 7"
+    },
+    "STRATA_KVA": {
+      "file": "include/strata/prefill/kva.hpp",
+      "resolver": "kva_config_from_env: k.on requires first character different from 0",
+      "source_sha256": "8770abf5188b0350db913beb761e295f9e3453abee15989372ca4b1f6d22d760"
+    },
+    "STRATA_PREFILL_CPU_SHARE": {
+      "file": "src/prefill/prefill.cpp",
+      "resolver": "cpu_share_on: explicit numeric zero makes share != 0 false",
+      "source_sha256": "38c561e063799c34030fc900c4b703619787e74805783f6fa0e5ea058f1f0d93"
+    },
+    "STRATA_HC_Q8": {
+      "file": "src/core/native_dense.cpp",
+      "resolver": "hc_q8_env: explicit nonempty value other than 1 or auto returns false",
+      "source_sha256": "30ec5f95c9cc5536cbb6c8d71f092e7836230e568fff2e7db488a47e19130ec5"
+    }
+  }
+}

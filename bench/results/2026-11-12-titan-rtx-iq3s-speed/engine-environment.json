@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-12T07:22:13.748607+09:00",
+  "engine": "/home/eesdf/Strata-Turing/build/qfn-turing/strata",
+  "processes": [
+    {
+      "pid": 18123,
+      "flags": {
+        "STRATA_ROUTE_PRIOR": "0",
+        "STRATA_ROUTE_TAIL_SKIP": "0",
+        "STRATA_KVA": "0",
+        "STRATA_PREFILL_CPU_SHARE": "0",
+        "STRATA_HC_Q8": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "checked_answers": {
+    "confirm": 12,
+    "cache-balanced-pilot": 9,
+    "cache-confirm": 54,
+    "near-continuity": 7,
+    "near-code": 1,
+    "quality": 18
+  },
+  "seeded_merge_cases_per_answer": 100
+}

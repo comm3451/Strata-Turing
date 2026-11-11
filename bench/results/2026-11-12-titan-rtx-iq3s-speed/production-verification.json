@@ -1,0 +1,64 @@
+{
+  "production-process": {
+    "actual_engine_processes": [
+      {
+        "pid": 29878,
+        "env": {
+          "STRATA_ROUTE_PRIOR": "0",
+          "STRATA_ROUTE_TAIL_SKIP": "0",
+          "STRATA_KVA": "0",
+          "STRATA_PREFILL_CPU_SHARE": "0",
+          "STRATA_HC_Q8": "0",
+          "STRATA_ADAPT_FETCH": "2",
+          "STRATA_ADAPT_OVERLAP": "0"
+        }
+      }
+    ],
+    "all_five_flags_zero": true
+  },
+  "production-verified": {
+    "api_ready": true,
+    "model_ids": [
+      "qwen3.8-flash-next-iq3_s"
+    ],
+    "context": {
+      "native": 262144,
+      "max_positions": 262144
+    },
+    "concurrency": {
+      "serving": 1,
+      "requested": 1
+    },
+    "required_config_flags": {
+      "STRATA_ROUTE_PRIOR": "0",
+      "STRATA_ROUTE_TAIL_SKIP": "0",
+      "STRATA_KVA": "0",
+      "STRATA_PREFILL_CPU_SHARE": "0",
+      "STRATA_HC_Q8": "0"
+    },
+    "synthetic_answer_correct": true,
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.461,
+      "total_s": 0.54,
+      "prompt_tokens": 20,
+      "reused_tokens": 0,
+      "read_tokens": 20,
+      "generated_tokens": 3,
+      "prompt_tps": 48.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 24.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 410.8,
+      "decode_ms": 121.3,
+      "drafts_offered": 2,
+      "drafts_accepted": 2
+    }
+  },
+  "service": {
+    "active_state": "active",
+    "sub_state": "running",
+    "exec_main_status": 0
+  }
+}
