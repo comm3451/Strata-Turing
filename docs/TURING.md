@@ -4,8 +4,24 @@ This fork targets Qwen3.8-Flash-Next on one TITAN RTX with a
 Xeon E5-2680 v4 and 64 GB DDR4 (two 32 GB DIMMs). The required context is
 262,144 tokens, including the prompt and generated answer. Single-user latency
 and answer quality come first. Two concurrent requests are a separate measurement.
-The initial target was IQ3_XXS. The owner now uses IQ3_S with BF16 N-grams;
-the separate measurements and serving profile below keep that configuration.
+The owner currently uses ISTA-DASLab IQ3_XXS with BF16 N-grams. On
+2026-11-12, the owner requested replacing IQ3_S with IQ3_XXS while keeping
+the other serving settings. Earlier IQ3_S measurements below remain specific
+to IQ3_S; they do not establish IQ3_XXS performance.
+
+The model-only change preserves BF16 N-grams, 262,144 context, INT8 KV,
+stock DFlash2 (window 6, confidence 0.5), prompt cache 2 and all five required
+zero flags. The existing IQ3_XXS files are reused read-only. The tokenizer
+files match the IQ3_S tokenizer byte for byte. The private service config
+keeps its historical filename, `.turing/launch/qfn-iq3s-256k.json`, so the
+system service does not need a new unit or override.
+
+After the service restart, the actual engine arguments and environment
+matched this configuration. The authenticated API reported IQ3_XXS and
+262,144 context, and a short synthetic request returned the expected answer.
+The owner canceled the proposed model comparison. No new speed comparison,
+broad quality evaluation or near-limit context test was performed for this
+combination. This is a verified configuration change, not a measured speedup.
 
 ## Keep work inside the checkout
 

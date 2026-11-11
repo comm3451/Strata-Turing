@@ -14,7 +14,7 @@
   Keep upstream attribution and licenses. Do not report an untested change as an optimization.
 - Target: one TITAN RTX (24 GiB, sm_75), Xeon E5-2680 v4 (14 cores / 28 threads, AVX2),
   DDR4 32 GB x 2. Inference only.
-- Workload: Qwen3.8-Flash-Next (QFN), ISTA-DASLab IQ3_S with BF16 N-grams,
+- Workload: Qwen3.8-Flash-Next (QFN), ISTA-DASLab IQ3_XXS with BF16 N-grams,
   262144 total context tokens. Preserve the
   user's model and context. Prioritize single-user latency and quality; evaluate two concurrent
   requests separately after the single-user baseline. Do not assume that 256K context fits

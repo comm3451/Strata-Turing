@@ -8,7 +8,7 @@ strata_server="$HOME/.local/share/strata/components/control/0.1.57/serve/server.
 strata_config="$strata_root/.turing/launch/qfn-iq3s-256k.json"
 
 [[ -x "$strata_python" && -r "$strata_server" && -r "$strata_config" ]] || {
-    echo 'turing-serve: the measured Python/server installation and private IQ3_S profile are required.' >&2
+    echo 'turing-serve: the measured Python/server installation and private QFN profile are required.' >&2
     exit 1
 }
 
