@@ -1,0 +1,92 @@
+[
+  {
+    "case": "code-32",
+    "characters": 2148,
+    "sha256": "eb7a1ec9601da5f68348cb728c8ac60ed0dc5548a0fe2e5f07fc73cc10cf8e8a"
+  },
+  {
+    "case": "korean-32",
+    "characters": 2091,
+    "sha256": "431f22614eff206f7aa02d776d37fe7507b6b8c5cf8a801bcdd74f53c0193d0c"
+  },
+  {
+    "case": "math-32",
+    "characters": 2166,
+    "sha256": "b5b1c01a47223bdbb57ee1667283e86d62679a0a4d7f5467e4382f3813a31ad6"
+  },
+  {
+    "case": "json-32",
+    "characters": 2177,
+    "sha256": "8293ca40db5ff59f0b827f78485d8bc64d3c18c79a5870036a5b4416781b1525"
+  },
+  {
+    "case": "logic-32",
+    "characters": 2151,
+    "sha256": "299050682f6923b4466585120e5b1ac82e15eb0c6c6c5044d44da20fa8620324"
+  },
+  {
+    "case": "tool-32",
+    "characters": 2175,
+    "sha256": "c16a57694eae63ce600aadc6afb408a7678c0dc486784b378e8a1bfb7a5aff53"
+  },
+  {
+    "case": "code-256",
+    "characters": 16640,
+    "sha256": "76df834bc39b3a3c0a096a38ccd3856108c95be946ca95b8eda006e8ca7bd08a"
+  },
+  {
+    "case": "korean-256",
+    "characters": 16583,
+    "sha256": "63a8b0a731335007d805b48385520cc0b0193dd628c91b47c36ab7844bfb2450"
+  },
+  {
+    "case": "math-256",
+    "characters": 16658,
+    "sha256": "eb04853ea766055ee2eb959a5bf0c6ab87f8327ea420520bef9ebe5675a3172d"
+  },
+  {
+    "case": "json-256",
+    "characters": 16669,
+    "sha256": "1e8a216dc09b97a8e86a15587b619179728dd8a1aaf776e51d201a213b4967c8"
+  },
+  {
+    "case": "logic-256",
+    "characters": 16643,
+    "sha256": "753abd75a62efd39e95eb562d17e78e70bb862d65d6843927e3a0eb4ed05cef1"
+  },
+  {
+    "case": "tool-256",
+    "characters": 16667,
+    "sha256": "06c1fb92be6dfd7f7b1b34eed6718d25285e974d86d54ca934fe738af8d470c8"
+  },
+  {
+    "case": "code-1024",
+    "characters": 66584,
+    "sha256": "5186cd24e8c41ab06befdd4c6855fc9f046d908e398756290a2a49da4bd18d8f"
+  },
+  {
+    "case": "korean-1024",
+    "characters": 66527,
+    "sha256": "a80cb3b10eed7cf5e7a6fe533326123182ef42466f657ebbe1c04c14ca1b249a"
+  },
+  {
+    "case": "math-1024",
+    "characters": 66602,
+    "sha256": "8f2d5f61dc9fa4b467be34620c1742ccf0efd8754e5e52a4c21ed976d31fea2f"
+  },
+  {
+    "case": "json-1024",
+    "characters": 66613,
+    "sha256": "f1ef18575c4b8f29b2d49a9c743908df1a0eab85fae0f968a1569e544d4581e2"
+  },
+  {
+    "case": "logic-1024",
+    "characters": 66587,
+    "sha256": "35dbbe36c1b39eb04e5bad1ae58e0ef1bcb57d9e3b43548710795c83c180a3d8"
+  },
+  {
+    "case": "tool-1024",
+    "characters": 66611,
+    "sha256": "f9dfea921f50ae488e2289aa6a08c11eee770ec7c628abaf81255bd074536505"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "checked_answers": {
+    "pilot": 1,
+    "pilot-c05": 1,
+    "confirm": 12,
+    "near": 4,
+    "quality": 18
+  },
+  "seeded_merge_cases_per_answer": 100,
+  "review_notes": [
+    "Initial Korean marker-word check flagged korean-1024. Its full answer correctly states mutable lists and immutable tuples; the checker accepts the exact reviewed wording.",
+    "Math checks the final numeric answer, not strict number-only formatting.",
+    "Only reviewed merge functions are executed; surrounding generated tests are not executed."
+  ]
+}

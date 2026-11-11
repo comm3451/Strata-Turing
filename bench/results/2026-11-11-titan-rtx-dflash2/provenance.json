@@ -1,0 +1,17 @@
+{
+  "base_model": "ISTA-DASLab Qwen3.8-Flash-Next GSQ-RCO IQ3_S",
+  "ngram": "IQ4_NL",
+  "context_capacity": 262144,
+  "draft_source": {
+    "repo": "incoai/Qwen3.8-Flash-Next-DFlash2",
+    "revision": "a22a1744e85c17364dcc54a6a420af7135d4c7f6",
+    "license": "Apache-2.0",
+    "pack": "qwen3.8-flash-next-dflash2.q4_0-selq4.pack",
+    "bytes": 339694592,
+    "sha256": "4a42b98220ea7880664002c8edda1563aecbae754b762a2e2f31b2b91ee93ecd",
+    "actual_hash_checked": true
+  },
+  "vocab_sha256": "b1e1d3a7a9e4bf862dcd5923ce661fb59bbd07907e594df5cf86a62ac235cb91",
+  "vocab_identical_for_both": true,
+  "claim_scope": "Stock Q4_0 drafter with Q4_0 selectors; not Strata tuned drafter."
+}

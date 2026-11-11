@@ -1,0 +1,1894 @@
+{
+  "pilot": {
+    "requests": 3,
+    "all_ok": true,
+    "all_zero_reuse": true,
+    "memory": {
+      "sample_seconds": 2,
+      "peak_vram_mib": 22136.0,
+      "minimum_available_ram_gib": 5.408050537109375,
+      "swap_used_kib_range": [
+        226380,
+        1829488
+      ]
+    },
+    "groups": {
+      "sm75-1/code": {
+        "decode_tps": {
+          "median": 82.9,
+          "values": [
+            82.9
+          ]
+        },
+        "prompt_tps": {
+          "median": 109.7,
+          "values": [
+            109.7
+          ]
+        },
+        "ttft_s": {
+          "median": 0.344,
+          "values": [
+            0.344
+          ]
+        },
+        "total_s": {
+          "median": 6.368,
+          "values": [
+            6.368
+          ]
+        },
+        "generated_tokens": {
+          "median": 501,
+          "values": [
+            501
+          ]
+        },
+        "drafts_offered": {
+          "median": 428,
+          "values": [
+            428
+          ]
+        },
+        "drafts_accepted": {
+          "median": 391,
+          "values": [
+            391
+          ]
+        }
+      },
+      "sm75-1/korean": {
+        "decode_tps": {
+          "median": 72.0,
+          "values": [
+            72.0
+          ]
+        },
+        "prompt_tps": {
+          "median": 67.0,
+          "values": [
+            67.0
+          ]
+        },
+        "ttft_s": {
+          "median": 0.624,
+          "values": [
+            0.624
+          ]
+        },
+        "total_s": {
+          "median": 11.262,
+          "values": [
+            11.262
+          ]
+        },
+        "generated_tokens": {
+          "median": 768,
+          "values": [
+            768
+          ]
+        },
+        "drafts_offered": {
+          "median": 523,
+          "values": [
+            523
+          ]
+        },
+        "drafts_accepted": {
+          "median": 448,
+          "values": [
+            448
+          ]
+        }
+      },
+      "sm75-1/long32k": {
+        "decode_tps": {
+          "median": 50.8,
+          "values": [
+            50.8
+          ]
+        },
+        "prompt_tps": {
+          "median": 2158.8,
+          "values": [
+            2158.8
+          ]
+        },
+        "ttft_s": {
+          "median": 14.744,
+          "values": [
+            14.744
+          ]
+        },
+        "total_s": {
+          "median": 17.37,
+          "values": [
+            17.37
+          ]
+        },
+        "generated_tokens": {
+          "median": 135,
+          "values": [
+            135
+          ]
+        },
+        "drafts_offered": {
+          "median": 63,
+          "values": [
+            63
+          ]
+        },
+        "drafts_accepted": {
+          "median": 62,
+          "values": [
+            62
+          ]
+        }
+      }
+    }
+  },
+  "pilot-c05": {
+    "requests": 3,
+    "all_ok": true,
+    "all_zero_reuse": true,
+    "memory": {
+      "sample_seconds": 2,
+      "peak_vram_mib": 22118.0,
+      "minimum_available_ram_gib": 4.965545654296875,
+      "swap_used_kib_range": [
+        283932,
+        285264
+      ]
+    },
+    "groups": {
+      "sm75-1/code": {
+        "decode_tps": {
+          "median": 96.8,
+          "values": [
+            96.8
+          ]
+        },
+        "prompt_tps": {
+          "median": 116.4,
+          "values": [
+            116.4
+          ]
+        },
+        "ttft_s": {
+          "median": 0.318,
+          "values": [
+            0.318
+          ]
+        },
+        "total_s": {
+          "median": 4.764,
+          "values": [
+            4.764
+          ]
+        },
+        "generated_tokens": {
+          "median": 432,
+          "values": [
+            432
+          ]
+        },
+        "drafts_offered": {
+          "median": 388,
+          "values": [
+            388
+          ]
+        },
+        "drafts_accepted": {
+          "median": 347,
+          "values": [
+            347
+          ]
+        }
+      },
+      "sm75-1/korean": {
+        "decode_tps": {
+          "median": 74.2,
+          "values": [
+            74.2
+          ]
+        },
+        "prompt_tps": {
+          "median": 93.6,
+          "values": [
+            93.6
+          ]
+        },
+        "ttft_s": {
+          "median": 0.424,
+          "values": [
+            0.424
+          ]
+        },
+        "total_s": {
+          "median": 10.746,
+          "values": [
+            10.746
+          ]
+        },
+        "generated_tokens": {
+          "median": 768,
+          "values": [
+            768
+          ]
+        },
+        "drafts_offered": {
+          "median": 710,
+          "values": [
+            710
+          ]
+        },
+        "drafts_accepted": {
+          "median": 471,
+          "values": [
+            471
+          ]
+        }
+      },
+      "sm75-1/long32k": {
+        "decode_tps": {
+          "median": 53.8,
+          "values": [
+            53.8
+          ]
+        },
+        "prompt_tps": {
+          "median": 2154.3,
+          "values": [
+            2154.3
+          ]
+        },
+        "ttft_s": {
+          "median": 14.742,
+          "values": [
+            14.742
+          ]
+        },
+        "total_s": {
+          "median": 17.665,
+          "values": [
+            17.665
+          ]
+        },
+        "generated_tokens": {
+          "median": 159,
+          "values": [
+            159
+          ]
+        },
+        "drafts_offered": {
+          "median": 127,
+          "values": [
+            127
+          ]
+        },
+        "drafts_accepted": {
+          "median": 87,
+          "values": [
+            87
+          ]
+        }
+      }
+    }
+  },
+  "confirm": {
+    "requests": 30,
+    "all_ok": true,
+    "all_zero_reuse": true,
+    "memory": {
+      "sample_seconds": 2,
+      "peak_vram_mib": 22198.0,
+      "minimum_available_ram_gib": 4.752784729003906,
+      "swap_used_kib_range": [
+        282444,
+        283844
+      ]
+    },
+    "groups": {
+      "baseline/code": {
+        "decode_tps": {
+          "median": 79.9,
+          "values": [
+            79.9,
+            80.2,
+            78.7
+          ]
+        },
+        "prompt_tps": {
+          "median": 120.4,
+          "values": [
+            115.9,
+            120.4,
+            123.4
+          ]
+        },
+        "ttft_s": {
+          "median": 0.31,
+          "values": [
+            0.382,
+            0.31,
+            0.303
+          ]
+        },
+        "total_s": {
+          "median": 6.646,
+          "values": [
+            6.732,
+            6.238,
+            6.646
+          ]
+        },
+        "generated_tokens": {
+          "median": 501,
+          "values": [
+            509,
+            477,
+            501
+          ]
+        },
+        "drafts_offered": {
+          "median": 361,
+          "values": [
+            367,
+            337,
+            361
+          ]
+        },
+        "drafts_accepted": {
+          "median": 316,
+          "values": [
+            323,
+            298,
+            316
+          ]
+        }
+      },
+      "baseline/korean": {
+        "decode_tps": {
+          "median": 74.2,
+          "values": [
+            74.2,
+            72.5,
+            74.2
+          ]
+        },
+        "prompt_tps": {
+          "median": 108.8,
+          "values": [
+            105.7,
+            108.8,
+            109.7
+          ]
+        },
+        "ttft_s": {
+          "median": 0.373,
+          "values": [
+            0.383,
+            0.373,
+            0.369
+          ]
+        },
+        "total_s": {
+          "median": 10.704,
+          "values": [
+            10.704,
+            10.945,
+            10.69
+          ]
+        },
+        "generated_tokens": {
+          "median": 768,
+          "values": [
+            768,
+            768,
+            768
+          ]
+        },
+        "drafts_offered": {
+          "median": 615,
+          "values": [
+            623,
+            615,
+            610
+          ]
+        },
+        "drafts_accepted": {
+          "median": 443,
+          "values": [
+            451,
+            443,
+            443
+          ]
+        }
+      },
+      "baseline/long4k": {
+        "decode_tps": {
+          "median": 48.3,
+          "values": [
+            48.3,
+            49.4,
+            45.9
+          ]
+        },
+        "prompt_tps": {
+          "median": 993.0,
+          "values": [
+            994.0,
+            991.9,
+            993.0
+          ]
+        },
+        "ttft_s": {
+          "median": 4.423,
+          "values": [
+            4.42,
+            4.426,
+            4.423
+          ]
+        },
+        "total_s": {
+          "median": 6.832,
+          "values": [
+            6.832,
+            6.682,
+            7.137
+          ]
+        },
+        "generated_tokens": {
+          "median": 118,
+          "values": [
+            118,
+            113,
+            126
+          ]
+        },
+        "drafts_offered": {
+          "median": 86,
+          "values": [
+            86,
+            77,
+            96
+          ]
+        },
+        "drafts_accepted": {
+          "median": 55,
+          "values": [
+            57,
+            55,
+            55
+          ]
+        }
+      },
+      "baseline/long32k": {
+        "decode_tps": {
+          "median": 64.4,
+          "values": [
+            64.4,
+            63.4,
+            65.2
+          ]
+        },
+        "prompt_tps": {
+          "median": 2154.1,
+          "values": [
+            2170.3,
+            2153.9,
+            2154.1
+          ]
+        },
+        "ttft_s": {
+          "median": 14.745,
+          "values": [
+            14.629,
+            14.747,
+            14.745
+          ]
+        },
+        "total_s": {
+          "median": 17.052,
+          "values": [
+            16.98,
+            17.148,
+            17.052
+          ]
+        },
+        "generated_tokens": {
+          "median": 153,
+          "values": [
+            153,
+            154,
+            152
+          ]
+        },
+        "drafts_offered": {
+          "median": 116,
+          "values": [
+            116,
+            132,
+            107
+          ]
+        },
+        "drafts_accepted": {
+          "median": 79,
+          "values": [
+            79,
+            87,
+            77
+          ]
+        }
+      },
+      "baseline/long-code": {
+        "decode_tps": {
+          "median": 64.2,
+          "values": [
+            64.2,
+            66.4,
+            64.2
+          ]
+        },
+        "prompt_tps": {
+          "median": 1032.8,
+          "values": [
+            1033.7,
+            1031.8,
+            1032.8
+          ]
+        },
+        "ttft_s": {
+          "median": 4.294,
+          "values": [
+            4.29,
+            4.295,
+            4.294
+          ]
+        },
+        "total_s": {
+          "median": 9.217,
+          "values": [
+            9.217,
+            9.104,
+            9.264
+          ]
+        },
+        "generated_tokens": {
+          "median": 321,
+          "values": [
+            318,
+            321,
+            321
+          ]
+        },
+        "drafts_offered": {
+          "median": 216,
+          "values": [
+            225,
+            216,
+            207
+          ]
+        },
+        "drafts_accepted": {
+          "median": 195,
+          "values": [
+            195,
+            200,
+            190
+          ]
+        }
+      },
+      "candidate/code": {
+        "decode_tps": {
+          "median": 96.4,
+          "values": [
+            96.4,
+            96.5,
+            94.7
+          ]
+        },
+        "prompt_tps": {
+          "median": 115.2,
+          "values": [
+            115.9,
+            115.2,
+            114.3
+          ]
+        },
+        "ttft_s": {
+          "median": 0.321,
+          "values": [
+            0.319,
+            0.321,
+            0.324
+          ]
+        },
+        "total_s": {
+          "median": 4.782,
+          "values": [
+            4.782,
+            4.778,
+            5.619
+          ]
+        },
+        "generated_tokens": {
+          "median": 432,
+          "values": [
+            432,
+            432,
+            503
+          ]
+        },
+        "drafts_offered": {
+          "median": 388,
+          "values": [
+            388,
+            388,
+            475
+          ]
+        },
+        "drafts_accepted": {
+          "median": 347,
+          "values": [
+            347,
+            347,
+            397
+          ]
+        }
+      },
+      "candidate/korean": {
+        "decode_tps": {
+          "median": 74.3,
+          "values": [
+            74.3,
+            74.2,
+            74.8
+          ]
+        },
+        "prompt_tps": {
+          "median": 94.8,
+          "values": [
+            94.8,
+            95.1,
+            91.1
+          ]
+        },
+        "ttft_s": {
+          "median": 0.419,
+          "values": [
+            0.419,
+            0.418,
+            0.436
+          ]
+        },
+        "total_s": {
+          "median": 10.739,
+          "values": [
+            10.739,
+            10.749,
+            10.675
+          ]
+        },
+        "generated_tokens": {
+          "median": 768,
+          "values": [
+            768,
+            768,
+            768
+          ]
+        },
+        "drafts_offered": {
+          "median": 706,
+          "values": [
+            706,
+            706,
+            723
+          ]
+        },
+        "drafts_accepted": {
+          "median": 472,
+          "values": [
+            472,
+            472,
+            474
+          ]
+        }
+      },
+      "candidate/long4k": {
+        "decode_tps": {
+          "median": 45.1,
+          "values": [
+            45.0,
+            45.1,
+            46.4
+          ]
+        },
+        "prompt_tps": {
+          "median": 989.8,
+          "values": [
+            989.8,
+            987.5,
+            990.3
+          ]
+        },
+        "ttft_s": {
+          "median": 4.436,
+          "values": [
+            4.436,
+            4.446,
+            4.434
+          ]
+        },
+        "total_s": {
+          "median": 6.892,
+          "values": [
+            6.892,
+            6.901,
+            6.84
+          ]
+        },
+        "generated_tokens": {
+          "median": 112,
+          "values": [
+            112,
+            112,
+            113
+          ]
+        },
+        "drafts_offered": {
+          "median": 97,
+          "values": [
+            97,
+            97,
+            94
+          ]
+        },
+        "drafts_accepted": {
+          "median": 53,
+          "values": [
+            53,
+            53,
+            56
+          ]
+        }
+      },
+      "candidate/long32k": {
+        "decode_tps": {
+          "median": 65.2,
+          "values": [
+            64.7,
+            65.2,
+            68.5
+          ]
+        },
+        "prompt_tps": {
+          "median": 2163.8,
+          "values": [
+            2168.5,
+            2163.8,
+            2163.4
+          ]
+        },
+        "ttft_s": {
+          "median": 14.672,
+          "values": [
+            14.641,
+            14.672,
+            14.682
+          ]
+        },
+        "total_s": {
+          "median": 17.058,
+          "values": [
+            17.058,
+            17.07,
+            16.845
+          ]
+        },
+        "generated_tokens": {
+          "median": 158,
+          "values": [
+            158,
+            158,
+            150
+          ]
+        },
+        "drafts_offered": {
+          "median": 126,
+          "values": [
+            126,
+            126,
+            116
+          ]
+        },
+        "drafts_accepted": {
+          "median": 86,
+          "values": [
+            86,
+            86,
+            84
+          ]
+        }
+      },
+      "candidate/long-code": {
+        "decode_tps": {
+          "median": 74.0,
+          "values": [
+            73.8,
+            74.0,
+            75.5
+          ]
+        },
+        "prompt_tps": {
+          "median": 1029.3,
+          "values": [
+            1029.3,
+            1032.3,
+            1028.4
+          ]
+        },
+        "ttft_s": {
+          "median": 4.306,
+          "values": [
+            4.306,
+            4.293,
+            4.309
+          ]
+        },
+        "total_s": {
+          "median": 8.606,
+          "values": [
+            8.629,
+            8.606,
+            8.497
+          ]
+        },
+        "generated_tokens": {
+          "median": 321,
+          "values": [
+            321,
+            321,
+            318
+          ]
+        },
+        "drafts_offered": {
+          "median": 312,
+          "values": [
+            312,
+            312,
+            292
+          ]
+        },
+        "drafts_accepted": {
+          "median": 250,
+          "values": [
+            250,
+            250,
+            248
+          ]
+        }
+      }
+    }
+  },
+  "near": {
+    "requests": 4,
+    "all_ok": true,
+    "all_zero_reuse": true,
+    "memory": {
+      "sample_seconds": 2,
+      "peak_vram_mib": 22178.0,
+      "minimum_available_ram_gib": 4.649791717529297,
+      "swap_used_kib_range": [
+        274812,
+        282444
+      ]
+    },
+    "groups": {
+      "baseline/long": {
+        "decode_tps": {
+          "median": 51.1,
+          "values": [
+            51.1
+          ]
+        },
+        "prompt_tps": {
+          "median": 2043.6,
+          "values": [
+            2043.6
+          ]
+        },
+        "ttft_s": {
+          "median": 123.682,
+          "values": [
+            123.682
+          ]
+        },
+        "total_s": {
+          "median": 124.105,
+          "values": [
+            124.105
+          ]
+        },
+        "generated_tokens": {
+          "median": 23,
+          "values": [
+            23
+          ]
+        },
+        "drafts_offered": {
+          "median": 16,
+          "values": [
+            16
+          ]
+        },
+        "drafts_accepted": {
+          "median": 15,
+          "values": [
+            15
+          ]
+        }
+      },
+      "baseline/long-code-252k": {
+        "decode_tps": {
+          "median": 81.9,
+          "values": [
+            81.9
+          ]
+        },
+        "prompt_tps": {
+          "median": 2025.4,
+          "values": [
+            2025.4
+          ]
+        },
+        "ttft_s": {
+          "median": 124.734,
+          "values": [
+            124.734
+          ]
+        },
+        "total_s": {
+          "median": 131.874,
+          "values": [
+            131.874
+          ]
+        },
+        "generated_tokens": {
+          "median": 587,
+          "values": [
+            587
+          ]
+        },
+        "drafts_offered": {
+          "median": 506,
+          "values": [
+            506
+          ]
+        },
+        "drafts_accepted": {
+          "median": 410,
+          "values": [
+            410
+          ]
+        }
+      },
+      "candidate/long": {
+        "decode_tps": {
+          "median": 45.5,
+          "values": [
+            45.5
+          ]
+        },
+        "prompt_tps": {
+          "median": 2038.8,
+          "values": [
+            2038.8
+          ]
+        },
+        "ttft_s": {
+          "median": 123.972,
+          "values": [
+            123.972
+          ]
+        },
+        "total_s": {
+          "median": 124.451,
+          "values": [
+            124.451
+          ]
+        },
+        "generated_tokens": {
+          "median": 23,
+          "values": [
+            23
+          ]
+        },
+        "drafts_offered": {
+          "median": 23,
+          "values": [
+            23
+          ]
+        },
+        "drafts_accepted": {
+          "median": 16,
+          "values": [
+            16
+          ]
+        }
+      },
+      "candidate/long-code-252k": {
+        "decode_tps": {
+          "median": 94.5,
+          "values": [
+            94.5
+          ]
+        },
+        "prompt_tps": {
+          "median": 2026.6,
+          "values": [
+            2026.6
+          ]
+        },
+        "ttft_s": {
+          "median": 124.658,
+          "values": [
+            124.658
+          ]
+        },
+        "total_s": {
+          "median": 130.869,
+          "values": [
+            130.869
+          ]
+        },
+        "generated_tokens": {
+          "median": 589,
+          "values": [
+            589
+          ]
+        },
+        "drafts_offered": {
+          "median": 533,
+          "values": [
+            533
+          ]
+        },
+        "drafts_accepted": {
+          "median": 457,
+          "values": [
+            457
+          ]
+        }
+      }
+    }
+  },
+  "quality": {
+    "requests": 18,
+    "all_ok": true,
+    "all_zero_reuse": true,
+    "memory": {
+      "sample_seconds": 2,
+      "peak_vram_mib": 22132.0,
+      "minimum_available_ram_gib": 4.812690734863281,
+      "swap_used_kib_range": [
+        271640,
+        274812
+      ]
+    },
+    "groups": {
+      "sm75-1/code-32": {
+        "decode_tps": {
+          "median": 94.4,
+          "values": [
+            94.4
+          ]
+        },
+        "prompt_tps": {
+          "median": 354.7,
+          "values": [
+            354.7
+          ]
+        },
+        "ttft_s": {
+          "median": 1.808,
+          "values": [
+            1.808
+          ]
+        },
+        "total_s": {
+          "median": 4.088,
+          "values": [
+            4.088
+          ]
+        },
+        "generated_tokens": {
+          "median": 217,
+          "values": [
+            217
+          ]
+        },
+        "drafts_offered": {
+          "median": 197,
+          "values": [
+            197
+          ]
+        },
+        "drafts_accepted": {
+          "median": 174,
+          "values": [
+            174
+          ]
+        }
+      },
+      "sm75-1/korean-32": {
+        "decode_tps": {
+          "median": 54.2,
+          "values": [
+            54.2
+          ]
+        },
+        "prompt_tps": {
+          "median": 370.6,
+          "values": [
+            370.6
+          ]
+        },
+        "ttft_s": {
+          "median": 1.736,
+          "values": [
+            1.736
+          ]
+        },
+        "total_s": {
+          "median": 2.728,
+          "values": [
+            2.728
+          ]
+        },
+        "generated_tokens": {
+          "median": 55,
+          "values": [
+            55
+          ]
+        },
+        "drafts_offered": {
+          "median": 39,
+          "values": [
+            39
+          ]
+        },
+        "drafts_accepted": {
+          "median": 26,
+          "values": [
+            26
+          ]
+        }
+      },
+      "sm75-1/math-32": {
+        "decode_tps": {
+          "median": 52.9,
+          "values": [
+            52.9
+          ]
+        },
+        "prompt_tps": {
+          "median": 376.9,
+          "values": [
+            376.9
+          ]
+        },
+        "ttft_s": {
+          "median": 1.739,
+          "values": [
+            1.739
+          ]
+        },
+        "total_s": {
+          "median": 2.494,
+          "values": [
+            2.494
+          ]
+        },
+        "generated_tokens": {
+          "median": 41,
+          "values": [
+            41
+          ]
+        },
+        "drafts_offered": {
+          "median": 46,
+          "values": [
+            46
+          ]
+        },
+        "drafts_accepted": {
+          "median": 28,
+          "values": [
+            28
+          ]
+        }
+      },
+      "sm75-1/json-32": {
+        "decode_tps": {
+          "median": 76.0,
+          "values": [
+            76.0
+          ]
+        },
+        "prompt_tps": {
+          "median": 385.1,
+          "values": [
+            385.1
+          ]
+        },
+        "ttft_s": {
+          "median": 1.692,
+          "values": [
+            1.692
+          ]
+        },
+        "total_s": {
+          "median": 2.04,
+          "values": [
+            2.04
+          ]
+        },
+        "generated_tokens": {
+          "median": 28,
+          "values": [
+            28
+          ]
+        },
+        "drafts_offered": {
+          "median": 23,
+          "values": [
+            23
+          ]
+        },
+        "drafts_accepted": {
+          "median": 22,
+          "values": [
+            22
+          ]
+        }
+      },
+      "sm75-1/logic-32": {
+        "decode_tps": {
+          "median": 59.1,
+          "values": [
+            59.1
+          ]
+        },
+        "prompt_tps": {
+          "median": 374.0,
+          "values": [
+            374.0
+          ]
+        },
+        "ttft_s": {
+          "median": 1.739,
+          "values": [
+            1.739
+          ]
+        },
+        "total_s": {
+          "median": 2.328,
+          "values": [
+            2.328
+          ]
+        },
+        "generated_tokens": {
+          "median": 36,
+          "values": [
+            36
+          ]
+        },
+        "drafts_offered": {
+          "median": 36,
+          "values": [
+            36
+          ]
+        },
+        "drafts_accepted": {
+          "median": 26,
+          "values": [
+            26
+          ]
+        }
+      },
+      "sm75-1/tool-32": {
+        "decode_tps": {
+          "median": 68.1,
+          "values": [
+            68.1
+          ]
+        },
+        "prompt_tps": {
+          "median": 380.3,
+          "values": [
+            380.3
+          ]
+        },
+        "ttft_s": {
+          "median": 1.707,
+          "values": [
+            1.707
+          ]
+        },
+        "total_s": {
+          "median": 1.952,
+          "values": [
+            1.952
+          ]
+        },
+        "generated_tokens": {
+          "median": 18,
+          "values": [
+            18
+          ]
+        },
+        "drafts_offered": {
+          "median": 17,
+          "values": [
+            17
+          ]
+        },
+        "drafts_accepted": {
+          "median": 14,
+          "values": [
+            14
+          ]
+        }
+      },
+      "sm75-1/code-256": {
+        "decode_tps": {
+          "median": 107.0,
+          "values": [
+            107.0
+          ]
+        },
+        "prompt_tps": {
+          "median": 1131.6,
+          "values": [
+            1131.6
+          ]
+        },
+        "ttft_s": {
+          "median": 4.49,
+          "values": [
+            4.49
+          ]
+        },
+        "total_s": {
+          "median": 6.497,
+          "values": [
+            6.497
+          ]
+        },
+        "generated_tokens": {
+          "median": 217,
+          "values": [
+            217
+          ]
+        },
+        "drafts_offered": {
+          "median": 191,
+          "values": [
+            191
+          ]
+        },
+        "drafts_accepted": {
+          "median": 173,
+          "values": [
+            173
+          ]
+        }
+      },
+      "sm75-1/korean-256": {
+        "decode_tps": {
+          "median": 54.6,
+          "values": [
+            54.6
+          ]
+        },
+        "prompt_tps": {
+          "median": 1130.9,
+          "values": [
+            1130.9
+          ]
+        },
+        "ttft_s": {
+          "median": 4.494,
+          "values": [
+            4.494
+          ]
+        },
+        "total_s": {
+          "median": 5.607,
+          "values": [
+            5.607
+          ]
+        },
+        "generated_tokens": {
+          "median": 62,
+          "values": [
+            62
+          ]
+        },
+        "drafts_offered": {
+          "median": 47,
+          "values": [
+            47
+          ]
+        },
+        "drafts_accepted": {
+          "median": 29,
+          "values": [
+            29
+          ]
+        }
+      },
+      "sm75-1/math-256": {
+        "decode_tps": {
+          "median": 72.3,
+          "values": [
+            72.3
+          ]
+        },
+        "prompt_tps": {
+          "median": 1133.0,
+          "values": [
+            1133.0
+          ]
+        },
+        "ttft_s": {
+          "median": 4.498,
+          "values": [
+            4.498
+          ]
+        },
+        "total_s": {
+          "median": 4.821,
+          "values": [
+            4.821
+          ]
+        },
+        "generated_tokens": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        },
+        "drafts_offered": {
+          "median": 21,
+          "values": [
+            21
+          ]
+        },
+        "drafts_accepted": {
+          "median": 19,
+          "values": [
+            19
+          ]
+        }
+      },
+      "sm75-1/json-256": {
+        "decode_tps": {
+          "median": 78.1,
+          "values": [
+            78.1
+          ]
+        },
+        "prompt_tps": {
+          "median": 1129.4,
+          "values": [
+            1129.4
+          ]
+        },
+        "ttft_s": {
+          "median": 4.507,
+          "values": [
+            4.507
+          ]
+        },
+        "total_s": {
+          "median": 4.844,
+          "values": [
+            4.844
+          ]
+        },
+        "generated_tokens": {
+          "median": 28,
+          "values": [
+            28
+          ]
+        },
+        "drafts_offered": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        },
+        "drafts_accepted": {
+          "median": 22,
+          "values": [
+            22
+          ]
+        }
+      },
+      "sm75-1/logic-256": {
+        "decode_tps": {
+          "median": 60.4,
+          "values": [
+            60.4
+          ]
+        },
+        "prompt_tps": {
+          "median": 1132.3,
+          "values": [
+            1132.3
+          ]
+        },
+        "ttft_s": {
+          "median": 4.496,
+          "values": [
+            4.496
+          ]
+        },
+        "total_s": {
+          "median": 5.102,
+          "values": [
+            5.102
+          ]
+        },
+        "generated_tokens": {
+          "median": 38,
+          "values": [
+            38
+          ]
+        },
+        "drafts_offered": {
+          "median": 35,
+          "values": [
+            35
+          ]
+        },
+        "drafts_accepted": {
+          "median": 27,
+          "values": [
+            27
+          ]
+        }
+      },
+      "sm75-1/tool-256": {
+        "decode_tps": {
+          "median": 66.9,
+          "values": [
+            66.9
+          ]
+        },
+        "prompt_tps": {
+          "median": 1131.8,
+          "values": [
+            1131.8
+          ]
+        },
+        "ttft_s": {
+          "median": 4.496,
+          "values": [
+            4.496
+          ]
+        },
+        "total_s": {
+          "median": 4.744,
+          "values": [
+            4.744
+          ]
+        },
+        "generated_tokens": {
+          "median": 18,
+          "values": [
+            18
+          ]
+        },
+        "drafts_offered": {
+          "median": 18,
+          "values": [
+            18
+          ]
+        },
+        "drafts_accepted": {
+          "median": 14,
+          "values": [
+            14
+          ]
+        }
+      },
+      "sm75-1/code-1024": {
+        "decode_tps": {
+          "median": 113.7,
+          "values": [
+            113.7
+          ]
+        },
+        "prompt_tps": {
+          "median": 2073.8,
+          "values": [
+            2073.8
+          ]
+        },
+        "ttft_s": {
+          "median": 9.9,
+          "values": [
+            9.9
+          ]
+        },
+        "total_s": {
+          "median": 11.804,
+          "values": [
+            11.804
+          ]
+        },
+        "generated_tokens": {
+          "median": 219,
+          "values": [
+            219
+          ]
+        },
+        "drafts_offered": {
+          "median": 187,
+          "values": [
+            187
+          ]
+        },
+        "drafts_accepted": {
+          "median": 177,
+          "values": [
+            177
+          ]
+        }
+      },
+      "sm75-1/korean-1024": {
+        "decode_tps": {
+          "median": 58.0,
+          "values": [
+            58.0
+          ]
+        },
+        "prompt_tps": {
+          "median": 2076.0,
+          "values": [
+            2076.0
+          ]
+        },
+        "ttft_s": {
+          "median": 9.893,
+          "values": [
+            9.893
+          ]
+        },
+        "total_s": {
+          "median": 10.63,
+          "values": [
+            10.63
+          ]
+        },
+        "generated_tokens": {
+          "median": 44,
+          "values": [
+            44
+          ]
+        },
+        "drafts_offered": {
+          "median": 35,
+          "values": [
+            35
+          ]
+        },
+        "drafts_accepted": {
+          "median": 22,
+          "values": [
+            22
+          ]
+        }
+      },
+      "sm75-1/math-1024": {
+        "decode_tps": {
+          "median": 69.0,
+          "values": [
+            69.0
+          ]
+        },
+        "prompt_tps": {
+          "median": 2073.3,
+          "values": [
+            2073.3
+          ]
+        },
+        "ttft_s": {
+          "median": 9.909,
+          "values": [
+            9.909
+          ]
+        },
+        "total_s": {
+          "median": 10.248,
+          "values": [
+            10.248
+          ]
+        },
+        "generated_tokens": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        },
+        "drafts_offered": {
+          "median": 23,
+          "values": [
+            23
+          ]
+        },
+        "drafts_accepted": {
+          "median": 19,
+          "values": [
+            19
+          ]
+        }
+      },
+      "sm75-1/json-1024": {
+        "decode_tps": {
+          "median": 86.6,
+          "values": [
+            86.6
+          ]
+        },
+        "prompt_tps": {
+          "median": 2071.5,
+          "values": [
+            2071.5
+          ]
+        },
+        "ttft_s": {
+          "median": 9.913,
+          "values": [
+            9.913
+          ]
+        },
+        "total_s": {
+          "median": 10.215,
+          "values": [
+            10.215
+          ]
+        },
+        "generated_tokens": {
+          "median": 28,
+          "values": [
+            28
+          ]
+        },
+        "drafts_offered": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        },
+        "drafts_accepted": {
+          "median": 22,
+          "values": [
+            22
+          ]
+        }
+      },
+      "sm75-1/logic-1024": {
+        "decode_tps": {
+          "median": 52.7,
+          "values": [
+            52.7
+          ]
+        },
+        "prompt_tps": {
+          "median": 2069.2,
+          "values": [
+            2069.2
+          ]
+        },
+        "ttft_s": {
+          "median": 9.926,
+          "values": [
+            9.926
+          ]
+        },
+        "total_s": {
+          "median": 10.321,
+          "values": [
+            10.321
+          ]
+        },
+        "generated_tokens": {
+          "median": 22,
+          "values": [
+            22
+          ]
+        },
+        "drafts_offered": {
+          "median": 26,
+          "values": [
+            26
+          ]
+        },
+        "drafts_accepted": {
+          "median": 15,
+          "values": [
+            15
+          ]
+        }
+      },
+      "sm75-1/tool-1024": {
+        "decode_tps": {
+          "median": 93.5,
+          "values": [
+            93.5
+          ]
+        },
+        "prompt_tps": {
+          "median": 2067.0,
+          "values": [
+            2067.0
+          ]
+        },
+        "ttft_s": {
+          "median": 9.935,
+          "values": [
+            9.935
+          ]
+        },
+        "total_s": {
+          "median": 10.245,
+          "values": [
+            10.245
+          ]
+        },
+        "generated_tokens": {
+          "median": 31,
+          "values": [
+            31
+          ]
+        },
+        "drafts_offered": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        },
+        "drafts_accepted": {
+          "median": 25,
+          "values": [
+            25
+          ]
+        }
+      }
+    }
+  }
+}

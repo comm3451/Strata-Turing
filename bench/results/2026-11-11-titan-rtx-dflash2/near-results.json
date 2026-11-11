@@ -1,0 +1,212 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 123.682,
+      "total_s": 124.105,
+      "prompt_tokens": 252146,
+      "reused_tokens": 0,
+      "read_tokens": 252146,
+      "generated_tokens": 23,
+      "prompt_tps": 2043.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 51.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 123381.7,
+      "decode_ms": 450.5,
+      "drafts_offered": 16,
+      "drafts_accepted": 15
+    },
+    "response": {
+      "first": 123.68234884100093,
+      "total": 124.10477215800347,
+      "text": "729183, 416927, 853204",
+      "usage": {
+        "prompt_tokens": 252146,
+        "completion_tokens": 23,
+        "total_tokens": 252169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252146,
+        "prompt_ms": 123381.7,
+        "prompt_per_token_ms": 0.489,
+        "prompt_per_second": 2043.6,
+        "predicted_n": 23,
+        "predicted_ms": 450.5,
+        "predicted_per_token_ms": 19.587,
+        "predicted_per_second": 51.1,
+        "draft_n": 16,
+        "draft_n_accepted": 15
+      },
+      "err": null,
+      "pieces": 22
+    },
+    "retrieval_exact": true
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long-code-252k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 124.734,
+      "total_s": 131.874,
+      "prompt_tokens": 252100,
+      "reused_tokens": 0,
+      "read_tokens": 252100,
+      "generated_tokens": 587,
+      "prompt_tps": 2025.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 81.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 124470.1,
+      "decode_ms": 7164.7,
+      "drafts_offered": 506,
+      "drafts_accepted": 410
+    },
+    "response": {
+      "first": 124.73366109100607,
+      "total": 131.8739914550024,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merges two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    # Traverse both lists and append the smaller element to the merged list\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n            \n    # Append any remaining elements from list1\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n        \n    # Append any remaining elements from list2\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n        \n    return merged\n\n# Test Case 1: Standard merge of two non-empty sorted lists\ndef test_merge_sorted_lists_standard():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    expected = [1, 2, 3, 4, 5, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\n# Test Case 2: Merge with one empty list and duplicate values\ndef test_merge_sorted_lists_edge_cases():\n    # Case A: One list is empty\n    list1 = []\n    list2 = [1, 2, 3]\n    expected = [1, 2, 3]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n    \n    # Case B: Duplicate values across lists\n    list1 = [1, 5, 9]\n    list2 = [1, 3, 5, 7]\n    expected = [1, 1, 3, 5, 5, 7, 9]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists_standard()\n    test_merge_sorted_lists_edge_cases()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 252100,
+        "completion_tokens": 587,
+        "total_tokens": 252687,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252100,
+        "prompt_ms": 124470.1,
+        "prompt_per_token_ms": 0.494,
+        "prompt_per_second": 2025.4,
+        "predicted_n": 587,
+        "predicted_ms": 7164.7,
+        "predicted_per_token_ms": 12.206,
+        "predicted_per_second": 81.9,
+        "draft_n": 506,
+        "draft_n_accepted": 410
+      },
+      "err": null,
+      "pieces": 536
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 123.972,
+      "total_s": 124.451,
+      "prompt_tokens": 252146,
+      "reused_tokens": 0,
+      "read_tokens": 252146,
+      "generated_tokens": 23,
+      "prompt_tps": 2038.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 45.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 123672.5,
+      "decode_ms": 505.3,
+      "drafts_offered": 23,
+      "drafts_accepted": 16
+    },
+    "response": {
+      "first": 123.97233044399763,
+      "total": 124.45074657000077,
+      "text": "729183, 416927, 853204",
+      "usage": {
+        "prompt_tokens": 252146,
+        "completion_tokens": 23,
+        "total_tokens": 252169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252146,
+        "prompt_ms": 123672.5,
+        "prompt_per_token_ms": 0.49,
+        "prompt_per_second": 2038.8,
+        "predicted_n": 23,
+        "predicted_ms": 505.3,
+        "predicted_per_token_ms": 21.97,
+        "predicted_per_second": 45.5,
+        "draft_n": 23,
+        "draft_n_accepted": 16
+      },
+      "err": null,
+      "pieces": 22
+    },
+    "retrieval_exact": true
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long-code-252k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 124.658,
+      "total_s": 130.869,
+      "prompt_tokens": 252100,
+      "reused_tokens": 0,
+      "read_tokens": 252100,
+      "generated_tokens": 589,
+      "prompt_tps": 2026.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 124394.6,
+      "decode_ms": 6234.3,
+      "drafts_offered": 533,
+      "drafts_accepted": 457
+    },
+    "response": {
+      "first": 124.65759167500073,
+      "total": 130.8686225010024,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merges two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    # Traverse both lists and append the smaller element to the merged list\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n            \n    # Append any remaining elements from list1\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n        \n    # Append any remaining elements from list2\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n        \n    return merged\n\n# Test Case 1: Standard merge of two non-empty sorted lists\ndef test_merge_sorted_lists_standard():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    expected = [1, 2, 3, 4, 5, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\n# Test Case 2: Merge with one empty list and handling duplicates\ndef test_merge_sorted_lists_edge_cases():\n    # Case A: One list is empty\n    list1 = []\n    list2 = [1, 2, 3]\n    expected = [1, 2, 3]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n    \n    # Case B: Both lists have duplicates and overlap\n    list1 = [1, 2, 2, 4]\n    list2 = [2, 3, 5]\n    expected = [1, 2, 2, 2, 3, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists_standard()\n    test_merge_sorted_lists_edge_cases()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 252100,
+        "completion_tokens": 589,
+        "total_tokens": 252689,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252100,
+        "prompt_ms": 124394.6,
+        "prompt_per_token_ms": 0.493,
+        "prompt_per_second": 2026.6,
+        "predicted_n": 589,
+        "predicted_ms": 6234.3,
+        "predicted_per_token_ms": 10.585,
+        "predicted_per_second": 94.5,
+        "draft_n": 533,
+        "draft_n_accepted": 457
+      },
+      "err": null,
+      "pieces": 538
+    }
+  }
+]

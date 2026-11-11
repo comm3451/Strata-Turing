@@ -1,0 +1,7 @@
+{"time": 1794393623.508143, "gpu": "5972, 18050, 31, 16.84, 300, 0", "MemAvailable": 8743672, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393625.5591605, "gpu": "5972, 18050, 31, 17.46, 300, 0", "MemAvailable": 8244516, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393627.6074784, "gpu": "5972, 18050, 31, 16.90, 300, 0", "MemAvailable": 7862276, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393629.6548343, "gpu": "5972, 18050, 31, 16.81, 300, 0", "MemAvailable": 7462164, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393631.7072556, "gpu": "5972, 18050, 31, 16.84, 300, 0", "MemAvailable": 6976268, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393633.743108, "gpu": "21338, 2684, 35, 83.79, 1980, 67", "MemAvailable": 6910256, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}
+{"time": 1794393635.7752376, "gpu": "21460, 2562, 36, 82.29, 1980, 1", "MemAvailable": 5501256, "SwapTotal": 8388604, "SwapFree": 8388568, "AnonHugePages": 0}

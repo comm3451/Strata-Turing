@@ -250,6 +250,34 @@ raw answers and memory observations. The profile source must already
 reference the IQ3_S model, pack, tokenizer and chosen N-gram table; it does
 not change model files implicitly.
 
+### DFlash2 versus MTP on IQ3_S
+
+The [same-build drafter comparison](../bench/results/2026-11-11-titan-rtx-dflash2/README.md)
+uses the stock Q4_0 DFlash2 pack with Q4_0 selector codebooks. Three
+alternating pairs compare MTP window 4/min-p 0.5 with DFlash2 window
+6/confidence 0.5. Short-code decode rises from 79.9 to 96.4 tok/s; code
+after 4,393 input tokens rises from 64.2 to 74.0 tok/s. Korean is tied,
+4K word-list summary decode is 6.6% slower, and prefill is essentially
+unchanged. This is a choice for the measured code workloads, not a universal
+replacement for MTP or proof of maximum throughput.
+
+One separate pair with 252,100 input tokens measures code decode at
+81.9 versus 94.5 tok/s. Both paths recover the three long-document values
+correctly. Keep the one-pair limitation and the actual prompt length visible.
+These measurements retain IQ4_NL N-grams; BF16 must be evaluated separately.
+
+The profile generator continues to emit MTP. To select the measured
+DFlash2 candidate on server 0.1.57, start from the IQ3_S profile, set
+`"drafting": "dflash2"`, and add `"--spec", "6", "--draft-conf", "0.5"`
+to `user_args`. Keep the raw MTP path as the source of the draft vocabulary;
+the server removes the MTP layer's flags when resolving DFlash2. The verified
+stock pack must be in `<data>/dflash2` next to `<data>/packs` (on this node,
+`.turing/dflash2` next to `.turing/packs`). Check the engine log for
+`DFlash2 drafter on` and `no MTP layer is loaded`; an unavailable drafter
+can make the server choose MTP. Do not load both drafters for this comparison.
+Keep 262,144 context, one actual request slot and the IQ3_S memory limits.
+Newer server policies or a separately tuned pack need their own measurement.
+
 ## RustingStrata candidate
 
 RustingStrata was built at `e1c2d6e1722a33ca75da9757761c9df6246cba60` for Broadwell

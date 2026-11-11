@@ -1,0 +1,67 @@
+{
+  "requests": [
+    {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.487,
+      "total_s": 3.848,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 84.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 75.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 438.6,
+      "decode_ms": 3400.6,
+      "drafts_offered": 236,
+      "drafts_accepted": 184
+    },
+    {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.311,
+      "total_s": 3.052,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 129.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 92.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 285.3,
+      "decode_ms": 2760.7,
+      "drafts_offered": 236,
+      "drafts_accepted": 178
+    },
+    {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.323,
+      "total_s": 2.755,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 256,
+      "prompt_tps": 124.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 104.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 297.8,
+      "decode_ms": 2450.7,
+      "drafts_offered": 230,
+      "drafts_accepted": 188
+    }
+  ],
+  "engine_memory": [
+    {
+      "Rss_kib": 55260900,
+      "Pss_kib": 55256787,
+      "Anonymous_kib": 50678464,
+      "AnonHugePages_kib": 0,
+      "Locked_kib": 4256
+    }
+  ]
+}

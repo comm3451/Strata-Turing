@@ -1,0 +1,27 @@
+[
+  {
+    "case": "code",
+    "characters": 106,
+    "sha256": "decc8908b1d6745c92e761c731508b46c28c41eb2eaab8c972f35265d35c673f"
+  },
+  {
+    "case": "korean",
+    "characters": 50,
+    "sha256": "4eb0c15e4b9cfe0011d440743988d035f86ba55d431f650aedb050f7dc355e6d"
+  },
+  {
+    "case": "long4k",
+    "characters": 28323,
+    "sha256": "387f62d8698aa41e4d216eb04d712d5abafcf52a171927cec016df3976d0e74c"
+  },
+  {
+    "case": "long32k",
+    "characters": 206947,
+    "sha256": "1b4ad7f380b2328ea31cf615a49b19acc61aa891ffa1515b09dd6f5cb976a47e"
+  },
+  {
+    "case": "long-code",
+    "characters": 28543,
+    "sha256": "50187a44fc13cc0a2257e9ed5e05b41e3f9e3a2fbb60ea2bb43a87f6a0776993"
+  }
+]

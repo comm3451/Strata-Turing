@@ -1,0 +1,7 @@
+strata generate: GPU 0: NVIDIA TITAN RTX, compute capability 7.5
+strata generate: pin by need: 7931 of the 24576 ranked pairs taken as GPU-resident (STRATA_PIN_BY_NEED_SKIP=<n> sets it), 16645 candidates to pin
+strata generate: pin by need: 7686 ranges, 31.80 GiB pinned, 100.0 % of the non-resident experts (48 of 48 layers have a PCIe share)
+strata generate: expert arena: mlock failed (raise ulimit -l) (7060 MiB of holes); pin by need: 7686 ranges registered (40958 MiB), the cap was reached; MAP_HUGETLB unavailable (needed 24010 2 MiB pages, vm.nr_hugepages=0); transparent huge pages skipped (STRATA_NO_ARENA_THP)
+strata generate: expert cache 7911 slots, 15.00 GiB of VRAM; policy is
+strata dflash2: 106299-token draft head (212.9 MiB), drafter 625 MiB of VRAM (Q4_0 weights)
+strata serve: DFlash2 drafter on (<strata>/.turing/dflash2/qwen3.8-flash-next-dflash2.q4_0-selq4.pack, graphs captured in 7 ms); windows up to 8 tokens; no MTP layer is loaded (--draft-fallback none)
