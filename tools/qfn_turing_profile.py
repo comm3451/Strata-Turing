@@ -54,7 +54,10 @@ def make_config(source: dict, exe: Path, log: Path, fp16_prefill: bool = False,
         args = set_arg(args, flag, value)
     cfg.update(args=args, exe=str(exe), cwd=str(ROOT), log=str(log),
                drafting="mtp", parallel=1, open_browser=False)
-    cfg["env"] = {**cfg.get("env", {}), "STRATA_SM75_PERF": "1", "STRATA_EXP_MODE": "8",
+    cfg["env"] = {**cfg.get("env", {}), "STRATA_ROUTE_TAIL_SKIP": "0",
+                  "STRATA_ROUTE_PRIOR": "0", "STRATA_KVA": "0",
+                  "STRATA_PREFILL_CPU_SHARE": "0", "STRATA_HC_Q8": "0",
+                  "STRATA_SM75_PERF": "1", "STRATA_EXP_MODE": "8",
                   "STRATA_NO_PRESET": "1", "STRATA_BF16_TC": "1" if fp16_prefill else "0",
                   "STRATA_PF_FUSED_NATIVE_SM75": "1" if native_iq_prefill else "0",
                   "STRATA_SELECT_SIMT": "2" if turing_attention else "0",

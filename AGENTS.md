@@ -14,10 +14,15 @@
   Keep upstream attribution and licenses. Do not report an untested change as an optimization.
 - Target: one TITAN RTX (24 GiB, sm_75), Xeon E5-2680 v4 (14 cores / 28 threads, AVX2),
   DDR4 32 GB x 2. Inference only.
-- Workload: Qwen3.8-Flash-Next (QFN), IQ3_XXS, 262144 total context tokens. Preserve the
+- Workload: Qwen3.8-Flash-Next (QFN), ISTA-DASLab IQ3_S with BF16 N-grams,
+  262144 total context tokens. Preserve the
   user's model and context. Prioritize single-user latency and quality; evaluate two concurrent
   requests separately after the single-user baseline. Do not assume that 256K context fits
   at every concurrency level.
+- Keep `STRATA_ROUTE_PRIOR`, `STRATA_ROUTE_TAIL_SKIP`, `STRATA_KVA`,
+  `STRATA_PREFILL_CPU_SHARE`, and `STRATA_HC_Q8` explicitly set to `0` in serving
+  and experiment configs, as required by the owner. Historical measurements with
+  these settings enabled are not evidence for the current profile.
 - Compare changes on the same model files, engine build, prompts, sampling and memory budgets.
   Record prefill, decode, time to first token, RAM/VRAM and output correctness. Treat upstream
   measurements as references, not measurements on this node. See [docs/TURING.md](docs/TURING.md).
