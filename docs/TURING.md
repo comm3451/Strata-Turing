@@ -302,6 +302,42 @@ warmed engine RSS measures about 52.70 → 52.92 GiB. Keep the IQ3_S pinning
 limit and one actual request slot. File hashes, actual long-context checks
 and the limits of the answer checks are in the report.
 
+### Start the measured profile from the system service
+
+`bash tools/turing-serve.sh` starts the private profile at
+`.turing/launch/qfn-iq3s-256k.json` through `tools/turing-run.sh`. It uses
+the measured Python installation 0.1.56 and server 0.1.57 under the service
+user's home directory. The profile contains the API key and stays untracked.
+Its N-gram path, model, context, drafter and network settings are preserved.
+This launcher requires the existing installation, converted pack and model
+files; it does not install or download them.
+
+`tools/systemd/strata-turing.conf.in` is a drop-in template for this node's
+existing `strata.service`. Replace `@CHECKOUT@` with the absolute checkout
+path and keep the rendered file in `.turing/service/` before installing it
+as `/etc/systemd/system/strata.service.d/90-turing.conf`. It replaces only
+the launch command, working directory, output destination and file-creation
+mask. The existing unit supplies `User=eesdf`, the restart policy, resource
+limits and boot-time enablement. Logs go to `.turing/launch/` and the runtime
+wrapper keeps ordinary files outside the checkout read-only.
+
+Installing a system-service override and reloading the service manager
+requires administrator authentication. This is a host configuration change;
+perform it only as part of the owner's requested service setup. Before
+starting the service, wait for active and queued requests to finish, stop
+the existing checkout server and verify that the GPU and port 8080 are free.
+Do not start a second engine while the first is still loaded. After starting,
+check the authenticated API, actual BF16/DFlash2 startup log, 262,144 context
+and one serving slot. A successful start is not a reboot test.
+
+Validated on this node on 2026-11-11: shell syntax, `systemd-analyze verify`,
+service start with the override, enabled boot configuration, one GPU engine
+in the service's cgroup, authenticated API response and HTTP 401 without
+authentication. The service inherits its existing unlimited MEMLOCK limit;
+the engine now locks the arena's 7,060 MiB of unregistered ranges as well
+as retaining the 40 GiB CUDA pinning cap. No new speed claim or reboot test
+is attached to this service change.
+
 ## RustingStrata candidate
 
 RustingStrata was built at `e1c2d6e1722a33ca75da9757761c9df6246cba60` for Broadwell

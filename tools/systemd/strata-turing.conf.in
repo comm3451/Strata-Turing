@@ -1,0 +1,9 @@
+# Drop-in for this node's existing strata.service (User and limits inherited).
+# Replace @CHECKOUT@ with the absolute checkout path before installation.
+[Service]
+WorkingDirectory=@CHECKOUT@
+ExecStart=
+ExecStart=/bin/bash @CHECKOUT@/tools/turing-serve.sh
+UMask=0077
+StandardOutput=append:@CHECKOUT@/.turing/launch/qfn-iq3s-256k.server.log
+StandardError=inherit
