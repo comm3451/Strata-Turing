@@ -1,0 +1,8 @@
+{
+  "checked_answers": {
+    "iq3s-pin-need40-confirm": 6,
+    "iq3s-near-256k": 2,
+    "iq3s-quality": 18
+  },
+  "seeded_merge_cases_per_answer": 100
+}

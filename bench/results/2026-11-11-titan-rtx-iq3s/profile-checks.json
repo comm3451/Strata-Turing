@@ -1,0 +1,9 @@
+{
+  "previous_option_combinations_unchanged": 32,
+  "iq3s_model_guard": true,
+  "context": 262144,
+  "pin_gib": 40,
+  "pin_by_need": true,
+  "parked_cache_mib": 1024,
+  "source_not_mutated": true
+}

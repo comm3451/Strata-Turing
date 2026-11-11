@@ -211,8 +211,10 @@ repeated answer as an independent configuration speedup.
 `STRATA_SM75_IQ2XS_FUSED=1`, CPU `STRATA_Q2_BITPLANE=1`, and shared prefill
 scratch `STRATA_PF_HC_REGION=1`. It keeps the engine's normal arena huge-page
 policy and does not change OS settings. Do not force `STRATA_ARENA_THP=1`
-on fragmented RAM: a later IQ3_S trial stalled in kernel memory compaction
-and timed out. All old profile options keep their previous behavior.
+on fragmented RAM. Later IQ3_S trials timed out during arena startup with
+and without THP, and succeeded when CUDA registration was capped at 40 GiB;
+THP alone did not explain that failure. All old profile options keep their
+previous behavior.
 
 On this node, three warmed alternating pairs on the same binary measured
 short code decode 102.2 to 103.7 tok/s, Korean 91.5 to 93.7 tok/s, and 31,610-token
@@ -225,6 +227,28 @@ The [fusion report](../bench/results/2026-11-11-titan-rtx-iq2xs/README.md) inclu
 120 bitwise kernel checks, 72 basic answer checks, complete outputs, memory
 samples and a separate two-client queue test. IQ3_S has no IQ2_XS layers, so
 the new fused kernel does not directly accelerate that model's experts.
+
+## IQ3_S on this 64 GB node
+
+The ISTA-DASLab IQ3_S pack needs a 46.84 GiB expert arena. Full-arena starts
+timed out here both with and without THP. Limiting CUDA registration to
+40 GiB allowed it to start. `--titan-iq3s` uses that limit, registers the
+estimated hot misses first with `STRATA_PIN_BY_NEED=1`, disables arena THP
+requests, and keeps 262,144 context. The parked conversation cache is
+1 GiB with a 4 GiB free-RAM floor. System settings are unchanged.
+
+Three alternating pairs on the same IQ3_S files measured prefix pinning
+versus pin by need: code decode 76.0 to 80.1 tok/s, Korean 69.4 to 71.1 tok/s,
+and 31,610-token prefill 2,077.5 to 2,131.5 tok/s. Code output lengths differ;
+these are workload measurements, not a pure kernel comparison. The normal
+IQ4_NL N-gram table was used. BF16 N-gram download/compatibility preparation
+does not establish BF16 speed or quality.
+
+The [IQ3_S report](../bench/results/2026-11-11-titan-rtx-iq3s/README.md) records
+the failed starts as well as working configurations, exact model hashes,
+raw answers and memory observations. The profile source must already
+reference the IQ3_S model, pack, tokenizer and chosen N-gram table; it does
+not change model files implicitly.
 
 ## RustingStrata candidate
 

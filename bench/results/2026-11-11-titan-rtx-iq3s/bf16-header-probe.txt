@@ -1,0 +1,2 @@
+.turing/downloads/bf16-header.gguf
+  version 3   tensors 1   metadata 3   data_start 192   size 4096

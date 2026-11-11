@@ -1,0 +1,103 @@
+{
+  "pinning_comparison": {
+    "code": {
+      "decode_tps": {
+        "prefix": 76.0,
+        "by_need": 80.1,
+        "percent_change": 5.394736842105252
+      },
+      "prompt_tps": {
+        "prefix": 121.6,
+        "by_need": 120.8,
+        "percent_change": -0.6578947368421018
+      },
+      "ttft_s": {
+        "prefix": 0.307,
+        "by_need": 0.309,
+        "percent_change": 0.6514657980456029
+      },
+      "total_s": {
+        "prefix": 6.981,
+        "by_need": 6.243,
+        "percent_change": -10.571551353674257
+      },
+      "generated_tokens": {
+        "prefix": 509,
+        "by_need": 477,
+        "percent_change": -6.2868369351669955
+      }
+    },
+    "korean": {
+      "decode_tps": {
+        "prefix": 69.4,
+        "by_need": 71.1,
+        "percent_change": 2.449567723342927
+      },
+      "prompt_tps": {
+        "prefix": 106.4,
+        "by_need": 108.5,
+        "percent_change": 1.9736842105263053
+      },
+      "ttft_s": {
+        "prefix": 0.38,
+        "by_need": 0.373,
+        "percent_change": -1.8421052631579005
+      },
+      "total_s": {
+        "prefix": 7.731,
+        "by_need": 7.548,
+        "percent_change": -2.3670935195964304
+      },
+      "generated_tokens": {
+        "prefix": 512,
+        "by_need": 512,
+        "percent_change": 0.0
+      }
+    },
+    "long32k": {
+      "decode_tps": {
+        "prefix": 51.2,
+        "by_need": 51.5,
+        "percent_change": 0.5859375
+      },
+      "prompt_tps": {
+        "prefix": 2077.5,
+        "by_need": 2131.5,
+        "percent_change": 2.5992779783393427
+      },
+      "ttft_s": {
+        "prefix": 15.286,
+        "by_need": 14.903,
+        "percent_change": -2.505560643726279
+      },
+      "total_s": {
+        "prefix": 18.333,
+        "by_need": 17.882,
+        "percent_change": -2.4600447280859528
+      },
+      "generated_tokens": {
+        "prefix": 156,
+        "by_need": 155,
+        "percent_change": -0.6410256410256387
+      }
+    }
+  },
+  "memory": {
+    "iq3s-pin-need40-confirm": {
+      "min_available_ram_gib": 4.668373107910156,
+      "peak_vram_mib": 22198.0,
+      "swap_used_kib_range": [
+        262640,
+        267848
+      ]
+    },
+    "iq3s-near-256k": {
+      "min_available_ram_gib": 4.561012268066406,
+      "peak_vram_mib": 22178.0,
+      "swap_used_kib_range": [
+        261368,
+        262640
+      ]
+    }
+  }
+}

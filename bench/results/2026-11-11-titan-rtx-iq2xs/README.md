@@ -50,9 +50,10 @@ The 2-second memory samples show peak VRAM 22,194 MiB and minimum available
 host RAM 11.93 GiB. Swap already contained about 175 MiB; its used-size range
 changed by only 4 KiB, which is not a measurement of page-in/page-out traffic.
 Post-warmup engine `smaps_rollup` records confirm roughly 39.7–40.0 GiB of
-anonymous huge pages in every arm. A later IQ3_S trial with forced THP stalled
-in kernel memory compaction and exceeded the 600-second readiness deadline.
-The published launch profile therefore does **not** force THP; it retains
+anonymous huge pages in every arm. Later IQ3_S trials exceeded the 600-second
+readiness deadline during arena startup, both with and without THP. Capping
+CUDA registration at 40 GiB allowed startup; THP alone did not explain the
+failure. The published launch profile does **not** force THP and retains
 the engine's fragmentation guard. The table describes the recorded huge-page
 condition, not a promise of these rates with a different page allocation.
 

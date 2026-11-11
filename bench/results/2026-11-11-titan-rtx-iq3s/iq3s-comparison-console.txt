@@ -1,0 +1,13 @@
+r0-baseline: ready
+{"run": "r0-baseline", "case": "code", "ok": true, "err": null, "ttft_s": 0.265, "total_s": 5.012, "prompt_tokens": 34, "reused_tokens": 0, "read_tokens": 34, "generated_tokens": 493, "prompt_tps": 141.6, "prompt_tps_source": "engine", "decode_tps": 103.5, "decode_tps_source": "engine", "prompt_ms": 240.1, "decode_ms": 4764.7, "drafts_offered": 370, "drafts_accepted": 315}
+{"run": "r0-baseline", "case": "korean", "ok": true, "err": null, "ttft_s": 0.326, "total_s": 5.812, "prompt_tokens": 37, "reused_tokens": 0, "read_tokens": 37, "generated_tokens": 512, "prompt_tps": 124.6, "prompt_tps_source": "engine", "decode_tps": 93.0, "decode_tps_source": "engine", "prompt_ms": 296.9, "decode_ms": 5507.4, "drafts_offered": 365, "drafts_accepted": 292}
+{"run": "r0-baseline", "case": "long32k", "ok": true, "err": null, "ttft_s": 14.299, "total_s": 16.219, "prompt_tokens": 31610, "reused_tokens": 0, "read_tokens": 31610, "generated_tokens": 114, "prompt_tps": 2220.6, "prompt_tps_source": "engine", "decode_tps": 58.6, "decode_tps_source": "engine", "prompt_ms": 14235.1, "decode_ms": 1945.3, "drafts_offered": 89, "drafts_accepted": 55}
+Traceback (most recent call last):
+  File "/home/eesdf/Strata-Turing/tools/qfn_turing_bench.py", line 232, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/eesdf/Strata-Turing/tools/qfn_turing_bench.py", line 186, in main
+    wait_ready(url, proc, args.ready_timeout)
+  File "/home/eesdf/Strata-Turing/tools/qfn_turing_bench.py", line 62, in wait_ready
+    raise TimeoutError("server did not become ready")
+TimeoutError: server did not become ready

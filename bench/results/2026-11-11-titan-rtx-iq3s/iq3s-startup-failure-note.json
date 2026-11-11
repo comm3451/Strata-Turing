@@ -1,0 +1,7 @@
+{
+  "run": "iq3s-comparison",
+  "result": "Both full-arena IQ3_S runs, with THP forced and disabled, exceeded the 600-second readiness deadline. They stopped before the arena load completion log. Host memory pressure delayed tools and monitoring.",
+  "reason": "THP alone did not explain the failure. Capping CUDA arena registration at 40 GiB enabled startup; exact kernel/driver root cause was not profiled.",
+  "next": "Use STRATA_NO_ARENA_THP=1 and STRATA_ARENA_PIN_GIB=40; retain 262144 context.",
+  "not_measured": "No IQ3_S inference result from this run."
+}

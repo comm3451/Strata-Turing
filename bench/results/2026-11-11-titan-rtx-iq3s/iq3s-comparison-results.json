@@ -1,0 +1,158 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.265,
+      "total_s": 5.012,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 493,
+      "prompt_tps": 141.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 103.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 240.1,
+      "decode_ms": 4764.7,
+      "drafts_offered": 370,
+      "drafts_accepted": 315
+    },
+    "response": {
+      "first": 0.2647002279991284,
+      "total": 5.012008190002234,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping_and_different_lengths():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5, 7]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5, 7], f\"Expected [1, 1, 1, 2, 3, 4, 5, 7], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping_and_different_lengths()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 493,
+        "total_tokens": 527,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 240.1,
+        "prompt_per_token_ms": 7.062,
+        "prompt_per_second": 141.6,
+        "predicted_n": 493,
+        "predicted_ms": 4764.7,
+        "predicted_per_token_ms": 9.665,
+        "predicted_per_second": 103.5,
+        "draft_n": 370,
+        "draft_n_accepted": 315
+      },
+      "err": null,
+      "pieces": 449
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.326,
+      "total_s": 5.812,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 124.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 93.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 296.9,
+      "decode_ms": 5507.4,
+      "drafts_offered": 365,
+      "drafts_accepted": 292
+    },
+    "response": {
+      "first": 0.3258364560024347,
+      "total": 5.811650075003854,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **변경 가능 여부** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 사용** | 상대적으로 많음 | 상대적으로 적음 |\n| **성능** | 약간 느림 | 약간 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해시 가능 (dict 키로 사용 가능) |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱 (부분 추출)\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예\n\n```python\n# ✅ 동적으로 변경되는 데이터 저장\nshopping_cart = []\n\ndef add_item(cart, item):\n    cart.append(item)       # 리스트는 변경 가능하므로 추가 용이\n\nadd_item(shopping_cart, \"우유\")\nadd_item(shopping_cart, \"빵\")\nadd_item(shopping_cart, \"계란\")\nprint(shopping_cart)  # ['우유', '빵', '계란']\n\n# ✅ 반복 처리 중 요소가 변하는 경우\nscores = [85, 90, 78]\nfor i in range(len(scores)):\n    scores[i] += 5          # 각 점수를 5점씩 올림\nprint(scores)               # [90, 95, 83]\n\n# ✅ 정",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 296.9,
+        "prompt_per_token_ms": 8.024,
+        "prompt_per_second": 124.6,
+        "predicted_n": 512,
+        "predicted_ms": 5507.4,
+        "predicted_per_token_ms": 10.757,
+        "predicted_per_second": 93.0,
+        "draft_n": 365,
+        "draft_n_accepted": 292
+      },
+      "err": null,
+      "pieces": 467
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.299,
+      "total_s": 16.219,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 114,
+      "prompt_tps": 2220.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 58.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14235.1,
+      "decode_ms": 1945.3,
+      "drafts_offered": 89,
+      "drafts_accepted": 55
+    },
+    "response": {
+      "first": 14.299009319998731,
+      "total": 16.21901235399855,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and anchor. Several terms describe materials or textures, with frequent mentions of copper, velvet, needle, and lantern. Abstract or commercial concepts are present through the repeated use of market, ledger, winter, and harbor. Overall, the vocabulary blends physical objects, geographical features, and abstract ideas into a diverse collection of single-word entries.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 114,
+        "total_tokens": 31724,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14235.1,
+        "prompt_per_token_ms": 0.45,
+        "prompt_per_second": 2220.6,
+        "predicted_n": 114,
+        "predicted_ms": 1945.3,
+        "predicted_per_token_ms": 17.064,
+        "predicted_per_second": 58.6,
+        "draft_n": 89,
+        "draft_n_accepted": 55
+      },
+      "err": null,
+      "pieces": 113
+    }
+  }
+]

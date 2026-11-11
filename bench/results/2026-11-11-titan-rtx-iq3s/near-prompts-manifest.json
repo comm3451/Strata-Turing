@@ -1,0 +1,8 @@
+{
+  "cases_sha256": "d5a84ab67234d69e57b7c18611571dd4b76921b8f564ae6728ac0f2c65061496",
+  "long_words": 240000,
+  "case_names": [
+    "long",
+    "long-code-252k"
+  ]
+}

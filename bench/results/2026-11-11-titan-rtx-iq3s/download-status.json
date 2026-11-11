@@ -1,0 +1,8 @@
+{
+  "observed_at_utc": "2026-11-11T09:32:56.352175+00:00",
+  "iq3_s": "complete, SHA-256 verified",
+  "bf16_ngram": "background download running; not selected for inference",
+  "bf16_downloaded_bytes": 31683772416,
+  "bf16_expected_bytes": 102400491712,
+  "paused": false
+}

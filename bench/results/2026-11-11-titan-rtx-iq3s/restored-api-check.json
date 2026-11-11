@@ -1,0 +1,35 @@
+{
+  "port": 8080,
+  "model": "qwen3.8-flash-next-iq3_s",
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "qwen3.8-flash-next-iq3_s",
+        "object": "model",
+        "status": {
+          "value": "loaded"
+        },
+        "meta": {
+          "n_ctx": 262144
+        },
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      }
+    ]
+  },
+  "authenticated_answer": "7",
+  "unauthenticated_status": 401,
+  "context": 262144,
+  "parallel": 1,
+  "ngram": "IQ4_NL",
+  "system_service_configuration_changed": false,
+  "runtime": "repository-local tools/turing-run.sh process"
+}
