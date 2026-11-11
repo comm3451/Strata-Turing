@@ -1,0 +1,12 @@
+[
+  {
+    "case": "long",
+    "characters": 1656212,
+    "sha256": "dd40ff4bcaa3d9ba1bcee932679e972dc720db33a3409cb198ffe189cb7fccde"
+  },
+  {
+    "case": "long-code-252k",
+    "characters": 1656103,
+    "sha256": "32be6b4cb4637dff243595babd710f9df5a72a970cfbbb23a9b4e137521b5bb3"
+  }
+]

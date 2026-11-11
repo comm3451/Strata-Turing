@@ -1,0 +1,9 @@
+qfn-iq3s-bf16.engine.log
+strata generate: PLE on, table 320001536 rows of <strata>/.turing/models/shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf
+strata generate: GPU 0: NVIDIA TITAN RTX, compute capability 7.5
+strata generate: expert cache 7911 slots, 15.00 GiB of VRAM; policy is
+strata generate: pre-filled 7911 of 7911 slots from the profile in 2.2 s (7275 MB/s); slot 0 verified
+strata serve: DFlash2 drafter on (<strata>/.turing/dflash2/qwen3.8-flash-next-dflash2.q4_0-selq4.pack, graphs captured in 4 ms); windows up to 8 tokens; no MTP layer is loaded (--draft-fallback none)
+
+qfn-iq3s-256k.server.log
+[strata] drafting: DFlash2 alone (--draft dflash2, --draft-conf 0.5)

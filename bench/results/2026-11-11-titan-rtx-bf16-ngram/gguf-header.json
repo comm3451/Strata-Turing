@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "metadata": {
+    "split.no": 1,
+    "split.count": 2,
+    "split.tensors.count": 1224
+  },
+  "tensor": "per_layer_token_embd.weight",
+  "dimensions": [
+    160,
+    320001536
+  ],
+  "ggml_type": 30,
+  "type_name": "BF16",
+  "data_start": 192,
+  "tensor_offset": 0,
+  "row_bytes": 320,
+  "file_bytes": 102400491712
+}

@@ -1,0 +1,16 @@
+{
+  "bf16": {
+    "repo": "apetersson/Qwen3.8-Flash-Next-GGUF",
+    "revision": "9af845f821fec6bf2a9ddbacd3778930ba80157f",
+    "file": "shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf",
+    "path": ".turing/models/shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf",
+    "size": 102400491712,
+    "sha256": "11828e522266cf7aa9579dea8a0ab375be7afcadede4bd9b9fcfb0722d952ca1",
+    "url": "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF/resolve/9af845f821fec6bf2a9ddbacd3778930ba80157f/shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf"
+  },
+  "bf16_download_sha256_verified": true,
+  "base_model": "ISTA-DASLab QFN GSQ-RCO IQ3_S",
+  "drafter": "stock DFlash2 Q4_0 + Q4_0 selectors, spec 6, confidence 0.5",
+  "context": 262144,
+  "only_workload_change": "--ple-gguf path; model weights, drafter and memory policy stay the same"
+}

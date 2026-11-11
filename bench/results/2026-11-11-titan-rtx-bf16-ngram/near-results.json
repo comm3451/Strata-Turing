@@ -1,0 +1,107 @@
+[
+  {
+    "round": 0,
+    "arm": "sm75-1",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 123.718,
+      "total_s": 124.187,
+      "prompt_tokens": 252146,
+      "reused_tokens": 0,
+      "read_tokens": 252146,
+      "generated_tokens": 23,
+      "prompt_tps": 2043.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 46.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 123416.9,
+      "decode_ms": 496.0,
+      "drafts_offered": 23,
+      "drafts_accepted": 17
+    },
+    "response": {
+      "first": 123.71807247300012,
+      "total": 124.18708017600011,
+      "text": "729183, 416927, 853204",
+      "usage": {
+        "prompt_tokens": 252146,
+        "completion_tokens": 23,
+        "total_tokens": 252169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252146,
+        "prompt_ms": 123416.9,
+        "prompt_per_token_ms": 0.489,
+        "prompt_per_second": 2043.0,
+        "predicted_n": 23,
+        "predicted_ms": 496.0,
+        "predicted_per_token_ms": 21.565,
+        "predicted_per_second": 46.4,
+        "draft_n": 23,
+        "draft_n_accepted": 17
+      },
+      "err": null,
+      "pieces": 22
+    },
+    "retrieval_exact": true
+  },
+  {
+    "round": 0,
+    "arm": "sm75-1",
+    "sm75_perf": 1,
+    "case": "long-code-252k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 124.539,
+      "total_s": 130.785,
+      "prompt_tokens": 252100,
+      "reused_tokens": 0,
+      "read_tokens": 252100,
+      "generated_tokens": 594,
+      "prompt_tps": 2028.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 124276.0,
+      "decode_ms": 6269.6,
+      "drafts_offered": 549,
+      "drafts_accepted": 463
+    },
+    "response": {
+      "first": 124.53911629799995,
+      "total": 130.78540610100004,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merges two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    # Traverse both lists and append the smaller element to the merged list\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements of list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n        \n    # Append remaining elements of list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n        \n    return merged\n\n# Test Case 1: Standard merge with overlapping ranges\ndef test_merge_sorted_lists_standard():\n    list1 = [1, 3, 5, 7]\n    list2 = [2, 4, 6, 8]\n    expected = [1, 2, 3, 4, 5, 6, 7, 8]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\n# Test Case 2: Merge with one empty list and duplicate values\ndef test_merge_sorted_lists_edge_cases():\n    # Case A: One list is empty\n    list1 = []\n    list2 = [1, 2, 3]\n    expected = [1, 2, 3]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n    \n    # Case B: Duplicate values across lists\n    list1 = [1, 5, 9]\n    list2 = [5, 7, 9]\n    expected = [1, 5, 5, 7, 9, 9]\n    result = merge_sorted_lists(list1, list2)\n    assert result == expected, f\"Expected {expected}, but got {result}\"\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists_standard()\n    test_merge_sorted_lists_edge_cases()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 252100,
+        "completion_tokens": 594,
+        "total_tokens": 252694,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252100,
+        "prompt_ms": 124276.0,
+        "prompt_per_token_ms": 0.493,
+        "prompt_per_second": 2028.5,
+        "predicted_n": 594,
+        "predicted_ms": 6269.6,
+        "predicted_per_token_ms": 10.555,
+        "predicted_per_second": 94.7,
+        "draft_n": 549,
+        "draft_n_accepted": 463
+      },
+      "err": null,
+      "pieces": 543
+    }
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "model": "qwen3.8-flash-next-iq3_s",
+  "context": 262144,
+  "actual_slots": 1,
+  "client_count": 2,
+  "requests": [
+    {
+      "answer": "7",
+      "metrics": {
+        "ok": true,
+        "err": null,
+        "ttft_s": 0.769,
+        "total_s": 0.855,
+        "prompt_tokens": 24,
+        "reused_tokens": 0,
+        "read_tokens": 24,
+        "generated_tokens": 2,
+        "prompt_tps": 88.8,
+        "prompt_tps_source": "engine",
+        "decode_tps": 18.3,
+        "decode_tps_source": "engine",
+        "prompt_ms": 270.2,
+        "decode_ms": 109.1,
+        "drafts_offered": 4,
+        "drafts_accepted": 1
+      }
+    },
+    {
+      "answer": "13",
+      "metrics": {
+        "ok": true,
+        "err": null,
+        "ttft_s": 0.397,
+        "total_s": 0.47,
+        "prompt_tokens": 24,
+        "reused_tokens": 0,
+        "read_tokens": 24,
+        "generated_tokens": 3,
+        "prompt_tps": 69.6,
+        "prompt_tps_source": "engine",
+        "decode_tps": 26.0,
+        "decode_tps_source": "engine",
+        "prompt_ms": 344.9,
+        "decode_ms": 115.6,
+        "drafts_offered": 2,
+        "drafts_accepted": 2
+      }
+    }
+  ],
+  "total_s": 0.858749097999862,
+  "unauthenticated_status": 401,
+  "configured_drafter": "dflash2",
+  "ngram": "BF16",
+  "note": "Two tiny requests through one slot; not a throughput benchmark or two full-context capacity test."
+}

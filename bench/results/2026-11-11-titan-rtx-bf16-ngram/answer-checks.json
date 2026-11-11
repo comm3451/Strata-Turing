@@ -1,0 +1,9 @@
+{
+  "checked_answers": {
+    "pilot": 1,
+    "confirm": 12,
+    "near": 2,
+    "quality": 18
+  },
+  "seeded_merge_cases_per_answer": 100
+}

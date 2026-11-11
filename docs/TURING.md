@@ -241,8 +241,8 @@ Three alternating pairs on the same IQ3_S files measured prefix pinning
 versus pin by need: code decode 76.0 to 80.1 tok/s, Korean 69.4 to 71.1 tok/s,
 and 31,610-token prefill 2,077.5 to 2,131.5 tok/s. Code output lengths differ;
 these are workload measurements, not a pure kernel comparison. The normal
-IQ4_NL N-gram table was used. BF16 N-gram download/compatibility preparation
-does not establish BF16 speed or quality.
+IQ4_NL N-gram table was used. The BF16 N-gram comparison below measures
+that separate change with DFlash2 kept fixed.
 
 The [IQ3_S report](../bench/results/2026-11-11-titan-rtx-iq3s/README.md) records
 the failed starts as well as working configurations, exact model hashes,
@@ -264,7 +264,8 @@ replacement for MTP or proof of maximum throughput.
 One separate pair with 252,100 input tokens measures code decode at
 81.9 versus 94.5 tok/s. Both paths recover the three long-document values
 correctly. Keep the one-pair limitation and the actual prompt length visible.
-These measurements retain IQ4_NL N-grams; BF16 must be evaluated separately.
+These measurements retain IQ4_NL N-grams; the next section records the
+separate BF16 comparison.
 
 The profile generator continues to emit MTP. To select the measured
 DFlash2 candidate on server 0.1.57, start from the IQ3_S profile, set
@@ -277,6 +278,29 @@ stock pack must be in `<data>/dflash2` next to `<data>/packs` (on this node,
 can make the server choose MTP. Do not load both drafters for this comparison.
 Keep 262,144 context, one actual request slot and the IQ3_S memory limits.
 Newer server policies or a separately tuned pack need their own measurement.
+
+### BF16 N-grams with IQ3_S and DFlash2
+
+The [BF16 report](../bench/results/2026-11-11-titan-rtx-bf16-ngram/README.md)
+compares only the N-gram table. Main weights stay IQ3_S, DFlash2 stays at
+window 6/confidence 0.5, and context remains 262,144. The verified shared
+BF16 file has one `per_layer_token_embd.weight` tensor and works with this
+fork's PLE-only GGUF handling. Change the existing `--ple-gguf` value to
+that file; keep the model, native pack, tokenizer and API model name.
+
+Three alternating pairs measure short-code decode at 96.5 → 92.6 tok/s,
+Korean at 74.2 → 76.2 tok/s, and code after 4,393 input tokens at
+74.2 → 77.1 tok/s. Prefill is nearly unchanged in the tested word-list
+inputs. Responses and lengths change, so faster token generation can still
+mean a longer complete response. These checks do not establish a broad
+accuracy improvement from BF16.
+
+The file uses about 102.4 GB of disk, but the direct reader fetches needed
+rows from SSD. It does not allocate the whole table in RAM or VRAM. With
+the existing 1,048,576-row cache, the cache payload rises by 230 MiB;
+warmed engine RSS measures about 52.70 → 52.92 GiB. Keep the IQ3_S pinning
+limit and one actual request slot. File hashes, actual long-context checks
+and the limits of the answer checks are in the report.
 
 ## RustingStrata candidate
 
