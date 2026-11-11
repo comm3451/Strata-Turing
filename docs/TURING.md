@@ -205,6 +205,27 @@ it uses the calibrator's direct token template, so use it to select candidates;
 confirm a winner with the HTTP A/B harness below. Do not report a warmed
 repeated answer as an independent configuration speedup.
 
+## Further IQ3_XXS fusion and memory options
+
+`--titan-fused` includes `--titan-throughput` and adds the CUDA-only
+`STRATA_SM75_IQ2XS_FUSED=1`, CPU `STRATA_Q2_BITPLANE=1`, and shared prefill
+scratch `STRATA_PF_HC_REGION=1`. It keeps the engine's normal arena huge-page
+policy and does not change OS settings. Do not force `STRATA_ARENA_THP=1`
+on fragmented RAM: a later IQ3_S trial stalled in kernel memory compaction
+and timed out. All old profile options keep their previous behavior.
+
+On this node, three warmed alternating pairs on the same binary measured
+short code decode 102.2 to 103.7 tok/s, Korean 91.5 to 93.7 tok/s, and 31,610-token
+prefill 2,206.3 to 2,232.8 tok/s. Both arms requested huge pages and used the
+same memory budgets. This is a small additional improvement. A 252,146-token
+retrieval pair passed in both arms but prefilled slightly slower with the new
+options, 2,131.6 versus 2,108.8 tok/s. It is not faster in every case.
+
+The [fusion report](../bench/results/2026-11-11-titan-rtx-iq2xs/README.md) includes
+120 bitwise kernel checks, 72 basic answer checks, complete outputs, memory
+samples and a separate two-client queue test. IQ3_S has no IQ2_XS layers, so
+the new fused kernel does not directly accelerate that model's experts.
+
 ## RustingStrata candidate
 
 RustingStrata was built at `e1c2d6e1722a33ca75da9757761c9df6246cba60` for Broadwell

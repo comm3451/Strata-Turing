@@ -1,0 +1,165 @@
+{
+  "steady": {
+    "code": {
+      "prompt_tps": {
+        "baseline_median": 138.0,
+        "candidate_median": 140.9,
+        "percent_change": 2.1014492753623326
+      },
+      "decode_tps": {
+        "baseline_median": 102.2,
+        "candidate_median": 103.7,
+        "percent_change": 1.4677103718199636
+      },
+      "ttft_s": {
+        "baseline_median": 0.271,
+        "candidate_median": 0.266,
+        "percent_change": -1.845018450184499
+      },
+      "total_s": {
+        "baseline_median": 5.072,
+        "candidate_median": 5.001,
+        "percent_change": -1.3998422712933722
+      },
+      "generated_tokens": {
+        "baseline_median": 493,
+        "candidate_median": 493,
+        "percent_change": 0.0
+      }
+    },
+    "korean": {
+      "prompt_tps": {
+        "baseline_median": 113.3,
+        "candidate_median": 128.1,
+        "percent_change": 13.062665489849955
+      },
+      "decode_tps": {
+        "baseline_median": 91.5,
+        "candidate_median": 93.7,
+        "percent_change": 2.4043715846994607
+      },
+      "ttft_s": {
+        "baseline_median": 0.356,
+        "candidate_median": 0.317,
+        "percent_change": -10.95505617977528
+      },
+      "total_s": {
+        "baseline_median": 5.897,
+        "candidate_median": 5.761,
+        "percent_change": -2.306257419026625
+      },
+      "generated_tokens": {
+        "baseline_median": 512,
+        "candidate_median": 512,
+        "percent_change": 0.0
+      }
+    },
+    "long4k": {
+      "prompt_tps": {
+        "baseline_median": 1202.7,
+        "candidate_median": 1224.1,
+        "percent_change": 1.7793298411906466
+      },
+      "decode_tps": {
+        "baseline_median": 62.3,
+        "candidate_median": 61.9,
+        "percent_change": -0.6420545746388395
+      },
+      "ttft_s": {
+        "baseline_median": 3.654,
+        "candidate_median": 3.589,
+        "percent_change": -1.778872468527637
+      },
+      "total_s": {
+        "baseline_median": 5.498,
+        "candidate_median": 5.434,
+        "percent_change": -1.1640596580574814
+      },
+      "generated_tokens": {
+        "baseline_median": 119,
+        "candidate_median": 116,
+        "percent_change": -2.5210084033613467
+      }
+    },
+    "long32k": {
+      "prompt_tps": {
+        "baseline_median": 2206.3,
+        "candidate_median": 2232.8,
+        "percent_change": 1.2011059239450672
+      },
+      "decode_tps": {
+        "baseline_median": 73.6,
+        "candidate_median": 73.3,
+        "percent_change": -0.40760869565217295
+      },
+      "ttft_s": {
+        "baseline_median": 14.39,
+        "candidate_median": 14.217,
+        "percent_change": -1.2022237665045177
+      },
+      "total_s": {
+        "baseline_median": 15.928,
+        "candidate_median": 15.695,
+        "percent_change": -1.4628327473631408
+      },
+      "generated_tokens": {
+        "baseline_median": 115,
+        "candidate_median": 114,
+        "percent_change": -0.8695652173912993
+      }
+    },
+    "long-code": {
+      "prompt_tps": {
+        "baseline_median": 1249.9,
+        "candidate_median": 1270.1,
+        "percent_change": 1.6161292903432045
+      },
+      "decode_tps": {
+        "baseline_median": 89.7,
+        "candidate_median": 91.1,
+        "percent_change": 1.5607580824972045
+      },
+      "ttft_s": {
+        "baseline_median": 3.549,
+        "candidate_median": 3.492,
+        "percent_change": -1.6060862214708371
+      },
+      "total_s": {
+        "baseline_median": 7.616,
+        "candidate_median": 7.57,
+        "percent_change": -0.6039915966386422
+      },
+      "generated_tokens": {
+        "baseline_median": 367,
+        "candidate_median": 372,
+        "percent_change": 1.3623978201634968
+      }
+    }
+  },
+  "memory": {
+    "steady-ab": {
+      "minimum_available_ram_gib": 11.93448257446289,
+      "peak_vram_mib": 22194.0,
+      "swap_used_kib_range": [
+        179132,
+        179136
+      ]
+    },
+    "near-256k": {
+      "minimum_available_ram_gib": 11.869979858398438,
+      "peak_vram_mib": 22174.0,
+      "swap_used_kib_range": [
+        179132,
+        179132
+      ]
+    },
+    "concurrency": {
+      "minimum_available_ram_gib": 11.958423614501953,
+      "peak_vram_mib": 22152.0,
+      "swap_used_kib_range": [
+        179128,
+        179132
+      ]
+    }
+  }
+}

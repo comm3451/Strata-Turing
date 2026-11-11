@@ -1,0 +1,20 @@
+[
+  {
+    "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "file": "IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "path": ".turing/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "size": 54817524224,
+    "sha256": "4c1eb2ceb4915e1192f4f386021897bde56a97f40a0bb78bb86465e0f7d2aca3",
+    "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/resolve/ed59f92082b1e93c0e96d60a8b11aab089b52f09/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf"
+  },
+  {
+    "repo": "apetersson/Qwen3.8-Flash-Next-GGUF",
+    "revision": "9af845f821fec6bf2a9ddbacd3778930ba80157f",
+    "file": "shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf",
+    "path": ".turing/models/shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf",
+    "size": 102400491712,
+    "sha256": "11828e522266cf7aa9579dea8a0ab375be7afcadede4bd9b9fcfb0722d952ca1",
+    "url": "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF/resolve/9af845f821fec6bf2a9ddbacd3778930ba80157f/shared/ngrams-Qwen3.8-Flash-Next-BF16.gguf"
+  }
+]

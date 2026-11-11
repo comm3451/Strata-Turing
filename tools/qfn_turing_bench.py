@@ -93,6 +93,10 @@ def main() -> int:
                         help="series settings to run; one value isolates a separate config comparison")
     parser.add_argument("--long-words", type=int, default=4096)
     parser.add_argument("--max-new", type=int, default=128)
+    parser.add_argument("--warmup-rounds", type=int, default=1,
+                        help="warmup requests before recording each arm (default: 1)")
+    parser.add_argument("--warmup-tokens", type=int, default=16,
+                        help="warmup cap; values above 16 use a binary-search prompt instead of Say hello")
     parser.add_argument("--only-long", action="store_true")
     parser.add_argument("--retrieval", action="store_true", help="use a three-marker retrieval smoke test for the long case")
     parser.add_argument("--cases", help="local JSON list of [name, prompt] pairs, replacing built-in cases")
@@ -101,8 +105,8 @@ def main() -> int:
     args = parser.parse_args()
     if os.environ.get("STRATA_TURING_ISOLATED") != "1":
         parser.error("run this benchmark through bash tools/turing-run.sh")
-    if min(args.rounds, args.long_words, args.max_new, args.ready_timeout) <= 0:
-        parser.error("rounds, long-words, max-new and ready-timeout must be positive")
+    if min(args.rounds, args.long_words, args.max_new, args.ready_timeout, args.warmup_rounds, args.warmup_tokens) <= 0:
+        parser.error("rounds, long-words, max-new, ready-timeout and warmup settings must be positive")
     config_path = local_path(args.config)
     base = json.loads(config_path.read_text())
     candidate = json.loads(local_path(args.candidate_config).read_text()) if args.candidate_config else None
@@ -180,9 +184,31 @@ def main() -> int:
                     )
                     try:
                         wait_ready(url, proc, args.ready_timeout)
-                        warm = chat(url, "", [{"role": "user", "content": "Say hello."}], 16, timeout=600)
-                        if not digest(warm)["ok"]:
-                            raise RuntimeError(f"{label}: warmup failed: {warm['err']}")
+                        warmups = []
+                        for _ in range(args.warmup_rounds):
+                            prompt = ("Implement binary search in Python, explain its invariants and time complexity, "
+                                      "and include examples for empty input and a missing value.") if args.warmup_tokens > 16 else "Say hello."
+                            warm = chat(url, "", [{"role": "user", "content": prompt}], args.warmup_tokens, timeout=600)
+                            warmups.append(digest(warm))
+                            if not warmups[-1]["ok"]:
+                                raise RuntimeError(f"{label}: warmup failed: {warm['err']}")
+                        memory = []
+                        # Under turing-run's PID namespace these are this benchmark's engine children only.
+                        for entry in Path("/proc").iterdir():
+                            if not entry.name.isdecimal():
+                                continue
+                            try:
+                                if (entry / "comm").read_text().strip() != "strata-host":
+                                    continue
+                                values = {}
+                                for line in (entry / "smaps_rollup").read_text().splitlines():
+                                    key, _, value = line.partition(":")
+                                    if key in ("Rss", "Pss", "Anonymous", "AnonHugePages", "Locked"):
+                                        values[key + "_kib"] = int(value.split()[0])
+                                memory.append(values)
+                            except (OSError, ValueError):
+                                pass
+                        (out / f"{label}-warmup.json").write_text(json.dumps({"requests": warmups, "engine_memory": memory}, indent=2))
                         print(f"{label}: ready", flush=True)
                         for name, prompt in cases:
                             reply = chat(url, "", [{"role": "user", "content": prompt}], args.max_new, timeout=1200)

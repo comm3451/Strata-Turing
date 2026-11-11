@@ -1,0 +1,11 @@
+hash ffe4397af6c56b53
+layer  0 iq2_xs /iq4_nl G 20 T 4 | mode 0: all   186.2 us  gu   130.5 us (145 GB/s)  down   55.6 us (332 GB/s) | mode 8: all   210.4 us  gu   139.2 us (136 GB/s)  down   70.0 us (263 GB/s) | bitwise equal
+hash 43026bda6394b1be
+layer  1 iq2_xxs/q2_0   G 20 T 4 | mode 0: all   185.5 us  gu   131.0 us (129 GB/s)  down   61.5 us (150 GB/s) | mode 8: all   134.9 us  gu    79.3 us (213 GB/s)  down   55.9 us (165 GB/s) | bitwise equal
+hash aa3ff1d915f40f69
+layer  8 iq3_s  /q2_0   G 20 T 4 | mode 0: all   223.2 us  gu   169.7 us (166 GB/s)  down   60.9 us (151 GB/s) | mode 8: all   154.6 us  gu   100.6 us (280 GB/s)  down   55.8 us (165 GB/s) | bitwise equal
+hash 62feb93effb7d31b
+layer 12 iq2_s  /q2_0   G 20 T 4 | mode 0: all   197.4 us  gu   141.9 us (148 GB/s)  down   62.0 us (149 GB/s) | mode 8: all   143.9 us  gu    88.5 us (237 GB/s)  down   56.3 us (164 GB/s) | bitwise equal
+hash 92bf41c195802a8f
+layer 35 iq3_xxs/iq4_nl G 20 T 4 | mode 0: all   200.2 us  gu   146.7 us (171 GB/s)  down   56.2 us (328 GB/s) | mode 8: all   166.3 us  gu    95.5 us (263 GB/s)  down   72.9 us (253 GB/s) | bitwise equal
+native_expert_bench: 0 differing

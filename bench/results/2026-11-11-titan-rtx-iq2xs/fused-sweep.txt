@@ -1,0 +1,264 @@
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash dab4f406daf3e984
+layer  0 iq2_xs /iq4_nl G 10 T 1 | mode 0: all    81.1 us  gu    52.8 us (180 GB/s)  down   27.0 us (341 GB/s) | mode 8: all    71.1 us  gu    42.2 us (225 GB/s)  down   28.8 us (320 GB/s) | bitwise equal
+hash 8809f60b52296226
+layer  2 iq2_xs /iq4_nl G 10 T 1 | mode 0: all    61.6 us  gu    38.4 us (247 GB/s)  down   22.0 us (420 GB/s) | mode 8: all    55.0 us  gu    30.8 us (308 GB/s)  down   24.2 us (381 GB/s) | bitwise equal
+hash d9e02c24e39baccf
+layer  4 iq2_xs /iq4_nl G 10 T 1 | mode 0: all    60.6 us  gu    37.5 us (253 GB/s)  down   21.7 us (425 GB/s) | mode 8: all    54.1 us  gu    30.1 us (314 GB/s)  down   24.0 us (385 GB/s) | bitwise equal
+hash 5d9c907418b5ebde
+layer  5 iq2_xs /q2_0   G 10 T 1 | mode 0: all    58.1 us  gu    39.0 us (243 GB/s)  down   17.0 us (271 GB/s) | mode 8: all    45.9 us  gu    30.9 us (306 GB/s)  down   12.4 us (371 GB/s) | bitwise equal
+hash bb187667dfd57e95
+layer  9 iq2_xs /q2_0   G 10 T 1 | mode 0: all    56.6 us  gu    37.9 us (250 GB/s)  down   16.5 us (279 GB/s) | mode 8: all    45.3 us  gu    30.4 us (312 GB/s)  down   12.1 us (379 GB/s) | bitwise equal
+hash 5ca8d3599a282db2
+layer 10 iq2_xs /q2_0   G 10 T 1 | mode 0: all    58.0 us  gu    39.0 us (243 GB/s)  down   17.0 us (271 GB/s) | mode 8: all    46.2 us  gu    31.1 us (304 GB/s)  down   12.5 us (368 GB/s) | bitwise equal
+hash d01e3a02505afaf1
+layer 14 iq2_xs /q2_0   G 10 T 1 | mode 0: all    57.0 us  gu    38.7 us (245 GB/s)  down   16.8 us (275 GB/s) | mode 8: all    45.6 us  gu    30.6 us (310 GB/s)  down   12.2 us (377 GB/s) | bitwise equal
+hash 9aeef69924056de8
+layer 19 iq2_xs /q2_0   G 10 T 1 | mode 0: all    57.7 us  gu    38.0 us (249 GB/s)  down   16.5 us (279 GB/s) | mode 8: all    45.0 us  gu    30.4 us (312 GB/s)  down   12.2 us (378 GB/s) | bitwise equal
+hash 549223d8364dd7a4
+layer 25 iq2_xs /q2_0   G 10 T 1 | mode 0: all    57.0 us  gu    38.1 us (248 GB/s)  down   16.6 us (277 GB/s) | mode 8: all    45.8 us  gu    30.5 us (310 GB/s)  down   12.2 us (377 GB/s) | bitwise equal
+hash 5f8ddc810856b813
+layer 39 iq2_xs /iq4_nl G 10 T 1 | mode 0: all    61.8 us  gu    38.7 us (245 GB/s)  down   21.9 us (422 GB/s) | mode 8: all    54.6 us  gu    30.5 us (310 GB/s)  down   24.1 us (383 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 2a32b98f35394de6
+layer  0 iq2_xs /iq4_nl G 20 T 1 | mode 0: all   106.3 us  gu    66.8 us (284 GB/s)  down   38.4 us (481 GB/s) | mode 8: all    96.7 us  gu    56.0 us (338 GB/s)  down   40.4 us (456 GB/s) | bitwise equal
+hash 1977f2a44be1e193
+layer  2 iq2_xs /iq4_nl G 20 T 1 | mode 0: all   108.0 us  gu    67.3 us (281 GB/s)  down   38.3 us (481 GB/s) | mode 8: all    95.9 us  gu    55.9 us (339 GB/s)  down   40.3 us (457 GB/s) | bitwise equal
+hash 9511b61271ad1b83
+layer  4 iq2_xs /iq4_nl G 20 T 1 | mode 0: all   107.0 us  gu    67.1 us (282 GB/s)  down   38.2 us (483 GB/s) | mode 8: all    93.9 us  gu    56.5 us (335 GB/s)  down   40.4 us (456 GB/s) | bitwise equal
+hash b7cee5b4d8decfb3
+layer  5 iq2_xs /q2_0   G 20 T 1 | mode 0: all    99.4 us  gu    67.4 us (281 GB/s)  down   29.5 us (312 GB/s) | mode 8: all    79.2 us  gu    56.2 us (337 GB/s)  down   24.5 us (376 GB/s) | bitwise equal
+hash 91c053538e73a09e
+layer  9 iq2_xs /q2_0   G 20 T 1 | mode 0: all    99.2 us  gu    67.9 us (279 GB/s)  down   29.8 us (309 GB/s) | mode 8: all    80.2 us  gu    55.4 us (342 GB/s)  down   24.7 us (373 GB/s) | bitwise equal
+hash a987b84c7b5a922e
+layer 10 iq2_xs /q2_0   G 20 T 1 | mode 0: all   103.2 us  gu    68.9 us (275 GB/s)  down   30.0 us (307 GB/s) | mode 8: all    80.6 us  gu    55.8 us (340 GB/s)  down   24.4 us (378 GB/s) | bitwise equal
+hash 845de4932f9bd40e
+layer 14 iq2_xs /q2_0   G 20 T 1 | mode 0: all   102.9 us  gu    68.4 us (277 GB/s)  down   29.8 us (309 GB/s) | mode 8: all    79.7 us  gu    55.7 us (340 GB/s)  down   24.4 us (378 GB/s) | bitwise equal
+hash edb93fa6972a80cd
+layer 19 iq2_xs /q2_0   G 20 T 1 | mode 0: all   100.6 us  gu    68.5 us (277 GB/s)  down   29.6 us (312 GB/s) | mode 8: all    78.7 us  gu    56.4 us (336 GB/s)  down   24.7 us (373 GB/s) | bitwise equal
+hash 0f9cc94700a1bd7e
+layer 25 iq2_xs /q2_0   G 20 T 1 | mode 0: all    99.2 us  gu    68.4 us (277 GB/s)  down   29.8 us (309 GB/s) | mode 8: all    79.1 us  gu    54.6 us (347 GB/s)  down   24.0 us (385 GB/s) | bitwise equal
+hash ece6fe154fc47d16
+layer 39 iq2_xs /iq4_nl G 20 T 1 | mode 0: all   109.4 us  gu    68.4 us (277 GB/s)  down   38.5 us (479 GB/s) | mode 8: all    96.6 us  gu    56.0 us (338 GB/s)  down   40.4 us (456 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 523b07f6a8e99f29
+layer  0 iq2_xs /iq4_nl G 10 T 2 | mode 0: all    76.1 us  gu    48.5 us (195 GB/s)  down   24.2 us (382 GB/s) | mode 8: all    60.8 us  gu    35.3 us (268 GB/s)  down   27.2 us (339 GB/s) | bitwise equal
+hash 45707282dce7bfbb
+layer  2 iq2_xs /iq4_nl G 10 T 2 | mode 0: all    77.1 us  gu    49.3 us (192 GB/s)  down   24.3 us (379 GB/s) | mode 8: all    60.9 us  gu    34.5 us (274 GB/s)  down   26.9 us (343 GB/s) | bitwise equal
+hash 00847786ec374e95
+layer  4 iq2_xs /iq4_nl G 10 T 2 | mode 0: all    77.5 us  gu    49.3 us (192 GB/s)  down   24.4 us (378 GB/s) | mode 8: all    61.2 us  gu    34.8 us (273 GB/s)  down   26.9 us (342 GB/s) | bitwise equal
+hash aae3bed8702f5951
+layer  5 iq2_xs /q2_0   G 10 T 2 | mode 0: all    74.6 us  gu    49.3 us (192 GB/s)  down   22.4 us (206 GB/s) | mode 8: all    53.3 us  gu    34.9 us (271 GB/s)  down   17.3 us (266 GB/s) | bitwise equal
+hash e4459f9541adcdda
+layer  9 iq2_xs /q2_0   G 10 T 2 | mode 0: all    75.7 us  gu    50.6 us (187 GB/s)  down   23.2 us (199 GB/s) | mode 8: all    55.1 us  gu    35.8 us (265 GB/s)  down   17.6 us (262 GB/s) | bitwise equal
+hash d971918daae6c344
+layer 10 iq2_xs /q2_0   G 10 T 2 | mode 0: all    76.0 us  gu    50.9 us (186 GB/s)  down   22.6 us (204 GB/s) | mode 8: all    53.9 us  gu    35.0 us (270 GB/s)  down   17.3 us (267 GB/s) | bitwise equal
+hash 2e5993bf2a5ba0d4
+layer 14 iq2_xs /q2_0   G 10 T 2 | mode 0: all    76.2 us  gu    50.9 us (186 GB/s)  down   23.2 us (199 GB/s) | mode 8: all    55.0 us  gu    35.8 us (265 GB/s)  down   17.7 us (260 GB/s) | bitwise equal
+hash bfd77b6cc390cea1
+layer 19 iq2_xs /q2_0   G 10 T 2 | mode 0: all    74.6 us  gu    50.1 us (189 GB/s)  down   22.8 us (202 GB/s) | mode 8: all    54.0 us  gu    35.1 us (270 GB/s)  down   17.3 us (267 GB/s) | bitwise equal
+hash ea5890dfc5e3f0ae
+layer 25 iq2_xs /q2_0   G 10 T 2 | mode 0: all    75.9 us  gu    50.9 us (186 GB/s)  down   22.6 us (204 GB/s) | mode 8: all    53.9 us  gu    35.0 us (270 GB/s)  down   17.3 us (266 GB/s) | bitwise equal
+hash 2f87a8b28738f4d7
+layer 39 iq2_xs /iq4_nl G 10 T 2 | mode 0: all    78.5 us  gu    49.8 us (190 GB/s)  down   24.4 us (377 GB/s) | mode 8: all    61.7 us  gu    35.5 us (267 GB/s)  down   27.2 us (339 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 8639da3dc8e74700
+layer  0 iq2_xs /iq4_nl G 20 T 2 | mode 0: all   135.0 us  gu    89.3 us (212 GB/s)  down   42.6 us (433 GB/s) | mode 8: all   108.6 us  gu    61.7 us (307 GB/s)  down   48.0 us (384 GB/s) | bitwise equal
+hash 45a488d152b2f1ee
+layer  2 iq2_xs /iq4_nl G 20 T 2 | mode 0: all   142.9 us  gu    95.2 us (199 GB/s)  down   42.9 us (430 GB/s) | mode 8: all   111.1 us  gu    63.9 us (297 GB/s)  down   48.8 us (378 GB/s) | bitwise equal
+hash 97db37e3e67c2abd
+layer  4 iq2_xs /iq4_nl G 20 T 2 | mode 0: all   137.6 us  gu    90.5 us (209 GB/s)  down   43.4 us (424 GB/s) | mode 8: all   113.4 us  gu    66.1 us (287 GB/s)  down   49.3 us (374 GB/s) | bitwise equal
+hash 7013e813c8f7757f
+layer  5 iq2_xs /q2_0   G 20 T 2 | mode 0: all   134.0 us  gu    91.5 us (207 GB/s)  down   41.7 us (221 GB/s) | mode 8: all   100.3 us  gu    66.3 us (286 GB/s)  down   34.7 us (266 GB/s) | bitwise equal
+hash a83bd0f140f6911e
+layer  9 iq2_xs /q2_0   G 20 T 2 | mode 0: all   135.0 us  gu    91.2 us (208 GB/s)  down   40.5 us (227 GB/s) | mode 8: all    99.8 us  gu    65.3 us (290 GB/s)  down   34.8 us (265 GB/s) | bitwise equal
+hash 660e6671b0c92f06
+layer 10 iq2_xs /q2_0   G 20 T 2 | mode 0: all   135.9 us  gu    91.9 us (206 GB/s)  down   40.8 us (226 GB/s) | mode 8: all    99.7 us  gu    65.3 us (290 GB/s)  down   34.5 us (267 GB/s) | bitwise equal
+hash 152443999c62c624
+layer 14 iq2_xs /q2_0   G 20 T 2 | mode 0: all   135.0 us  gu    91.2 us (208 GB/s)  down   40.5 us (227 GB/s) | mode 8: all    99.3 us  gu    65.3 us (290 GB/s)  down   34.2 us (269 GB/s) | bitwise equal
+hash dbe40d5f9966e89d
+layer 19 iq2_xs /q2_0   G 20 T 2 | mode 0: all   135.1 us  gu    91.4 us (207 GB/s)  down   40.5 us (227 GB/s) | mode 8: all    99.0 us  gu    65.4 us (290 GB/s)  down   34.2 us (269 GB/s) | bitwise equal
+hash 48bcd1b239edd214
+layer 25 iq2_xs /q2_0   G 20 T 2 | mode 0: all   135.5 us  gu    92.0 us (206 GB/s)  down   40.8 us (226 GB/s) | mode 8: all    99.5 us  gu    66.0 us (287 GB/s)  down   34.5 us (267 GB/s) | bitwise equal
+hash 0db755a1578ad53e
+layer 39 iq2_xs /iq4_nl G 20 T 2 | mode 0: all   136.7 us  gu    91.7 us (207 GB/s)  down   43.4 us (425 GB/s) | mode 8: all   113.6 us  gu    66.6 us (284 GB/s)  down   49.2 us (374 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 6ec6d1931ca4f5e4
+layer  0 iq2_xs /iq4_nl G 10 T 3 | mode 0: all    89.0 us  gu    58.8 us (161 GB/s)  down   27.7 us (332 GB/s) | mode 8: all    70.7 us  gu    39.5 us (240 GB/s)  down   31.3 us (295 GB/s) | bitwise equal
+hash 2a4f4363584bf90e
+layer  2 iq2_xs /iq4_nl G 10 T 3 | mode 0: all    90.3 us  gu    59.7 us (159 GB/s)  down   27.8 us (332 GB/s) | mode 8: all    70.1 us  gu    39.3 us (241 GB/s)  down   31.3 us (294 GB/s) | bitwise equal
+hash 57dfbc98e9364ffe
+layer  4 iq2_xs /iq4_nl G 10 T 3 | mode 0: all    92.3 us  gu    60.1 us (158 GB/s)  down   28.1 us (328 GB/s) | mode 8: all    70.7 us  gu    39.6 us (239 GB/s)  down   31.2 us (295 GB/s) | bitwise equal
+hash df5878dbfa18d0d7
+layer  5 iq2_xs /q2_0   G 10 T 3 | mode 0: all    91.2 us  gu    60.3 us (157 GB/s)  down   28.0 us (165 GB/s) | mode 8: all    63.8 us  gu    40.1 us (236 GB/s)  down   22.5 us (205 GB/s) | bitwise equal
+hash 86d1fd4115c0d44d
+layer  9 iq2_xs /q2_0   G 10 T 3 | mode 0: all    90.7 us  gu    60.7 us (156 GB/s)  down   27.9 us (165 GB/s) | mode 8: all    63.2 us  gu    39.5 us (240 GB/s)  down   22.1 us (208 GB/s) | bitwise equal
+hash 4051157f20050b1d
+layer 10 iq2_xs /q2_0   G 10 T 3 | mode 0: all    90.5 us  gu    61.2 us (155 GB/s)  down   27.8 us (166 GB/s) | mode 8: all    63.1 us  gu    39.7 us (238 GB/s)  down   22.5 us (205 GB/s) | bitwise equal
+hash 8a321554f2a7b2cf
+layer 14 iq2_xs /q2_0   G 10 T 3 | mode 0: all    91.1 us  gu    60.4 us (157 GB/s)  down   28.0 us (165 GB/s) | mode 8: all    63.8 us  gu    40.1 us (236 GB/s)  down   22.5 us (205 GB/s) | bitwise equal
+hash c4c598bfa434f3d7
+layer 19 iq2_xs /q2_0   G 10 T 3 | mode 0: all    90.6 us  gu    60.8 us (156 GB/s)  down   27.8 us (166 GB/s) | mode 8: all    63.2 us  gu    39.5 us (240 GB/s)  down   22.2 us (208 GB/s) | bitwise equal
+hash a4ce02ddfd498f8d
+layer 25 iq2_xs /q2_0   G 10 T 3 | mode 0: all    90.5 us  gu    60.0 us (158 GB/s)  down   27.8 us (166 GB/s) | mode 8: all    63.2 us  gu    39.8 us (238 GB/s)  down   22.5 us (205 GB/s) | bitwise equal
+hash 9778d84a9e0fabdd
+layer 39 iq2_xs /iq4_nl G 10 T 3 | mode 0: all    90.9 us  gu    59.7 us (159 GB/s)  down   28.0 us (330 GB/s) | mode 8: all    71.1 us  gu    39.9 us (237 GB/s)  down   31.5 us (293 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash efe96c784cfb4dbd
+layer  0 iq2_xs /iq4_nl G 20 T 3 | mode 0: all   161.0 us  gu   109.3 us (173 GB/s)  down   50.9 us (362 GB/s) | mode 8: all   135.0 us  gu    76.2 us (249 GB/s)  down   59.3 us (311 GB/s) | bitwise equal
+hash dba6e5f56c63b296
+layer  2 iq2_xs /iq4_nl G 20 T 3 | mode 0: all   162.7 us  gu   113.1 us (168 GB/s)  down   50.7 us (363 GB/s) | mode 8: all   135.3 us  gu    75.9 us (249 GB/s)  down   59.9 us (308 GB/s) | bitwise equal
+hash 4ccc7caa053fa2bb
+layer  4 iq2_xs /iq4_nl G 20 T 3 | mode 0: all   162.7 us  gu   109.3 us (173 GB/s)  down   50.4 us (365 GB/s) | mode 8: all   133.6 us  gu    76.3 us (248 GB/s)  down   59.4 us (311 GB/s) | bitwise equal
+hash f087fef37ad24f71
+layer  5 iq2_xs /q2_0   G 20 T 3 | mode 0: all   164.7 us  gu   111.0 us (171 GB/s)  down   51.8 us (178 GB/s) | mode 8: all   120.0 us  gu    76.0 us (249 GB/s)  down   45.2 us (204 GB/s) | bitwise equal
+hash 6b1a1237efcaa268
+layer  9 iq2_xs /q2_0   G 20 T 3 | mode 0: all   162.7 us  gu   113.6 us (167 GB/s)  down   51.8 us (178 GB/s) | mode 8: all   121.1 us  gu    76.0 us (249 GB/s)  down   44.8 us (206 GB/s) | bitwise equal
+hash 13286545fcb6b356
+layer 10 iq2_xs /q2_0   G 20 T 3 | mode 0: all   166.5 us  gu   113.3 us (167 GB/s)  down   51.4 us (179 GB/s) | mode 8: all   120.4 us  gu    75.9 us (250 GB/s)  down   45.2 us (204 GB/s) | bitwise equal
+hash 7def7ad1fa97d4bd
+layer 14 iq2_xs /q2_0   G 20 T 3 | mode 0: all   166.5 us  gu   113.3 us (167 GB/s)  down   51.4 us (179 GB/s) | mode 8: all   120.4 us  gu    76.0 us (249 GB/s)  down   45.2 us (204 GB/s) | bitwise equal
+hash e46b2e6f10981410
+layer 19 iq2_xs /q2_0   G 20 T 3 | mode 0: all   166.6 us  gu   113.3 us (167 GB/s)  down   51.4 us (179 GB/s) | mode 8: all   119.9 us  gu    76.0 us (249 GB/s)  down   45.2 us (204 GB/s) | bitwise equal
+hash 4eadb8c39a906cba
+layer 25 iq2_xs /q2_0   G 20 T 3 | mode 0: all   168.0 us  gu   113.3 us (167 GB/s)  down   51.4 us (179 GB/s) | mode 8: all   120.3 us  gu    76.0 us (249 GB/s)  down   45.2 us (204 GB/s) | bitwise equal
+hash 8fe6c004863cbf3f
+layer 39 iq2_xs /iq4_nl G 20 T 3 | mode 0: all   171.4 us  gu   117.3 us (162 GB/s)  down   51.6 us (357 GB/s) | mode 8: all   135.3 us  gu    75.8 us (250 GB/s)  down   59.7 us (309 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 2b8d1ad0e933ec44
+layer  0 iq2_xs /iq4_nl G 10 T 4 | mode 0: all   101.4 us  gu    69.6 us (136 GB/s)  down   29.7 us (311 GB/s) | mode 8: all    82.5 us  gu    45.1 us (210 GB/s)  down   37.8 us (244 GB/s) | bitwise equal
+hash 6c24da66fb8c8d8d
+layer  2 iq2_xs /iq4_nl G 10 T 4 | mode 0: all   104.0 us  gu    71.1 us (133 GB/s)  down   30.0 us (307 GB/s) | mode 8: all    80.8 us  gu    44.3 us (214 GB/s)  down   38.1 us (242 GB/s) | bitwise equal
+hash 554fca41dba640b6
+layer  4 iq2_xs /iq4_nl G 10 T 4 | mode 0: all   106.5 us  gu    73.5 us (129 GB/s)  down   31.0 us (297 GB/s) | mode 8: all    83.2 us  gu    45.1 us (210 GB/s)  down   37.4 us (246 GB/s) | bitwise equal
+hash 62de6aa2a048ccbe
+layer  5 iq2_xs /q2_0   G 10 T 4 | mode 0: all   107.4 us  gu    71.5 us (133 GB/s)  down   32.8 us (140 GB/s) | mode 8: all    73.0 us  gu    44.7 us (212 GB/s)  down   27.4 us (168 GB/s) | bitwise equal
+hash 4e626bac73da9a0e
+layer  9 iq2_xs /q2_0   G 10 T 4 | mode 0: all   106.9 us  gu    71.4 us (133 GB/s)  down   32.9 us (140 GB/s) | mode 8: all    73.5 us  gu    44.7 us (212 GB/s)  down   27.4 us (168 GB/s) | bitwise equal
+hash 7e1006ed0fc43c70
+layer 10 iq2_xs /q2_0   G 10 T 4 | mode 0: all   107.2 us  gu    71.9 us (132 GB/s)  down   32.9 us (140 GB/s) | mode 8: all    72.9 us  gu    44.8 us (211 GB/s)  down   27.6 us (167 GB/s) | bitwise equal
+hash 233619c1aa8f4954
+layer 14 iq2_xs /q2_0   G 10 T 4 | mode 0: all   108.4 us  gu    71.3 us (133 GB/s)  down   32.9 us (140 GB/s) | mode 8: all    73.2 us  gu    44.7 us (212 GB/s)  down   27.4 us (168 GB/s) | bitwise equal
+hash 62c491eb784e1936
+layer 19 iq2_xs /q2_0   G 10 T 4 | mode 0: all   106.7 us  gu    71.2 us (133 GB/s)  down   32.9 us (140 GB/s) | mode 8: all    72.9 us  gu    44.4 us (213 GB/s)  down   27.9 us (165 GB/s) | bitwise equal
+hash a8d4b83b622e2d2b
+layer 25 iq2_xs /q2_0   G 10 T 4 | mode 0: all   106.7 us  gu    71.5 us (132 GB/s)  down   32.9 us (140 GB/s) | mode 8: all    72.9 us  gu    44.7 us (212 GB/s)  down   27.4 us (168 GB/s) | bitwise equal
+hash a4a278f5d19c1f7f
+layer 39 iq2_xs /iq4_nl G 10 T 4 | mode 0: all   103.9 us  gu    70.7 us (134 GB/s)  down   30.1 us (307 GB/s) | mode 8: all    82.6 us  gu    45.2 us (210 GB/s)  down   37.9 us (243 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash ffe4397af6c56b53
+layer  0 iq2_xs /iq4_nl G 20 T 4 | mode 0: all   185.1 us  gu   129.8 us (146 GB/s)  down   52.9 us (349 GB/s) | mode 8: all   147.1 us  gu    80.2 us (236 GB/s)  down   66.4 us (278 GB/s) | bitwise equal
+hash 41b1560abb3b848b
+layer  2 iq2_xs /iq4_nl G 20 T 4 | mode 0: all   190.7 us  gu   132.8 us (143 GB/s)  down   55.0 us (335 GB/s) | mode 8: all   156.1 us  gu    85.9 us (220 GB/s)  down   71.4 us (258 GB/s) | bitwise equal
+hash 3ce88060d2111a7c
+layer  4 iq2_xs /iq4_nl G 20 T 4 | mode 0: all   187.4 us  gu   132.0 us (143 GB/s)  down   55.5 us (332 GB/s) | mode 8: all   156.3 us  gu    86.7 us (219 GB/s)  down   71.7 us (257 GB/s) | bitwise equal
+hash cf26476e73c64561
+layer  5 iq2_xs /q2_0   G 20 T 4 | mode 0: all   195.4 us  gu   133.1 us (142 GB/s)  down   61.3 us (150 GB/s) | mode 8: all   140.0 us  gu    85.3 us (222 GB/s)  down   55.2 us (167 GB/s) | bitwise equal
+hash 10bac629919a1e13
+layer  9 iq2_xs /q2_0   G 20 T 4 | mode 0: all   194.1 us  gu   135.8 us (140 GB/s)  down   61.6 us (150 GB/s) | mode 8: all   140.1 us  gu    85.4 us (222 GB/s)  down   55.1 us (167 GB/s) | bitwise equal
+hash 7bce70e18dd3e575
+layer 10 iq2_xs /q2_0   G 20 T 4 | mode 0: all   199.7 us  gu   135.1 us (140 GB/s)  down   61.0 us (151 GB/s) | mode 8: all   138.7 us  gu    85.5 us (222 GB/s)  down   55.2 us (167 GB/s) | bitwise equal
+hash e112df0b2f10d5fd
+layer 14 iq2_xs /q2_0   G 20 T 4 | mode 0: all   199.2 us  gu   135.1 us (140 GB/s)  down   61.0 us (151 GB/s) | mode 8: all   140.4 us  gu    85.3 us (222 GB/s)  down   54.8 us (168 GB/s) | bitwise equal
+hash b3d49cfc155afa0e
+layer 19 iq2_xs /q2_0   G 20 T 4 | mode 0: all   202.3 us  gu   138.8 us (136 GB/s)  down   62.2 us (148 GB/s) | mode 8: all   139.1 us  gu    85.1 us (223 GB/s)  down   54.8 us (168 GB/s) | bitwise equal
+hash b7f0866ec4f746b4
+layer 25 iq2_xs /q2_0   G 20 T 4 | mode 0: all   200.4 us  gu   136.2 us (139 GB/s)  down   61.8 us (149 GB/s) | mode 8: all   140.4 us  gu    86.0 us (220 GB/s)  down   55.1 us (167 GB/s) | bitwise equal
+hash 2d5e6871d2ddffe3
+layer 39 iq2_xs /iq4_nl G 20 T 4 | mode 0: all   189.3 us  gu   135.1 us (140 GB/s)  down   55.7 us (331 GB/s) | mode 8: all   156.0 us  gu    86.2 us (220 GB/s)  down   71.8 us (257 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 24b49739b0a77c5b
+layer  0 iq2_xs /iq4_nl G 10 T 5 | mode 0: all   143.1 us  gu    98.8 us ( 96 GB/s)  down   42.4 us (217 GB/s) | mode 8: all   122.1 us  gu    70.3 us (135 GB/s)  down   52.1 us (177 GB/s) | bitwise equal
+hash e541ca6283353748
+layer  2 iq2_xs /iq4_nl G 10 T 5 | mode 0: all   147.5 us  gu   100.3 us ( 94 GB/s)  down   43.4 us (213 GB/s) | mode 8: all   122.4 us  gu    71.5 us (132 GB/s)  down   52.2 us (176 GB/s) | bitwise equal
+hash 2c161996c82f6a3f
+layer  4 iq2_xs /iq4_nl G 10 T 5 | mode 0: all   151.7 us  gu   101.7 us ( 93 GB/s)  down   43.6 us (211 GB/s) | mode 8: all   122.7 us  gu    71.1 us (133 GB/s)  down   51.8 us (178 GB/s) | bitwise equal
+hash 37aeda9cd6fd5d81
+layer  5 iq2_xs /q2_0   G 10 T 5 | mode 0: all   149.2 us  gu   105.2 us ( 90 GB/s)  down   43.2 us (107 GB/s) | mode 8: all   111.5 us  gu    71.3 us (133 GB/s)  down   38.5 us (120 GB/s) | bitwise equal
+hash a9c49994d64dda67
+layer  9 iq2_xs /q2_0   G 10 T 5 | mode 0: all   146.5 us  gu   101.4 us ( 93 GB/s)  down   41.6 us (111 GB/s) | mode 8: all   109.3 us  gu    70.2 us (135 GB/s)  down   38.5 us (120 GB/s) | bitwise equal
+hash 5ed3b5a9e97036f5
+layer 10 iq2_xs /q2_0   G 10 T 5 | mode 0: all   150.4 us  gu   102.7 us ( 92 GB/s)  down   42.2 us (109 GB/s) | mode 8: all   109.7 us  gu    70.8 us (134 GB/s)  down   38.3 us (120 GB/s) | bitwise equal
+hash cf9675138631e0d0
+layer 14 iq2_xs /q2_0   G 10 T 5 | mode 0: all   147.3 us  gu   102.8 us ( 92 GB/s)  down   42.2 us (109 GB/s) | mode 8: all   109.6 us  gu    70.2 us (135 GB/s)  down   38.5 us (120 GB/s) | bitwise equal
+hash b0927fb029df67a4
+layer 19 iq2_xs /q2_0   G 10 T 5 | mode 0: all   149.9 us  gu   101.9 us ( 93 GB/s)  down   41.9 us (110 GB/s) | mode 8: all   108.5 us  gu    71.0 us (133 GB/s)  down   38.6 us (120 GB/s) | bitwise equal
+hash 9509fc1f64d0d372
+layer 25 iq2_xs /q2_0   G 10 T 5 | mode 0: all   148.5 us  gu   102.7 us ( 92 GB/s)  down   42.2 us (109 GB/s) | mode 8: all   110.0 us  gu    70.8 us (134 GB/s)  down   38.2 us (121 GB/s) | bitwise equal
+hash 96dc2f8276d884ab
+layer 39 iq2_xs /iq4_nl G 10 T 5 | mode 0: all   150.4 us  gu   101.0 us ( 94 GB/s)  down   43.5 us (212 GB/s) | mode 8: all   122.9 us  gu    71.7 us (132 GB/s)  down   52.4 us (176 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 4fc6f40f1809d1c2
+layer  0 iq2_xs /iq4_nl G 20 T 5 | mode 0: all   266.2 us  gu   198.3 us ( 96 GB/s)  down   82.0 us (225 GB/s) | mode 8: all   234.1 us  gu   135.6 us (140 GB/s)  down   98.9 us (186 GB/s) | bitwise equal
+hash bd3cba77186973ad
+layer  2 iq2_xs /iq4_nl G 20 T 5 | mode 0: all   274.8 us  gu   194.9 us ( 97 GB/s)  down   82.0 us (225 GB/s) | mode 8: all   237.0 us  gu   140.9 us (134 GB/s)  down  103.0 us (179 GB/s) | bitwise equal
+hash 6418262fa2f187f3
+layer  4 iq2_xs /iq4_nl G 20 T 5 | mode 0: all   272.9 us  gu   197.5 us ( 96 GB/s)  down   82.4 us (224 GB/s) | mode 8: all   237.2 us  gu   141.4 us (134 GB/s)  down  103.0 us (179 GB/s) | bitwise equal
+hash 6a16b62491d2c880
+layer  5 iq2_xs /q2_0   G 20 T 5 | mode 0: all   273.7 us  gu   195.1 us ( 97 GB/s)  down   80.4 us (115 GB/s) | mode 8: all   210.9 us  gu   139.2 us (136 GB/s)  down   77.1 us (120 GB/s) | bitwise equal
+hash 03f6ca6baa45ecf8
+layer  9 iq2_xs /q2_0   G 20 T 5 | mode 0: all   271.5 us  gu   197.0 us ( 96 GB/s)  down   80.4 us (115 GB/s) | mode 8: all   210.8 us  gu   139.8 us (135 GB/s)  down   77.1 us (120 GB/s) | bitwise equal
+hash 2f289df99fd16748
+layer 10 iq2_xs /q2_0   G 20 T 5 | mode 0: all   279.0 us  gu   196.3 us ( 97 GB/s)  down   80.3 us (115 GB/s) | mode 8: all   210.7 us  gu   139.8 us (135 GB/s)  down   77.0 us (120 GB/s) | bitwise equal
+hash 728d554ab565053e
+layer 14 iq2_xs /q2_0   G 20 T 5 | mode 0: all   279.2 us  gu   196.2 us ( 97 GB/s)  down   80.4 us (115 GB/s) | mode 8: all   211.5 us  gu   139.9 us (135 GB/s)  down   77.3 us (119 GB/s) | bitwise equal
+hash 9dd585de63269050
+layer 19 iq2_xs /q2_0   G 20 T 5 | mode 0: all   277.5 us  gu   196.2 us ( 97 GB/s)  down   80.4 us (115 GB/s) | mode 8: all   211.6 us  gu   139.8 us (136 GB/s)  down   77.3 us (119 GB/s) | bitwise equal
+hash 3c0f096e399c2a07
+layer 25 iq2_xs /q2_0   G 20 T 5 | mode 0: all   277.3 us  gu   196.1 us ( 97 GB/s)  down   80.4 us (115 GB/s) | mode 8: all   211.6 us  gu   140.3 us (135 GB/s)  down   77.3 us (119 GB/s) | bitwise equal
+hash 88c39cf799a92123
+layer 39 iq2_xs /iq4_nl G 20 T 5 | mode 0: all   272.8 us  gu   198.2 us ( 96 GB/s)  down   82.4 us (224 GB/s) | mode 8: all   237.4 us  gu   141.5 us (134 GB/s)  down  103.0 us (179 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 3d60947eb333fa17
+layer  0 iq2_xs /iq4_nl G 10 T 8 | mode 0: all   186.8 us  gu   132.0 us ( 72 GB/s)  down   54.3 us (170 GB/s) | mode 8: all   156.0 us  gu    85.9 us (110 GB/s)  down   71.4 us (129 GB/s) | bitwise equal
+hash 92add6f7849454b8
+layer  2 iq2_xs /iq4_nl G 10 T 8 | mode 0: all   191.5 us  gu   135.1 us ( 70 GB/s)  down   54.4 us (169 GB/s) | mode 8: all   155.8 us  gu    86.2 us (110 GB/s)  down   71.6 us (129 GB/s) | bitwise equal
+hash 3130c030b1fed352
+layer  4 iq2_xs /iq4_nl G 10 T 8 | mode 0: all   194.3 us  gu   135.8 us ( 70 GB/s)  down   54.4 us (170 GB/s) | mode 8: all   155.7 us  gu    85.7 us (110 GB/s)  down   70.4 us (131 GB/s) | bitwise equal
+hash 74222cbcdbb8a54f
+layer  5 iq2_xs /q2_0   G 10 T 8 | mode 0: all   199.2 us  gu   138.1 us ( 69 GB/s)  down   59.5 us ( 77 GB/s) | mode 8: all   139.6 us  gu    84.9 us (112 GB/s)  down   53.6 us ( 86 GB/s) | bitwise equal
+hash 51595a4f059607b4
+layer  9 iq2_xs /q2_0   G 10 T 8 | mode 0: all   200.1 us  gu   135.8 us ( 70 GB/s)  down   58.5 us ( 79 GB/s) | mode 8: all   138.6 us  gu    85.8 us (110 GB/s)  down   54.0 us ( 85 GB/s) | bitwise equal
+hash 9a3b300622fb8ad6
+layer 10 iq2_xs /q2_0   G 10 T 8 | mode 0: all   197.0 us  gu   134.9 us ( 70 GB/s)  down   58.5 us ( 79 GB/s) | mode 8: all   139.7 us  gu    85.7 us (111 GB/s)  down   53.9 us ( 85 GB/s) | bitwise equal
+hash 055d64b8f1fee410
+layer 14 iq2_xs /q2_0   G 10 T 8 | mode 0: all   198.8 us  gu   135.8 us ( 70 GB/s)  down   58.5 us ( 79 GB/s) | mode 8: all   138.6 us  gu    85.7 us (111 GB/s)  down   54.5 us ( 85 GB/s) | bitwise equal
+hash d3745eec83138918
+layer 19 iq2_xs /q2_0   G 10 T 8 | mode 0: all   199.3 us  gu   135.9 us ( 70 GB/s)  down   58.5 us ( 79 GB/s) | mode 8: all   139.3 us  gu    85.0 us (111 GB/s)  down   54.4 us ( 85 GB/s) | bitwise equal
+hash 3929629a26e1ffb4
+layer 25 iq2_xs /q2_0   G 10 T 8 | mode 0: all   199.3 us  gu   137.2 us ( 69 GB/s)  down   59.0 us ( 78 GB/s) | mode 8: all   140.1 us  gu    85.2 us (111 GB/s)  down   54.2 us ( 85 GB/s) | bitwise equal
+hash 79d6577485495522
+layer 39 iq2_xs /iq4_nl G 10 T 8 | mode 0: all   196.1 us  gu   135.9 us ( 70 GB/s)  down   54.5 us (169 GB/s) | mode 8: all   155.9 us  gu    86.4 us (110 GB/s)  down   71.6 us (129 GB/s) | bitwise equal
+native_expert_bench: 0 differing
+strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA0 (STRATA_SM75_IQ2XS_FUSED=1)
+hash 84e28cbf1dd6f387
+layer  0 iq2_xs /iq4_nl G 20 T 8 | mode 0: all   353.7 us  gu   262.9 us ( 72 GB/s)  down  103.3 us (178 GB/s) | mode 8: all   301.7 us  gu   169.2 us (112 GB/s)  down  139.9 us (132 GB/s) | bitwise equal
+hash 1cae9a92a083a42c
+layer  2 iq2_xs /iq4_nl G 20 T 8 | mode 0: all   357.1 us  gu   264.8 us ( 72 GB/s)  down  103.3 us (178 GB/s) | mode 8: all   303.7 us  gu   170.1 us (111 GB/s)  down  140.0 us (132 GB/s) | bitwise equal
+hash 6b4fe026b2a4a4e6
+layer  4 iq2_xs /iq4_nl G 20 T 8 | mode 0: all   360.1 us  gu   264.3 us ( 72 GB/s)  down  103.3 us (178 GB/s) | mode 8: all   303.2 us  gu   170.1 us (111 GB/s)  down  140.0 us (132 GB/s) | bitwise equal
+hash a5c71ae52ff2211c
+layer  5 iq2_xs /q2_0   G 20 T 8 | mode 0: all   369.7 us  gu   262.2 us ( 72 GB/s)  down  113.3 us ( 81 GB/s) | mode 8: all   270.1 us  gu   168.9 us (112 GB/s)  down  108.6 us ( 85 GB/s) | bitwise equal
+hash 3bebc471f35718c1
+layer  9 iq2_xs /q2_0   G 20 T 8 | mode 0: all   368.0 us  gu   263.3 us ( 72 GB/s)  down  113.3 us ( 81 GB/s) | mode 8: all   270.1 us  gu   169.5 us (112 GB/s)  down  108.6 us ( 85 GB/s) | bitwise equal
+hash 26e92031ccd1d967
+layer 10 iq2_xs /q2_0   G 20 T 8 | mode 0: all   370.9 us  gu   261.9 us ( 72 GB/s)  down  113.2 us ( 81 GB/s) | mode 8: all   269.4 us  gu   169.5 us (112 GB/s)  down  109.2 us ( 84 GB/s) | bitwise equal
+hash e584ec8ba5c73273
+layer 14 iq2_xs /q2_0   G 20 T 8 | mode 0: all   389.4 us  gu   264.8 us ( 72 GB/s)  down  113.3 us ( 81 GB/s) | mode 8: all   271.6 us  gu   169.7 us (112 GB/s)  down  108.8 us ( 85 GB/s) | bitwise equal
+hash c1ffa5fb5ac6a514
+layer 19 iq2_xs /q2_0   G 20 T 8 | mode 0: all   377.1 us  gu   264.4 us ( 72 GB/s)  down  114.1 us ( 81 GB/s) | mode 8: all   271.9 us  gu   170.4 us (111 GB/s)  down  108.8 us ( 85 GB/s) | bitwise equal
+hash 2ee8ce26391c0814
+layer 25 iq2_xs /q2_0   G 20 T 8 | mode 0: all   375.5 us  gu   263.6 us ( 72 GB/s)  down  114.1 us ( 81 GB/s) | mode 8: all   270.6 us  gu   169.8 us (112 GB/s)  down  108.8 us ( 85 GB/s) | bitwise equal
+hash a739ac5cdc154721
+layer 39 iq2_xs /iq4_nl G 20 T 8 | mode 0: all   359.9 us  gu   265.5 us ( 71 GB/s)  down  103.9 us (177 GB/s) | mode 8: all   305.2 us  gu   170.8 us (111 GB/s)  down  140.2 us (131 GB/s) | bitwise equal
+native_expert_bench: 0 differing

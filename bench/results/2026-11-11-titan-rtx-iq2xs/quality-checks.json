@@ -1,0 +1,23 @@
+{
+  "requests": 72,
+  "passed_by_arm_and_task": {
+    "baseline/code": 6,
+    "baseline/korean": 6,
+    "baseline/math": 6,
+    "baseline/json": 6,
+    "baseline/logic": 6,
+    "baseline/tool": 6,
+    "candidate/code": 6,
+    "candidate/korean": 6,
+    "candidate/math": 6,
+    "candidate/json": 6,
+    "candidate/logic": 6,
+    "candidate/tool": 6
+  },
+  "reviewed_algorithm_ast_sha256": {
+    "plain": "25633dea2349ab23106fca69e36768c25e0ab6a87126bfaf16767d89b03720d2",
+    "list_annotations": "a8960e5239a4845c64991dc0a6d5a8239b19c48ddebaf53237c722dcaeded1fa",
+    "extend": "e2fb7f2cede681beb2e28a2a4ceba152d05578c50cbd0701661adc458c5ea205",
+    "extend_list_annotations": "ccc3069e7eaa569418128c85b5cf7d00b38a6fff7d1663382e737a62c90be433"
+  }
+}

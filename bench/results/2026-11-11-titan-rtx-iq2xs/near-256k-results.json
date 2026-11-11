@@ -1,0 +1,108 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 118.56,
+      "total_s": 118.895,
+      "prompt_tokens": 252146,
+      "reused_tokens": 0,
+      "read_tokens": 252146,
+      "generated_tokens": 23,
+      "prompt_tps": 2131.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 118290.2,
+      "decode_ms": 356.8,
+      "drafts_offered": 17,
+      "drafts_accepted": 15
+    },
+    "response": {
+      "first": 118.56035881599382,
+      "total": 118.89469837999786,
+      "text": "729183, 416927, 853204",
+      "usage": {
+        "prompt_tokens": 252146,
+        "completion_tokens": 23,
+        "total_tokens": 252169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252146,
+        "prompt_ms": 118290.2,
+        "prompt_per_token_ms": 0.469,
+        "prompt_per_second": 2131.6,
+        "predicted_n": 23,
+        "predicted_ms": 356.8,
+        "predicted_per_token_ms": 15.513,
+        "predicted_per_second": 64.5,
+        "draft_n": 17,
+        "draft_n_accepted": 15
+      },
+      "err": null,
+      "pieces": 22
+    },
+    "retrieval_exact": true
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 119.851,
+      "total_s": 120.231,
+      "prompt_tokens": 252146,
+      "reused_tokens": 0,
+      "read_tokens": 252146,
+      "generated_tokens": 23,
+      "prompt_tps": 2108.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 57.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 119570.4,
+      "decode_ms": 401.7,
+      "drafts_offered": 27,
+      "drafts_accepted": 14
+    },
+    "response": {
+      "first": 119.85107262800011,
+      "total": 120.23060557899589,
+      "text": "729183, 416927, 853204",
+      "usage": {
+        "prompt_tokens": 252146,
+        "completion_tokens": 23,
+        "total_tokens": 252169,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 252146,
+        "prompt_ms": 119570.4,
+        "prompt_per_token_ms": 0.474,
+        "prompt_per_second": 2108.8,
+        "predicted_n": 23,
+        "predicted_ms": 401.7,
+        "predicted_per_token_ms": 17.465,
+        "predicted_per_second": 57.3,
+        "draft_n": 27,
+        "draft_n_accepted": 14
+      },
+      "err": null,
+      "pieces": 22
+    },
+    "retrieval_exact": true
+  }
+]

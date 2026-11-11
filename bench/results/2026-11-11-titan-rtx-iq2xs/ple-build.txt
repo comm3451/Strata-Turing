@@ -1,0 +1,17 @@
+[1/2] Building CXX object CMakeFiles/strata.dir/src/program/generate.cpp.o
+/home/eesdf/Strata-Turing/src/program/generate.cpp: In function 'int main(int, char**)':
+/home/eesdf/Strata-Turing/src/program/generate.cpp:8206:21: warning: unused variable 'lay' [-Wunused-variable]
+ 8206 |         const auto& lay = strata::kernels::cpu::expert_layout();
+      |                     ^~~
+/home/eesdf/Strata-Turing/src/program/generate.cpp:8232:21: warning: unused variable 'lay' [-Wunused-variable]
+ 8232 |         const auto& lay = strata::kernels::cpu::expert_layout();
+      |                     ^~~
+/home/eesdf/Strata-Turing/src/program/generate.cpp: In lambda function:
+/home/eesdf/Strata-Turing/src/program/generate.cpp:8329:29: warning: unused variable 'lay' [-Wunused-variable]
+ 8329 |                 const auto& lay = strata::kernels::cpu::expert_layout();
+      |                             ^~~
+/home/eesdf/Strata-Turing/src/program/generate.cpp: In lambda function:
+/home/eesdf/Strata-Turing/src/program/generate.cpp:15388:30: warning: unused variable 'w' [-Wunused-variable]
+15388 |                 const double w = (double) bt_windows, wall = std::chrono::duration<double, std::milli>(Clock::now() - bt_start).count();
+      |                              ^
+[2/2] Linking CXX executable strata

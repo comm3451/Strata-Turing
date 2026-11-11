@@ -5742,6 +5742,9 @@ __global__ void __launch_bounds__(256) native_down_amd_kernel(const unsigned lon
 template<int TY> struct GridOf;
 template<> struct GridOf<22> { using T = uint64_t; static constexpr int N = 1024; __device__ static const T* src() { return iq2s_grid; } };
 template<> struct GridOf<16> { using T = uint64_t; static constexpr int N = 256; __device__ static const T* src() { return iq2xxs_grid; } };
+#if !defined(__HIPCC__)
+template<> struct GridOf<17> { using T = uint64_t; static constexpr int N = 512; __device__ static const T* src() { return iq2xs_grid; } };
+#endif
 template<> struct GridOf<18> { using T = uint32_t; static constexpr int N = 256; __device__ static const T* src() { return iq3xxs_grid; } };
 template<> struct GridOf<21> { using T = uint32_t; static constexpr int N = 512; __device__ static const T* src() { return iq3s_grid; } };
 template<> struct GridOf<23> { using T = uint32_t; static constexpr int N = 1; __device__ static const T* src() { return iq3s_grid; } };   // IQ4_XS: no grid
@@ -5754,6 +5757,17 @@ __device__ __forceinline__ int nib_mask(uint32_t n) {
     return (int) ((b << 8) - b);
 }
 template<int TY, int SG> struct DotG;
+#if !defined(__HIPCC__)
+// Reuse the existing IQ2_XS integer dot and scale rule, with its codebook in shared memory.
+// This adds the format to the opt-in Turing fused gate/up + SwiGLU + q8_1 path below.
+template<int SG> struct DotG<17, SG> {
+    __device__ static __forceinline__ float f(const void* vbq, const block_q8_1* bq8_1, int kbx, int iqs,
+                                               const uint64_t* grid) {
+        const auto w = Split<17>::load<true>(vbq, kbx, iqs, (const uint32_t*) grid);
+        return Split<17>::apply(w, bq8_1, iqs);
+    }
+};
+#endif
 template<int SG> struct DotG<22, SG> { __device__ static __forceinline__ float f(const void* vbq, const block_q8_1* bq8_1, int kbx, int iqs,
                                                       const uint64_t* grid) {
     const block_iq2_s* bq2 = (const block_iq2_s*) vbq + kbx;
@@ -6219,6 +6233,23 @@ int sm75_down_em(int em0, int64_t cap_groups) {
     cudaDeviceGetAttribute(&minor, cudaDevAttrComputeCapabilityMinor, dev);
     return strata::is_sm75(major, minor) ? 0 : em0;
 }
+// Separate from STRATA_SM75_PERF: unmeasured devices and unset/zero keep the old dispatch.
+bool sm75_iq2xs_fused() {
+    static const bool asked = env_on("STRATA_SM75_IQ2XS_FUSED");
+    if (!asked) return false;
+    static int per_dev[64] = {};
+    int dev = 0;
+    if (cudaGetDevice(&dev) != cudaSuccess || dev < 0 || dev >= 64) return false;
+    if (per_dev[dev] == 0) {
+        int major = 0, minor = 0;
+        if (cudaDeviceGetAttribute(&major, cudaDevAttrComputeCapabilityMajor, dev) != cudaSuccess ||
+            cudaDeviceGetAttribute(&minor, cudaDevAttrComputeCapabilityMinor, dev) != cudaSuccess) return false;
+        per_dev[dev] = major == 7 && minor == 5 ? 2 : 1;
+        if (per_dev[dev] == 2)
+            std::fprintf(stderr, "strata sm75: IQ2_XS fused gate/up + SwiGLU + q8_1 enabled on CUDA%d (STRATA_SM75_IQ2XS_FUSED=1)\n", dev);
+    }
+    return per_dev[dev] == 2;
+}
 #else
 int sm75_down_em(int em0, int64_t) { return em0; }
 #endif
@@ -6368,13 +6399,20 @@ void native_expert_grouped(const NativeExpertLayout& L, const unsigned long long
 #endif
 #endif
 #if STRATA_EXP_LAYOUTS
-    const bool fused_gu = !nib_layout(L) && em0 == 8 && ((kExpLds16 && L.gu_type == 16) || L.gu_type == 18 || L.gu_type == 21 || L.gu_type == 22 || L.gu_type == 23) &&
+    bool fused_iq2xs = false;
+#if !defined(__HIPCC__)
+    fused_iq2xs = em0 == 8 && L.gu_type == 17 && L.n_embd == 2560 && L.n_ff == 640 && sm75_iq2xs_fused();
+#endif
+    const bool fused_gu = !nib_layout(L) && em0 == 8 && (fused_iq2xs || (kExpLds16 && L.gu_type == 16) || L.gu_type == 18 || L.gu_type == 21 || L.gu_type == 22 || L.gu_type == 23) &&
                           L.n_ff % 32 == 0;
     if (fused_gu && g_exp_phase != 2) {
         const dim3 gl((unsigned) (L.n_ff / 32), (unsigned) cap_groups);
         const size_t sh = (size_t) LDS_NT * (size_t) (L.n_embd / 32) * sizeof(block_q8_1);
         switch (L.gu_type) {
             case 16: native_gu_fused_kernel<16><<<gl, 256, sh, s>>>(grp_ptr, grp_start, n_groups, ent_tok, X, L, hq); break;
+#if !defined(__HIPCC__)
+            case 17: native_gu_fused_kernel<17><<<gl, 256, sh, s>>>(grp_ptr, grp_start, n_groups, ent_tok, X, L, hq); break;
+#endif
             case 18: native_gu_fused_kernel<18><<<gl, 256, sh, s>>>(grp_ptr, grp_start, n_groups, ent_tok, X, L, hq); break;
             case 21: native_gu_fused_kernel<21><<<gl, 256, sh, s>>>(grp_ptr, grp_start, n_groups, ent_tok, X, L, hq); break;
             case 23: native_gu_fused_kernel<23><<<gl, 256, sh, s>>>(grp_ptr, grp_start, n_groups, ent_tok, X, L, hq); break;

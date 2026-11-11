@@ -1,0 +1,3746 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.271,
+      "total_s": 2.69,
+      "prompt_tokens": 631,
+      "reused_tokens": 0,
+      "read_tokens": 631,
+      "generated_tokens": 136,
+      "prompt_tps": 507.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1242.8,
+      "decode_ms": 1438.0,
+      "drafts_offered": 100,
+      "drafts_accepted": 87
+    },
+    "response": {
+      "first": 1.2708276010016561,
+      "total": 2.689839390004636,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"Merge two sorted lists into a new sorted list without modifying the inputs.\"\"\"\n    merged = []\n    i, j = 0, 0\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    merged.extend(list1[i:])\n    merged.extend(list2[j:])\n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 136,
+        "total_tokens": 767,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 631,
+        "prompt_ms": 1242.8,
+        "prompt_per_token_ms": 1.97,
+        "prompt_per_second": 507.7,
+        "predicted_n": 136,
+        "predicted_ms": 1438.0,
+        "predicted_per_token_ms": 10.574,
+        "predicted_per_second": 94.6,
+        "draft_n": 100,
+        "draft_n_accepted": 87
+      },
+      "err": null,
+      "pieces": 120
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.217,
+      "total_s": 1.749,
+      "prompt_tokens": 632,
+      "reused_tokens": 0,
+      "read_tokens": 632,
+      "generated_tokens": 39,
+      "prompt_tps": 532.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 70.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1186.7,
+      "decode_ms": 554.0,
+      "drafts_offered": 25,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.2165408759974525,
+      "total": 1.7486334709974471,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 가변(mutable) 자료구조이고, 튜플은 생성 후 내용을 변경할 수 없는 불변(immutable) 자료구조입니다.",
+      "usage": {
+        "prompt_tokens": 632,
+        "completion_tokens": 39,
+        "total_tokens": 671,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 632,
+        "prompt_ms": 1186.7,
+        "prompt_per_token_ms": 1.878,
+        "prompt_per_second": 532.6,
+        "predicted_n": 39,
+        "predicted_ms": 554.0,
+        "predicted_per_token_ms": 14.205,
+        "predicted_per_second": 70.4,
+        "draft_n": 25,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 38
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.203,
+      "total_s": 2.733,
+      "prompt_tokens": 645,
+      "reused_tokens": 0,
+      "read_tokens": 645,
+      "generated_tokens": 111,
+      "prompt_tps": 548.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 71.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1175.3,
+      "decode_ms": 1549.5,
+      "drafts_offered": 87,
+      "drafts_accepted": 67
+    },
+    "response": {
+      "first": 1.2033213449976756,
+      "total": 2.732607217003533,
+      "text": "To find the number of pencils remaining, we follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**Answer:** 313",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 111,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 645,
+        "prompt_ms": 1175.3,
+        "prompt_per_token_ms": 1.822,
+        "prompt_per_second": 548.8,
+        "predicted_n": 111,
+        "predicted_ms": 1549.5,
+        "predicted_per_token_ms": 13.959,
+        "predicted_per_second": 71.6,
+        "draft_n": 87,
+        "draft_n_accepted": 67
+      },
+      "err": null,
+      "pieces": 105
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.173,
+      "total_s": 1.494,
+      "prompt_tokens": 641,
+      "reused_tokens": 0,
+      "read_tokens": 641,
+      "generated_tokens": 28,
+      "prompt_tps": 559.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 82.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1145.7,
+      "decode_ms": 341.4,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 1.172545755005558,
+      "total": 1.4943370170003618,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 28,
+        "total_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 641,
+        "prompt_ms": 1145.7,
+        "prompt_per_token_ms": 1.787,
+        "prompt_per_second": 559.5,
+        "predicted_n": 28,
+        "predicted_ms": 341.4,
+        "predicted_per_token_ms": 12.193,
+        "predicted_per_second": 82.0,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.175,
+      "total_s": 1.497,
+      "prompt_tokens": 640,
+      "reused_tokens": 0,
+      "read_tokens": 640,
+      "generated_tokens": 22,
+      "prompt_tps": 557.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1147.9,
+      "decode_ms": 341.6,
+      "drafts_offered": 16,
+      "drafts_accepted": 13
+    },
+    "response": {
+      "first": 1.174630628003797,
+      "total": 1.4973221770051168,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 640,
+        "completion_tokens": 22,
+        "total_tokens": 662,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 640,
+        "prompt_ms": 1147.9,
+        "prompt_per_token_ms": 1.794,
+        "prompt_per_second": 557.5,
+        "predicted_n": 22,
+        "predicted_ms": 341.6,
+        "predicted_per_token_ms": 15.527,
+        "predicted_per_second": 64.4,
+        "draft_n": 16,
+        "draft_n_accepted": 13
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.15,
+      "total_s": 1.506,
+      "prompt_tokens": 639,
+      "reused_tokens": 0,
+      "read_tokens": 639,
+      "generated_tokens": 31,
+      "prompt_tps": 568.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 82.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1123.5,
+      "decode_ms": 375.1,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.1495786960003898,
+      "total": 1.5062568120047217,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 31,
+        "total_tokens": 670,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 639,
+        "prompt_ms": 1123.5,
+        "prompt_per_token_ms": 1.758,
+        "prompt_per_second": 568.8,
+        "predicted_n": 31,
+        "predicted_ms": 375.1,
+        "predicted_per_token_ms": 12.1,
+        "predicted_per_second": 82.6,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.631,
+      "total_s": 5.829,
+      "prompt_tokens": 5043,
+      "reused_tokens": 0,
+      "read_tokens": 5043,
+      "generated_tokens": 217,
+      "prompt_tps": 1401.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 97.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3598.2,
+      "decode_ms": 2218.2,
+      "drafts_offered": 155,
+      "drafts_accepted": 138
+    },
+    "response": {
+      "first": 3.6312812280011713,
+      "total": 5.829109751000942,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: Another sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 5043,
+        "completion_tokens": 217,
+        "total_tokens": 5260,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5043,
+        "prompt_ms": 3598.2,
+        "prompt_per_token_ms": 0.714,
+        "prompt_per_second": 1401.5,
+        "predicted_n": 217,
+        "predicted_ms": 2218.2,
+        "predicted_per_token_ms": 10.222,
+        "predicted_per_second": 97.8,
+        "draft_n": 155,
+        "draft_n_accepted": 138
+      },
+      "err": null,
+      "pieces": 193
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.598,
+      "total_s": 4.135,
+      "prompt_tokens": 5044,
+      "reused_tokens": 0,
+      "read_tokens": 5044,
+      "generated_tokens": 41,
+      "prompt_tps": 1415.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 73.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3562.8,
+      "decode_ms": 560.0,
+      "drafts_offered": 29,
+      "drafts_accepted": 22
+    },
+    "response": {
+      "first": 3.5979852720047347,
+      "total": 4.134757012005139,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 **가변(mutable)** 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 **불변(immutable)** 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 41,
+        "total_tokens": 5085,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5044,
+        "prompt_ms": 3562.8,
+        "prompt_per_token_ms": 0.706,
+        "prompt_per_second": 1415.7,
+        "predicted_n": 41,
+        "predicted_ms": 560.0,
+        "predicted_per_token_ms": 13.659,
+        "predicted_per_second": 73.2,
+        "draft_n": 29,
+        "draft_n_accepted": 22
+      },
+      "err": null,
+      "pieces": 40
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.6,
+      "total_s": 4.839,
+      "prompt_tokens": 5057,
+      "reused_tokens": 0,
+      "read_tokens": 5057,
+      "generated_tokens": 108,
+      "prompt_tps": 1418.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3565.5,
+      "decode_ms": 1261.1,
+      "drafts_offered": 73,
+      "drafts_accepted": 68
+    },
+    "response": {
+      "first": 3.5995152100003907,
+      "total": 4.838890681996418,
+      "text": "To find the number of pencils remaining, follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**313**",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 108,
+        "total_tokens": 5165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5057,
+        "prompt_ms": 3565.5,
+        "prompt_per_token_ms": 0.705,
+        "prompt_per_second": 1418.3,
+        "predicted_n": 108,
+        "predicted_ms": 1261.1,
+        "predicted_per_token_ms": 11.677,
+        "predicted_per_second": 85.6,
+        "draft_n": 73,
+        "draft_n_accepted": 68
+      },
+      "err": null,
+      "pieces": 102
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.597,
+      "total_s": 3.898,
+      "prompt_tokens": 5053,
+      "reused_tokens": 0,
+      "read_tokens": 5053,
+      "generated_tokens": 28,
+      "prompt_tps": 1417.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3564.1,
+      "decode_ms": 322.4,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 3.5970979220001027,
+      "total": 3.8984021919968654,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 5053,
+        "completion_tokens": 28,
+        "total_tokens": 5081,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5053,
+        "prompt_ms": 3564.1,
+        "prompt_per_token_ms": 0.705,
+        "prompt_per_second": 1417.7,
+        "predicted_n": 28,
+        "predicted_ms": 322.4,
+        "predicted_per_token_ms": 11.514,
+        "predicted_per_second": 86.8,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.613,
+      "total_s": 3.947,
+      "prompt_tokens": 5052,
+      "reused_tokens": 0,
+      "read_tokens": 5052,
+      "generated_tokens": 22,
+      "prompt_tps": 1411.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 61.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3579.1,
+      "decode_ms": 355.2,
+      "drafts_offered": 16,
+      "drafts_accepted": 13
+    },
+    "response": {
+      "first": 3.61261930699402,
+      "total": 3.946590051993553,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 5052,
+        "completion_tokens": 22,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5052,
+        "prompt_ms": 3579.1,
+        "prompt_per_token_ms": 0.708,
+        "prompt_per_second": 1411.5,
+        "predicted_n": 22,
+        "predicted_ms": 355.2,
+        "predicted_per_token_ms": 16.145,
+        "predicted_per_second": 61.9,
+        "draft_n": 16,
+        "draft_n_accepted": 13
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.595,
+      "total_s": 3.934,
+      "prompt_tokens": 5051,
+      "reused_tokens": 0,
+      "read_tokens": 5051,
+      "generated_tokens": 31,
+      "prompt_tps": 1417.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3562.9,
+      "decode_ms": 359.2,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 3.594535341995652,
+      "total": 3.9338375439983793,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 5051,
+        "completion_tokens": 31,
+        "total_tokens": 5082,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5051,
+        "prompt_ms": 3562.9,
+        "prompt_per_token_ms": 0.705,
+        "prompt_per_second": 1417.7,
+        "predicted_n": 31,
+        "predicted_ms": 359.2,
+        "predicted_per_token_ms": 11.587,
+        "predicted_per_second": 86.3,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.259,
+      "total_s": 11.419,
+      "prompt_tokens": 20427,
+      "reused_tokens": 0,
+      "read_tokens": 20427,
+      "generated_tokens": 234,
+      "prompt_tps": 2217.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 107.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9210.5,
+      "decode_ms": 2180.1,
+      "drafts_offered": 182,
+      "drafts_accepted": 168
+    },
+    "response": {
+      "first": 9.259326966996014,
+      "total": 11.419084084998758,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 20427,
+        "completion_tokens": 234,
+        "total_tokens": 20661,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20427,
+        "prompt_ms": 9210.5,
+        "prompt_per_token_ms": 0.451,
+        "prompt_per_second": 2217.8,
+        "predicted_n": 234,
+        "predicted_ms": 2180.1,
+        "predicted_per_token_ms": 9.317,
+        "predicted_per_second": 107.3,
+        "draft_n": 182,
+        "draft_n_accepted": 168
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.38,
+      "total_s": 9.94,
+      "prompt_tokens": 20428,
+      "reused_tokens": 0,
+      "read_tokens": 20428,
+      "generated_tokens": 42,
+      "prompt_tps": 2189.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 72.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9329.1,
+      "decode_ms": 582.9,
+      "drafts_offered": 29,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.380044237004768,
+      "total": 9.94029104400397,
+      "text": "리스트는 생성 후에도 내용을 변경할 수 있는 **가변(mutable)** 자료구조이며, 튜플은 생성 후 내용을 변경할 수 없는 **불변(immutable)** 자료구조입니다.",
+      "usage": {
+        "prompt_tokens": 20428,
+        "completion_tokens": 42,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20428,
+        "prompt_ms": 9329.1,
+        "prompt_per_token_ms": 0.457,
+        "prompt_per_second": 2189.7,
+        "predicted_n": 42,
+        "predicted_ms": 582.9,
+        "predicted_per_token_ms": 13.879,
+        "predicted_per_second": 72.1,
+        "draft_n": 29,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 41
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.31,
+      "total_s": 9.617,
+      "prompt_tokens": 20441,
+      "reused_tokens": 0,
+      "read_tokens": 20441,
+      "generated_tokens": 29,
+      "prompt_tps": 2207.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9258.8,
+      "decode_ms": 330.1,
+      "drafts_offered": 21,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 9.309641746003763,
+      "total": 9.617451224999968,
+      "text": "17 * 24 = 408\n408 - 95 = 313\n\n313",
+      "usage": {
+        "prompt_tokens": 20441,
+        "completion_tokens": 29,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20441,
+        "prompt_ms": 9258.8,
+        "prompt_per_token_ms": 0.453,
+        "prompt_per_second": 2207.7,
+        "predicted_n": 29,
+        "predicted_ms": 330.1,
+        "predicted_per_token_ms": 11.383,
+        "predicted_per_second": 87.9,
+        "draft_n": 21,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 26
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.341,
+      "total_s": 9.607,
+      "prompt_tokens": 20437,
+      "reused_tokens": 0,
+      "read_tokens": 20437,
+      "generated_tokens": 28,
+      "prompt_tps": 2199.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 97.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9292.9,
+      "decode_ms": 286.3,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 9.341048353002407,
+      "total": 9.60668478700245,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 20437,
+        "completion_tokens": 28,
+        "total_tokens": 20465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20437,
+        "prompt_ms": 9292.9,
+        "prompt_per_token_ms": 0.455,
+        "prompt_per_second": 2199.2,
+        "predicted_n": 28,
+        "predicted_ms": 286.3,
+        "predicted_per_token_ms": 10.225,
+        "predicted_per_second": 97.8,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.358,
+      "total_s": 9.683,
+      "prompt_tokens": 20436,
+      "reused_tokens": 0,
+      "read_tokens": 20436,
+      "generated_tokens": 22,
+      "prompt_tps": 2195.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 63.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9308.8,
+      "decode_ms": 346.4,
+      "drafts_offered": 21,
+      "drafts_accepted": 16
+    },
+    "response": {
+      "first": 9.357666773998062,
+      "total": 9.682672863993503,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 20436,
+        "completion_tokens": 22,
+        "total_tokens": 20458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20436,
+        "prompt_ms": 9308.8,
+        "prompt_per_token_ms": 0.456,
+        "prompt_per_second": 2195.3,
+        "predicted_n": 22,
+        "predicted_ms": 346.4,
+        "predicted_per_token_ms": 15.745,
+        "predicted_per_second": 63.5,
+        "draft_n": 21,
+        "draft_n_accepted": 16
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.365,
+      "total_s": 9.681,
+      "prompt_tokens": 20435,
+      "reused_tokens": 0,
+      "read_tokens": 20435,
+      "generated_tokens": 31,
+      "prompt_tps": 2193.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 92.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9317.6,
+      "decode_ms": 336.5,
+      "drafts_offered": 24,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.365409680001903,
+      "total": 9.681473264005035,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 20435,
+        "completion_tokens": 31,
+        "total_tokens": 20466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20435,
+        "prompt_ms": 9317.6,
+        "prompt_per_token_ms": 0.456,
+        "prompt_per_second": 2193.2,
+        "predicted_n": 31,
+        "predicted_ms": 336.5,
+        "predicted_per_token_ms": 10.855,
+        "predicted_per_second": 92.1,
+        "draft_n": 24,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.253,
+      "total_s": 2.921,
+      "prompt_tokens": 631,
+      "reused_tokens": 0,
+      "read_tokens": 631,
+      "generated_tokens": 168,
+      "prompt_tps": 514.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 99.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1225.8,
+      "decode_ms": 1686.9,
+      "drafts_offered": 127,
+      "drafts_accepted": 108
+    },
+    "response": {
+      "first": 1.2534050009999191,
+      "total": 2.9206197769963183,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"Merge two sorted lists into a new sorted list without modifying the inputs.\"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 168,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 631,
+        "prompt_ms": 1225.8,
+        "prompt_per_token_ms": 1.943,
+        "prompt_per_second": 514.8,
+        "predicted_n": 168,
+        "predicted_ms": 1686.9,
+        "predicted_per_token_ms": 10.041,
+        "predicted_per_second": 99.6,
+        "draft_n": 127,
+        "draft_n_accepted": 108
+      },
+      "err": null,
+      "pieces": 151
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.154,
+      "total_s": 1.698,
+      "prompt_tokens": 632,
+      "reused_tokens": 0,
+      "read_tokens": 632,
+      "generated_tokens": 39,
+      "prompt_tps": 561.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 69.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1124.7,
+      "decode_ms": 565.2,
+      "drafts_offered": 29,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 1.1538999089971185,
+      "total": 1.6977167739969445,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 가변(mutable) 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 불변(immutable) 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 632,
+        "completion_tokens": 39,
+        "total_tokens": 671,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 632,
+        "prompt_ms": 1124.7,
+        "prompt_per_token_ms": 1.78,
+        "prompt_per_second": 561.9,
+        "predicted_n": 39,
+        "predicted_ms": 565.2,
+        "predicted_per_token_ms": 14.492,
+        "predicted_per_second": 69.0,
+        "draft_n": 29,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 38
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.155,
+      "total_s": 2.506,
+      "prompt_tokens": 645,
+      "reused_tokens": 0,
+      "read_tokens": 645,
+      "generated_tokens": 111,
+      "prompt_tps": 572.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 81.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1127.6,
+      "decode_ms": 1370.7,
+      "drafts_offered": 74,
+      "drafts_accepted": 69
+    },
+    "response": {
+      "first": 1.1548715800017817,
+      "total": 2.5056868020037655,
+      "text": "To find the number of pencils remaining, we follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**Answer:** 313",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 111,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 645,
+        "prompt_ms": 1127.6,
+        "prompt_per_token_ms": 1.748,
+        "prompt_per_second": 572.0,
+        "predicted_n": 111,
+        "predicted_ms": 1370.7,
+        "predicted_per_token_ms": 12.349,
+        "predicted_per_second": 81.0,
+        "draft_n": 74,
+        "draft_n_accepted": 69
+      },
+      "err": null,
+      "pieces": 105
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.149,
+      "total_s": 1.457,
+      "prompt_tokens": 641,
+      "reused_tokens": 0,
+      "read_tokens": 641,
+      "generated_tokens": 28,
+      "prompt_tps": 570.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1123.1,
+      "decode_ms": 326.2,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 1.1493589730016538,
+      "total": 1.4569407500021043,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 28,
+        "total_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 641,
+        "prompt_ms": 1123.1,
+        "prompt_per_token_ms": 1.752,
+        "prompt_per_second": 570.7,
+        "predicted_n": 28,
+        "predicted_ms": 326.2,
+        "predicted_per_token_ms": 11.65,
+        "predicted_per_second": 85.8,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.138,
+      "total_s": 1.51,
+      "prompt_tokens": 640,
+      "reused_tokens": 0,
+      "read_tokens": 640,
+      "generated_tokens": 22,
+      "prompt_tps": 576.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 56.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1111.0,
+      "decode_ms": 391.4,
+      "drafts_offered": 17,
+      "drafts_accepted": 13
+    },
+    "response": {
+      "first": 1.138490516001184,
+      "total": 1.5102474220038857,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 640,
+        "completion_tokens": 22,
+        "total_tokens": 662,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 640,
+        "prompt_ms": 1111.0,
+        "prompt_per_token_ms": 1.736,
+        "prompt_per_second": 576.1,
+        "predicted_n": 22,
+        "predicted_ms": 391.4,
+        "predicted_per_token_ms": 17.791,
+        "predicted_per_second": 56.2,
+        "draft_n": 17,
+        "draft_n_accepted": 13
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.113,
+      "total_s": 1.456,
+      "prompt_tokens": 639,
+      "reused_tokens": 0,
+      "read_tokens": 639,
+      "generated_tokens": 31,
+      "prompt_tps": 588.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1086.7,
+      "decode_ms": 361.5,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.1125285210000584,
+      "total": 1.4557293620018754,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 31,
+        "total_tokens": 670,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 639,
+        "prompt_ms": 1086.7,
+        "prompt_per_token_ms": 1.701,
+        "prompt_per_second": 588.0,
+        "predicted_n": 31,
+        "predicted_ms": 361.5,
+        "predicted_per_token_ms": 11.661,
+        "predicted_per_second": 85.8,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.55,
+      "total_s": 5.866,
+      "prompt_tokens": 5043,
+      "reused_tokens": 0,
+      "read_tokens": 5043,
+      "generated_tokens": 234,
+      "prompt_tps": 1433.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 100.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3518.0,
+      "decode_ms": 2336.3,
+      "drafts_offered": 164,
+      "drafts_accepted": 151
+    },
+    "response": {
+      "first": 3.5503343129967107,
+      "total": 5.865756628001691,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 5043,
+        "completion_tokens": 234,
+        "total_tokens": 5277,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5043,
+        "prompt_ms": 3518.0,
+        "prompt_per_token_ms": 0.698,
+        "prompt_per_second": 1433.5,
+        "predicted_n": 234,
+        "predicted_ms": 2336.3,
+        "predicted_per_token_ms": 9.984,
+        "predicted_per_second": 100.2,
+        "draft_n": 164,
+        "draft_n_accepted": 151
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.551,
+      "total_s": 4.049,
+      "prompt_tokens": 5044,
+      "reused_tokens": 0,
+      "read_tokens": 5044,
+      "generated_tokens": 30,
+      "prompt_tps": 1434.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 57.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3516.0,
+      "decode_ms": 520.5,
+      "drafts_offered": 29,
+      "drafts_accepted": 15
+    },
+    "response": {
+      "first": 3.551239913002064,
+      "total": 4.048822518001543,
+      "text": "리스트는 수정이 가능한 가변형 데이터이고, 튜플은 한 번 생성하면 변경할 수 없는 불변형 데이터입니다.",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 30,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5044,
+        "prompt_ms": 3516.0,
+        "prompt_per_token_ms": 0.697,
+        "prompt_per_second": 1434.6,
+        "predicted_n": 30,
+        "predicted_ms": 520.5,
+        "predicted_per_token_ms": 17.35,
+        "predicted_per_second": 57.6,
+        "draft_n": 29,
+        "draft_n_accepted": 15
+      },
+      "err": null,
+      "pieces": 29
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.535,
+      "total_s": 4.798,
+      "prompt_tokens": 5057,
+      "reused_tokens": 0,
+      "read_tokens": 5057,
+      "generated_tokens": 108,
+      "prompt_tps": 1444.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 84.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3500.5,
+      "decode_ms": 1285.3,
+      "drafts_offered": 76,
+      "drafts_accepted": 68
+    },
+    "response": {
+      "first": 3.5347611119941575,
+      "total": 4.797862137995253,
+      "text": "To find the number of pencils remaining, follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**313**",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 108,
+        "total_tokens": 5165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5057,
+        "prompt_ms": 3500.5,
+        "prompt_per_token_ms": 0.692,
+        "prompt_per_second": 1444.7,
+        "predicted_n": 108,
+        "predicted_ms": 1285.3,
+        "predicted_per_token_ms": 11.901,
+        "predicted_per_second": 84.0,
+        "draft_n": 76,
+        "draft_n_accepted": 68
+      },
+      "err": null,
+      "pieces": 102
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.55,
+      "total_s": 3.858,
+      "prompt_tokens": 5053,
+      "reused_tokens": 0,
+      "read_tokens": 5053,
+      "generated_tokens": 28,
+      "prompt_tps": 1436.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3517.3,
+      "decode_ms": 328.9,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 3.5504264940027497,
+      "total": 3.8581122850009706,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 5053,
+        "completion_tokens": 28,
+        "total_tokens": 5081,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5053,
+        "prompt_ms": 3517.3,
+        "prompt_per_token_ms": 0.696,
+        "prompt_per_second": 1436.6,
+        "predicted_n": 28,
+        "predicted_ms": 328.9,
+        "predicted_per_token_ms": 11.746,
+        "predicted_per_second": 85.1,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.547,
+      "total_s": 3.88,
+      "prompt_tokens": 5052,
+      "reused_tokens": 0,
+      "read_tokens": 5052,
+      "generated_tokens": 22,
+      "prompt_tps": 1438.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3513.0,
+      "decode_ms": 355.1,
+      "drafts_offered": 17,
+      "drafts_accepted": 14
+    },
+    "response": {
+      "first": 3.547144527998171,
+      "total": 3.8804472159972647,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 5052,
+        "completion_tokens": 22,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5052,
+        "prompt_ms": 3513.0,
+        "prompt_per_token_ms": 0.695,
+        "prompt_per_second": 1438.1,
+        "predicted_n": 22,
+        "predicted_ms": 355.1,
+        "predicted_per_token_ms": 16.141,
+        "predicted_per_second": 62.0,
+        "draft_n": 17,
+        "draft_n_accepted": 14
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.536,
+      "total_s": 3.875,
+      "prompt_tokens": 5051,
+      "reused_tokens": 0,
+      "read_tokens": 5051,
+      "generated_tokens": 31,
+      "prompt_tps": 1441.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3504.2,
+      "decode_ms": 358.8,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 3.536084576000576,
+      "total": 3.8749299090050044,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 5051,
+        "completion_tokens": 31,
+        "total_tokens": 5082,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5051,
+        "prompt_ms": 3504.2,
+        "prompt_per_token_ms": 0.694,
+        "prompt_per_second": 1441.4,
+        "predicted_n": 31,
+        "predicted_ms": 358.8,
+        "predicted_per_token_ms": 11.574,
+        "predicted_per_second": 86.4,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.218,
+      "total_s": 11.573,
+      "prompt_tokens": 20427,
+      "reused_tokens": 0,
+      "read_tokens": 20427,
+      "generated_tokens": 234,
+      "prompt_tps": 2227.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 98.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9169.5,
+      "decode_ms": 2374.9,
+      "drafts_offered": 168,
+      "drafts_accepted": 152
+    },
+    "response": {
+      "first": 9.218008835996443,
+      "total": 11.572719005998806,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 20427,
+        "completion_tokens": 234,
+        "total_tokens": 20661,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20427,
+        "prompt_ms": 9169.5,
+        "prompt_per_token_ms": 0.449,
+        "prompt_per_second": 2227.7,
+        "predicted_n": 234,
+        "predicted_ms": 2374.9,
+        "predicted_per_token_ms": 10.149,
+        "predicted_per_second": 98.5,
+        "draft_n": 168,
+        "draft_n_accepted": 152
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.249,
+      "total_s": 9.89,
+      "prompt_tokens": 20428,
+      "reused_tokens": 0,
+      "read_tokens": 20428,
+      "generated_tokens": 42,
+      "prompt_tps": 2221.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 63.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9197.3,
+      "decode_ms": 664.0,
+      "drafts_offered": 36,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.249467981004273,
+      "total": 9.890245619004418,
+      "text": "리스트는 생성 후에도 내용을 변경할 수 있는 **가변(mutable)** 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 **불변(immutable)** 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 20428,
+        "completion_tokens": 42,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20428,
+        "prompt_ms": 9197.3,
+        "prompt_per_token_ms": 0.45,
+        "prompt_per_second": 2221.1,
+        "predicted_n": 42,
+        "predicted_ms": 664.0,
+        "predicted_per_token_ms": 15.81,
+        "predicted_per_second": 63.3,
+        "draft_n": 36,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 41
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.26,
+      "total_s": 9.622,
+      "prompt_tokens": 20441,
+      "reused_tokens": 0,
+      "read_tokens": 20441,
+      "generated_tokens": 29,
+      "prompt_tps": 2220.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 75.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9206.6,
+      "decode_ms": 385.2,
+      "drafts_offered": 21,
+      "drafts_accepted": 19
+    },
+    "response": {
+      "first": 9.259795240002859,
+      "total": 9.621700665004028,
+      "text": "17 * 24 = 408\n408 - 95 = 313\n\n313",
+      "usage": {
+        "prompt_tokens": 20441,
+        "completion_tokens": 29,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20441,
+        "prompt_ms": 9206.6,
+        "prompt_per_token_ms": 0.45,
+        "prompt_per_second": 2220.3,
+        "predicted_n": 29,
+        "predicted_ms": 385.2,
+        "predicted_per_token_ms": 13.283,
+        "predicted_per_second": 75.3,
+        "draft_n": 21,
+        "draft_n_accepted": 19
+      },
+      "err": null,
+      "pieces": 26
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.281,
+      "total_s": 9.557,
+      "prompt_tokens": 20437,
+      "reused_tokens": 0,
+      "read_tokens": 20437,
+      "generated_tokens": 28,
+      "prompt_tps": 2213.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9232.2,
+      "decode_ms": 297.5,
+      "drafts_offered": 21,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 9.280869356996845,
+      "total": 9.556780462997267,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 20437,
+        "completion_tokens": 28,
+        "total_tokens": 20465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20437,
+        "prompt_ms": 9232.2,
+        "prompt_per_token_ms": 0.452,
+        "prompt_per_second": 2213.7,
+        "predicted_n": 28,
+        "predicted_ms": 297.5,
+        "predicted_per_token_ms": 10.625,
+        "predicted_per_second": 94.1,
+        "draft_n": 21,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.283,
+      "total_s": 9.629,
+      "prompt_tokens": 20436,
+      "reused_tokens": 0,
+      "read_tokens": 20436,
+      "generated_tokens": 22,
+      "prompt_tps": 2213.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 59.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9232.3,
+      "decode_ms": 368.3,
+      "drafts_offered": 21,
+      "drafts_accepted": 16
+    },
+    "response": {
+      "first": 9.282511192002858,
+      "total": 9.628950546000851,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 20436,
+        "completion_tokens": 22,
+        "total_tokens": 20458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20436,
+        "prompt_ms": 9232.3,
+        "prompt_per_token_ms": 0.452,
+        "prompt_per_second": 2213.5,
+        "predicted_n": 22,
+        "predicted_ms": 368.3,
+        "predicted_per_token_ms": 16.741,
+        "predicted_per_second": 59.7,
+        "draft_n": 21,
+        "draft_n_accepted": 16
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.286,
+      "total_s": 9.598,
+      "prompt_tokens": 20435,
+      "reused_tokens": 0,
+      "read_tokens": 20435,
+      "generated_tokens": 31,
+      "prompt_tps": 2212.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 93.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9237.4,
+      "decode_ms": 332.7,
+      "drafts_offered": 23,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.286136137998255,
+      "total": 9.597887155003264,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 20435,
+        "completion_tokens": 31,
+        "total_tokens": 20466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20435,
+        "prompt_ms": 9237.4,
+        "prompt_per_token_ms": 0.452,
+        "prompt_per_second": 2212.2,
+        "predicted_n": 31,
+        "predicted_ms": 332.7,
+        "predicted_per_token_ms": 10.732,
+        "predicted_per_second": 93.2,
+        "draft_n": 23,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.26,
+      "total_s": 3.096,
+      "prompt_tokens": 631,
+      "reused_tokens": 0,
+      "read_tokens": 631,
+      "generated_tokens": 175,
+      "prompt_tps": 512.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1232.4,
+      "decode_ms": 1856.1,
+      "drafts_offered": 131,
+      "drafts_accepted": 112
+    },
+    "response": {
+      "first": 1.2600404030017671,
+      "total": 3.0962426160040195,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"Merge two sorted lists into a new sorted list without modifying the inputs.\"\"\"\n    merged = []\n    i, j = 0, 0\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 175,
+        "total_tokens": 806,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 631,
+        "prompt_ms": 1232.4,
+        "prompt_per_token_ms": 1.953,
+        "prompt_per_second": 512.0,
+        "predicted_n": 175,
+        "predicted_ms": 1856.1,
+        "predicted_per_token_ms": 10.606,
+        "predicted_per_second": 94.3,
+        "draft_n": 131,
+        "draft_n_accepted": 112
+      },
+      "err": null,
+      "pieces": 154
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.197,
+      "total_s": 1.759,
+      "prompt_tokens": 632,
+      "reused_tokens": 0,
+      "read_tokens": 632,
+      "generated_tokens": 39,
+      "prompt_tps": 542.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 66.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1164.6,
+      "decode_ms": 584.7,
+      "drafts_offered": 25,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.1973375079978723,
+      "total": 1.759165978000965,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 가변(mutable) 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 불변(immutable) 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 632,
+        "completion_tokens": 39,
+        "total_tokens": 671,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 632,
+        "prompt_ms": 1164.6,
+        "prompt_per_token_ms": 1.843,
+        "prompt_per_second": 542.7,
+        "predicted_n": 39,
+        "predicted_ms": 584.7,
+        "predicted_per_token_ms": 14.992,
+        "predicted_per_second": 66.7,
+        "draft_n": 25,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 38
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.163,
+      "total_s": 2.594,
+      "prompt_tokens": 645,
+      "reused_tokens": 0,
+      "read_tokens": 645,
+      "generated_tokens": 111,
+      "prompt_tps": 568.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 76.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1135.5,
+      "decode_ms": 1450.1,
+      "drafts_offered": 73,
+      "drafts_accepted": 68
+    },
+    "response": {
+      "first": 1.163021733998903,
+      "total": 2.59359080199647,
+      "text": "To find the number of pencils remaining, we follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**Answer:** 313",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 111,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 645,
+        "prompt_ms": 1135.5,
+        "prompt_per_token_ms": 1.76,
+        "prompt_per_second": 568.0,
+        "predicted_n": 111,
+        "predicted_ms": 1450.1,
+        "predicted_per_token_ms": 13.064,
+        "predicted_per_second": 76.5,
+        "draft_n": 73,
+        "draft_n_accepted": 68
+      },
+      "err": null,
+      "pieces": 105
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.151,
+      "total_s": 1.475,
+      "prompt_tokens": 641,
+      "reused_tokens": 0,
+      "read_tokens": 641,
+      "generated_tokens": 28,
+      "prompt_tps": 569.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 81.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1124.9,
+      "decode_ms": 343.0,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 1.1513745129996096,
+      "total": 1.4751400699969963,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 28,
+        "total_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 641,
+        "prompt_ms": 1124.9,
+        "prompt_per_token_ms": 1.755,
+        "prompt_per_second": 569.8,
+        "predicted_n": 28,
+        "predicted_ms": 343.0,
+        "predicted_per_token_ms": 12.25,
+        "predicted_per_second": 81.6,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.161,
+      "total_s": 1.534,
+      "prompt_tokens": 640,
+      "reused_tokens": 0,
+      "read_tokens": 640,
+      "generated_tokens": 22,
+      "prompt_tps": 565.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 55.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1131.1,
+      "decode_ms": 394.9,
+      "drafts_offered": 18,
+      "drafts_accepted": 14
+    },
+    "response": {
+      "first": 1.1606466150042252,
+      "total": 1.534227987001941,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 640,
+        "completion_tokens": 22,
+        "total_tokens": 662,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 640,
+        "prompt_ms": 1131.1,
+        "prompt_per_token_ms": 1.767,
+        "prompt_per_second": 565.8,
+        "predicted_n": 22,
+        "predicted_ms": 394.9,
+        "predicted_per_token_ms": 17.95,
+        "predicted_per_second": 55.7,
+        "draft_n": 18,
+        "draft_n_accepted": 14
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.129,
+      "total_s": 1.49,
+      "prompt_tokens": 639,
+      "reused_tokens": 0,
+      "read_tokens": 639,
+      "generated_tokens": 31,
+      "prompt_tps": 579.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 81.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1103.4,
+      "decode_ms": 379.1,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.12946143100271,
+      "total": 1.4902755440052715,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 31,
+        "total_tokens": 670,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 639,
+        "prompt_ms": 1103.4,
+        "prompt_per_token_ms": 1.727,
+        "prompt_per_second": 579.1,
+        "predicted_n": 31,
+        "predicted_ms": 379.1,
+        "predicted_per_token_ms": 12.229,
+        "predicted_per_second": 81.8,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.539,
+      "total_s": 5.882,
+      "prompt_tokens": 5043,
+      "reused_tokens": 0,
+      "read_tokens": 5043,
+      "generated_tokens": 234,
+      "prompt_tps": 1438.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 99.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3506.1,
+      "decode_ms": 2363.7,
+      "drafts_offered": 162,
+      "drafts_accepted": 151
+    },
+    "response": {
+      "first": 3.5386653730020043,
+      "total": 5.8821463200001745,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 5043,
+        "completion_tokens": 234,
+        "total_tokens": 5277,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5043,
+        "prompt_ms": 3506.1,
+        "prompt_per_token_ms": 0.695,
+        "prompt_per_second": 1438.4,
+        "predicted_n": 234,
+        "predicted_ms": 2363.7,
+        "predicted_per_token_ms": 10.101,
+        "predicted_per_second": 99.0,
+        "draft_n": 162,
+        "draft_n_accepted": 151
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.537,
+      "total_s": 4.051,
+      "prompt_tokens": 5044,
+      "reused_tokens": 0,
+      "read_tokens": 5044,
+      "generated_tokens": 39,
+      "prompt_tps": 1441.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 72.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3499.9,
+      "decode_ms": 537.1,
+      "drafts_offered": 27,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 3.537352938998083,
+      "total": 4.051291723997565,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 가변(mutable) 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 불변(immutable) 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 39,
+        "total_tokens": 5083,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5044,
+        "prompt_ms": 3499.9,
+        "prompt_per_token_ms": 0.694,
+        "prompt_per_second": 1441.2,
+        "predicted_n": 39,
+        "predicted_ms": 537.1,
+        "predicted_per_token_ms": 13.772,
+        "predicted_per_second": 72.6,
+        "draft_n": 27,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 38
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.536,
+      "total_s": 4.154,
+      "prompt_tokens": 5057,
+      "reused_tokens": 0,
+      "read_tokens": 5057,
+      "generated_tokens": 42,
+      "prompt_tps": 1443.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 65.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3502.2,
+      "decode_ms": 640.0,
+      "drafts_offered": 30,
+      "drafts_accepted": 26
+    },
+    "response": {
+      "first": 3.5361532460010494,
+      "total": 4.154289917001734,
+      "text": "17 boxes * 24 pencils/box = 408 pencils total.\n408 pencils - 95 pencils sold = 313 pencils remaining.\n\n313",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 42,
+        "total_tokens": 5099,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5057,
+        "prompt_ms": 3502.2,
+        "prompt_per_token_ms": 0.693,
+        "prompt_per_second": 1443.9,
+        "predicted_n": 42,
+        "predicted_ms": 640.0,
+        "predicted_per_token_ms": 15.238,
+        "predicted_per_second": 65.6,
+        "draft_n": 30,
+        "draft_n_accepted": 26
+      },
+      "err": null,
+      "pieces": 39
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.538,
+      "total_s": 3.848,
+      "prompt_tokens": 5053,
+      "reused_tokens": 0,
+      "read_tokens": 5053,
+      "generated_tokens": 28,
+      "prompt_tps": 1442.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 84.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3503.9,
+      "decode_ms": 330.8,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 3.5379076410026755,
+      "total": 3.8475197380030295,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 5053,
+        "completion_tokens": 28,
+        "total_tokens": 5081,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5053,
+        "prompt_ms": 3503.9,
+        "prompt_per_token_ms": 0.693,
+        "prompt_per_second": 1442.1,
+        "predicted_n": 28,
+        "predicted_ms": 330.8,
+        "predicted_per_token_ms": 11.814,
+        "predicted_per_second": 84.6,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.536,
+      "total_s": 3.881,
+      "prompt_tokens": 5052,
+      "reused_tokens": 0,
+      "read_tokens": 5052,
+      "generated_tokens": 22,
+      "prompt_tps": 1442.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 60.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3502.0,
+      "decode_ms": 366.9,
+      "drafts_offered": 15,
+      "drafts_accepted": 13
+    },
+    "response": {
+      "first": 3.5356690179978614,
+      "total": 3.8809845270006917,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 5052,
+        "completion_tokens": 22,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5052,
+        "prompt_ms": 3502.0,
+        "prompt_per_token_ms": 0.693,
+        "prompt_per_second": 1442.6,
+        "predicted_n": 22,
+        "predicted_ms": 366.9,
+        "predicted_per_token_ms": 16.677,
+        "predicted_per_second": 60.0,
+        "draft_n": 15,
+        "draft_n_accepted": 13
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.539,
+      "total_s": 3.873,
+      "prompt_tokens": 5051,
+      "reused_tokens": 0,
+      "read_tokens": 5051,
+      "generated_tokens": 31,
+      "prompt_tps": 1440.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3506.3,
+      "decode_ms": 353.9,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 3.5388411410021945,
+      "total": 3.8725184319991968,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 5051,
+        "completion_tokens": 31,
+        "total_tokens": 5082,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5051,
+        "prompt_ms": 3506.3,
+        "prompt_per_token_ms": 0.694,
+        "prompt_per_second": 1440.5,
+        "predicted_n": 31,
+        "predicted_ms": 353.9,
+        "predicted_per_token_ms": 11.416,
+        "predicted_per_second": 87.6,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.242,
+      "total_s": 11.161,
+      "prompt_tokens": 20427,
+      "reused_tokens": 0,
+      "read_tokens": 20427,
+      "generated_tokens": 217,
+      "prompt_tps": 2221.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 111.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9193.6,
+      "decode_ms": 1939.5,
+      "drafts_offered": 168,
+      "drafts_accepted": 158
+    },
+    "response": {
+      "first": 9.241894643004343,
+      "total": 11.161275935999583,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: First sorted list.\n        list2: Second sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 20427,
+        "completion_tokens": 217,
+        "total_tokens": 20644,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20427,
+        "prompt_ms": 9193.6,
+        "prompt_per_token_ms": 0.45,
+        "prompt_per_second": 2221.9,
+        "predicted_n": 217,
+        "predicted_ms": 1939.5,
+        "predicted_per_token_ms": 8.938,
+        "predicted_per_second": 111.9,
+        "draft_n": 168,
+        "draft_n_accepted": 158
+      },
+      "err": null,
+      "pieces": 193
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.267,
+      "total_s": 9.856,
+      "prompt_tokens": 20428,
+      "reused_tokens": 0,
+      "read_tokens": 20428,
+      "generated_tokens": 42,
+      "prompt_tps": 2218.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 68.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9208.0,
+      "decode_ms": 612.3,
+      "drafts_offered": 32,
+      "drafts_accepted": 22
+    },
+    "response": {
+      "first": 9.266721434003557,
+      "total": 9.856201457005227,
+      "text": "리스트는 생성 후에도 내용을 변경할 수 있는 **가변(mutable)** 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 **불변(immutable)** 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 20428,
+        "completion_tokens": 42,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20428,
+        "prompt_ms": 9208.0,
+        "prompt_per_token_ms": 0.451,
+        "prompt_per_second": 2218.5,
+        "predicted_n": 42,
+        "predicted_ms": 612.3,
+        "predicted_per_token_ms": 14.579,
+        "predicted_per_second": 68.6,
+        "draft_n": 32,
+        "draft_n_accepted": 22
+      },
+      "err": null,
+      "pieces": 41
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "math-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.371,
+      "total_s": 9.724,
+      "prompt_tokens": 20441,
+      "reused_tokens": 0,
+      "read_tokens": 20441,
+      "generated_tokens": 29,
+      "prompt_tps": 2193.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 77.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9320.4,
+      "decode_ms": 374.6,
+      "drafts_offered": 22,
+      "drafts_accepted": 22
+    },
+    "response": {
+      "first": 9.371062873993651,
+      "total": 9.723877425996761,
+      "text": "17 * 24 = 408\n408 - 95 = 313\n\n313",
+      "usage": {
+        "prompt_tokens": 20441,
+        "completion_tokens": 29,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20441,
+        "prompt_ms": 9320.4,
+        "prompt_per_token_ms": 0.456,
+        "prompt_per_second": 2193.1,
+        "predicted_n": 29,
+        "predicted_ms": 374.6,
+        "predicted_per_token_ms": 12.917,
+        "predicted_per_second": 77.4,
+        "draft_n": 22,
+        "draft_n_accepted": 22
+      },
+      "err": null,
+      "pieces": 26
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "json-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.314,
+      "total_s": 9.607,
+      "prompt_tokens": 20437,
+      "reused_tokens": 0,
+      "read_tokens": 20437,
+      "generated_tokens": 28,
+      "prompt_tps": 2205.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 89.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9265.5,
+      "decode_ms": 314.4,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 9.313856715998554,
+      "total": 9.607356430999062,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 20437,
+        "completion_tokens": 28,
+        "total_tokens": 20465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20437,
+        "prompt_ms": 9265.5,
+        "prompt_per_token_ms": 0.453,
+        "prompt_per_second": 2205.7,
+        "predicted_n": 28,
+        "predicted_ms": 314.4,
+        "predicted_per_token_ms": 11.229,
+        "predicted_per_second": 89.1,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "logic-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.312,
+      "total_s": 9.668,
+      "prompt_tokens": 20436,
+      "reused_tokens": 0,
+      "read_tokens": 20436,
+      "generated_tokens": 22,
+      "prompt_tps": 2206.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 58.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9262.5,
+      "decode_ms": 376.8,
+      "drafts_offered": 21,
+      "drafts_accepted": 16
+    },
+    "response": {
+      "first": 9.312161449000996,
+      "total": 9.6675650410034,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 20436,
+        "completion_tokens": 22,
+        "total_tokens": 20458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20436,
+        "prompt_ms": 9262.5,
+        "prompt_per_token_ms": 0.453,
+        "prompt_per_second": 2206.3,
+        "predicted_n": 22,
+        "predicted_ms": 376.8,
+        "predicted_per_token_ms": 17.127,
+        "predicted_per_second": 58.4,
+        "draft_n": 21,
+        "draft_n_accepted": 16
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "tool-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.31,
+      "total_s": 9.632,
+      "prompt_tokens": 20435,
+      "reused_tokens": 0,
+      "read_tokens": 20435,
+      "generated_tokens": 31,
+      "prompt_tps": 2206.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 90.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9261.6,
+      "decode_ms": 342.4,
+      "drafts_offered": 24,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.309990964997269,
+      "total": 9.631582125999557,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 20435,
+        "completion_tokens": 31,
+        "total_tokens": 20466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20435,
+        "prompt_ms": 9261.6,
+        "prompt_per_token_ms": 0.453,
+        "prompt_per_second": 2206.4,
+        "predicted_n": 31,
+        "predicted_ms": 342.4,
+        "predicted_per_token_ms": 11.045,
+        "predicted_per_second": 90.5,
+        "draft_n": 24,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.238,
+      "total_s": 2.925,
+      "prompt_tokens": 631,
+      "reused_tokens": 0,
+      "read_tokens": 631,
+      "generated_tokens": 168,
+      "prompt_tps": 521.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 98.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1209.1,
+      "decode_ms": 1707.2,
+      "drafts_offered": 125,
+      "drafts_accepted": 108
+    },
+    "response": {
+      "first": 1.2375406289938837,
+      "total": 2.9254229869984556,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"Merge two sorted lists into a new sorted list without modifying the inputs.\"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 631,
+        "completion_tokens": 168,
+        "total_tokens": 799,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 631,
+        "prompt_ms": 1209.1,
+        "prompt_per_token_ms": 1.916,
+        "prompt_per_second": 521.9,
+        "predicted_n": 168,
+        "predicted_ms": 1707.2,
+        "predicted_per_token_ms": 10.162,
+        "predicted_per_second": 98.4,
+        "draft_n": 125,
+        "draft_n_accepted": 108
+      },
+      "err": null,
+      "pieces": 151
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.148,
+      "total_s": 1.699,
+      "prompt_tokens": 632,
+      "reused_tokens": 0,
+      "read_tokens": 632,
+      "generated_tokens": 39,
+      "prompt_tps": 565.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 68.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1118.0,
+      "decode_ms": 573.2,
+      "drafts_offered": 27,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 1.1475622190046124,
+      "total": 1.6992192800025805,
+      "text": "리스트는 생성 후 내용을 변경할 수 있는 가변(mutable) 자료형이고, 튜플은 생성 후 내용을 변경할 수 없는 불변(immutable) 자료형입니다.",
+      "usage": {
+        "prompt_tokens": 632,
+        "completion_tokens": 39,
+        "total_tokens": 671,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 632,
+        "prompt_ms": 1118.0,
+        "prompt_per_token_ms": 1.769,
+        "prompt_per_second": 565.3,
+        "predicted_n": 39,
+        "predicted_ms": 573.2,
+        "predicted_per_token_ms": 14.697,
+        "predicted_per_second": 68.0,
+        "draft_n": 27,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 38
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.155,
+      "total_s": 2.515,
+      "prompt_tokens": 645,
+      "reused_tokens": 0,
+      "read_tokens": 645,
+      "generated_tokens": 111,
+      "prompt_tps": 572.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 80.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1127.0,
+      "decode_ms": 1380.4,
+      "drafts_offered": 74,
+      "drafts_accepted": 69
+    },
+    "response": {
+      "first": 1.1552223730031983,
+      "total": 2.5154747830019915,
+      "text": "To find the number of pencils remaining, we follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**Answer:** 313",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 111,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 645,
+        "prompt_ms": 1127.0,
+        "prompt_per_token_ms": 1.747,
+        "prompt_per_second": 572.3,
+        "predicted_n": 111,
+        "predicted_ms": 1380.4,
+        "predicted_per_token_ms": 12.436,
+        "predicted_per_second": 80.4,
+        "draft_n": 74,
+        "draft_n_accepted": 69
+      },
+      "err": null,
+      "pieces": 105
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.147,
+      "total_s": 1.46,
+      "prompt_tokens": 641,
+      "reused_tokens": 0,
+      "read_tokens": 641,
+      "generated_tokens": 28,
+      "prompt_tps": 572.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 84.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1119.5,
+      "decode_ms": 332.7,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 1.147072275998653,
+      "total": 1.4600050389999524,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 641,
+        "completion_tokens": 28,
+        "total_tokens": 669,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 641,
+        "prompt_ms": 1119.5,
+        "prompt_per_token_ms": 1.746,
+        "prompt_per_second": 572.6,
+        "predicted_n": 28,
+        "predicted_ms": 332.7,
+        "predicted_per_token_ms": 11.882,
+        "predicted_per_second": 84.2,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.15,
+      "total_s": 1.515,
+      "prompt_tokens": 640,
+      "reused_tokens": 0,
+      "read_tokens": 640,
+      "generated_tokens": 22,
+      "prompt_tps": 570.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 57.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1121.6,
+      "decode_ms": 386.3,
+      "drafts_offered": 16,
+      "drafts_accepted": 13
+    },
+    "response": {
+      "first": 1.149644436998642,
+      "total": 1.5153440529975342,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 640,
+        "completion_tokens": 22,
+        "total_tokens": 662,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 640,
+        "prompt_ms": 1121.6,
+        "prompt_per_token_ms": 1.752,
+        "prompt_per_second": 570.6,
+        "predicted_n": 22,
+        "predicted_ms": 386.3,
+        "predicted_per_token_ms": 17.559,
+        "predicted_per_second": 57.0,
+        "draft_n": 16,
+        "draft_n_accepted": 13
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-32",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 1.134,
+      "total_s": 1.479,
+      "prompt_tokens": 639,
+      "reused_tokens": 0,
+      "read_tokens": 639,
+      "generated_tokens": 31,
+      "prompt_tps": 576.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 1107.7,
+      "decode_ms": 364.0,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 1.133540857998014,
+      "total": 1.4792655749988626,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 639,
+        "completion_tokens": 31,
+        "total_tokens": 670,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 639,
+        "prompt_ms": 1107.7,
+        "prompt_per_token_ms": 1.733,
+        "prompt_per_second": 576.9,
+        "predicted_n": 31,
+        "predicted_ms": 364.0,
+        "predicted_per_token_ms": 11.742,
+        "predicted_per_second": 85.2,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.612,
+      "total_s": 5.922,
+      "prompt_tokens": 5043,
+      "reused_tokens": 0,
+      "read_tokens": 5043,
+      "generated_tokens": 234,
+      "prompt_tps": 1409.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 100.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3578.5,
+      "decode_ms": 2330.0,
+      "drafts_offered": 164,
+      "drafts_accepted": 151
+    },
+    "response": {
+      "first": 3.6122700560008525,
+      "total": 5.921576813001593,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 5043,
+        "completion_tokens": 234,
+        "total_tokens": 5277,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5043,
+        "prompt_ms": 3578.5,
+        "prompt_per_token_ms": 0.71,
+        "prompt_per_second": 1409.2,
+        "predicted_n": 234,
+        "predicted_ms": 2330.0,
+        "predicted_per_token_ms": 9.957,
+        "predicted_per_second": 100.4,
+        "draft_n": 164,
+        "draft_n_accepted": 151
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.61,
+      "total_s": 4.089,
+      "prompt_tokens": 5044,
+      "reused_tokens": 0,
+      "read_tokens": 5044,
+      "generated_tokens": 30,
+      "prompt_tps": 1411.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 59.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3574.5,
+      "decode_ms": 501.9,
+      "drafts_offered": 26,
+      "drafts_accepted": 15
+    },
+    "response": {
+      "first": 3.610126288003812,
+      "total": 4.088804243001505,
+      "text": "리스트는 수정이 가능한 가변형 데이터이고, 튜플은 한 번 생성하면 변경할 수 없는 불변형 데이터입니다.",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 30,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5044,
+        "prompt_ms": 3574.5,
+        "prompt_per_token_ms": 0.709,
+        "prompt_per_second": 1411.1,
+        "predicted_n": 30,
+        "predicted_ms": 501.9,
+        "predicted_per_token_ms": 16.73,
+        "predicted_per_second": 59.8,
+        "draft_n": 26,
+        "draft_n_accepted": 15
+      },
+      "err": null,
+      "pieces": 29
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.613,
+      "total_s": 4.888,
+      "prompt_tokens": 5057,
+      "reused_tokens": 0,
+      "read_tokens": 5057,
+      "generated_tokens": 108,
+      "prompt_tps": 1413.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 83.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3578.5,
+      "decode_ms": 1298.5,
+      "drafts_offered": 74,
+      "drafts_accepted": 68
+    },
+    "response": {
+      "first": 3.612503939999442,
+      "total": 4.888332831003936,
+      "text": "To find the number of pencils remaining, follow these steps:\n\n1.  **Calculate the total number of pencils:**\n    $$17 \\text{ boxes} \\times 24 \\text{ pencils/box} = 408 \\text{ pencils}$$\n\n2.  **Subtract the number of pencils sold:**\n    $$408 \\text{ pencils} - 95 \\text{ pencils} = 313 \\text{ pencils}$$\n\n**313**",
+      "usage": {
+        "prompt_tokens": 5057,
+        "completion_tokens": 108,
+        "total_tokens": 5165,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5057,
+        "prompt_ms": 3578.5,
+        "prompt_per_token_ms": 0.708,
+        "prompt_per_second": 1413.2,
+        "predicted_n": 108,
+        "predicted_ms": 1298.5,
+        "predicted_per_token_ms": 12.023,
+        "predicted_per_second": 83.2,
+        "draft_n": 74,
+        "draft_n_accepted": 68
+      },
+      "err": null,
+      "pieces": 102
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.613,
+      "total_s": 3.922,
+      "prompt_tokens": 5053,
+      "reused_tokens": 0,
+      "read_tokens": 5053,
+      "generated_tokens": 28,
+      "prompt_tps": 1411.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3580.4,
+      "decode_ms": 328.9,
+      "drafts_offered": 18,
+      "drafts_accepted": 18
+    },
+    "response": {
+      "first": 3.613387352997961,
+      "total": 3.921867659999407,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 5053,
+        "completion_tokens": 28,
+        "total_tokens": 5081,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5053,
+        "prompt_ms": 3580.4,
+        "prompt_per_token_ms": 0.709,
+        "prompt_per_second": 1411.3,
+        "predicted_n": 28,
+        "predicted_ms": 328.9,
+        "predicted_per_token_ms": 11.746,
+        "predicted_per_second": 85.1,
+        "draft_n": 18,
+        "draft_n_accepted": 18
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.605,
+      "total_s": 3.936,
+      "prompt_tokens": 5052,
+      "reused_tokens": 0,
+      "read_tokens": 5052,
+      "generated_tokens": 22,
+      "prompt_tps": 1414.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3571.7,
+      "decode_ms": 353.2,
+      "drafts_offered": 17,
+      "drafts_accepted": 14
+    },
+    "response": {
+      "first": 3.6049464649986476,
+      "total": 3.9363377539993962,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 5052,
+        "completion_tokens": 22,
+        "total_tokens": 5074,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5052,
+        "prompt_ms": 3571.7,
+        "prompt_per_token_ms": 0.707,
+        "prompt_per_second": 1414.5,
+        "predicted_n": 22,
+        "predicted_ms": 353.2,
+        "predicted_per_token_ms": 16.055,
+        "predicted_per_second": 62.3,
+        "draft_n": 17,
+        "draft_n_accepted": 14
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-256",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.601,
+      "total_s": 3.925,
+      "prompt_tokens": 5051,
+      "reused_tokens": 0,
+      "read_tokens": 5051,
+      "generated_tokens": 31,
+      "prompt_tps": 1415.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 90.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3568.9,
+      "decode_ms": 344.5,
+      "drafts_offered": 20,
+      "drafts_accepted": 20
+    },
+    "response": {
+      "first": 3.600556833000155,
+      "total": 3.92512957299914,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 5051,
+        "completion_tokens": 31,
+        "total_tokens": 5082,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 5051,
+        "prompt_ms": 3568.9,
+        "prompt_per_token_ms": 0.707,
+        "prompt_per_second": 1415.3,
+        "predicted_n": 31,
+        "predicted_ms": 344.5,
+        "predicted_per_token_ms": 11.113,
+        "predicted_per_second": 90.0,
+        "draft_n": 20,
+        "draft_n_accepted": 20
+      },
+      "err": null,
+      "pieces": 25
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.368,
+      "total_s": 11.555,
+      "prompt_tokens": 20427,
+      "reused_tokens": 0,
+      "read_tokens": 20427,
+      "generated_tokens": 234,
+      "prompt_tps": 2191.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 106.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9319.4,
+      "decode_ms": 2207.0,
+      "drafts_offered": 184,
+      "drafts_accepted": 169
+    },
+    "response": {
+      "first": 9.367918957999791,
+      "total": 11.554518650998943,
+      "text": "```python\ndef merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merges two sorted lists into a single sorted list without modifying the inputs.\n    \n    Args:\n        list1: A sorted list.\n        list2: A sorted list.\n        \n    Returns:\n        A new sorted list containing all elements from list1 and list2.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from list1, if any\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    # Append remaining elements from list2, if any\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n```",
+      "usage": {
+        "prompt_tokens": 20427,
+        "completion_tokens": 234,
+        "total_tokens": 20661,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20427,
+        "prompt_ms": 9319.4,
+        "prompt_per_token_ms": 0.456,
+        "prompt_per_second": 2191.9,
+        "predicted_n": 234,
+        "predicted_ms": 2207.0,
+        "predicted_per_token_ms": 9.432,
+        "predicted_per_second": 106.0,
+        "draft_n": 184,
+        "draft_n_accepted": 169
+      },
+      "err": null,
+      "pieces": 209
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.396,
+      "total_s": 9.912,
+      "prompt_tokens": 20428,
+      "reused_tokens": 0,
+      "read_tokens": 20428,
+      "generated_tokens": 35,
+      "prompt_tps": 2186.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 65.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9345.1,
+      "decode_ms": 538.8,
+      "drafts_offered": 29,
+      "drafts_accepted": 19
+    },
+    "response": {
+      "first": 9.396369408001192,
+      "total": 9.911874332996376,
+      "text": "리스트는 `[ ]`로 표시되며 생성 후 내용을 변경할 수 있고, 튜플은 `( )`로 표시되며 생성 후 내용을 변경할 수 없습니다.",
+      "usage": {
+        "prompt_tokens": 20428,
+        "completion_tokens": 35,
+        "total_tokens": 20463,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20428,
+        "prompt_ms": 9345.1,
+        "prompt_per_token_ms": 0.457,
+        "prompt_per_second": 2186.0,
+        "predicted_n": 35,
+        "predicted_ms": 538.8,
+        "predicted_per_token_ms": 15.394,
+        "predicted_per_second": 65.0,
+        "draft_n": 29,
+        "draft_n_accepted": 19
+      },
+      "err": null,
+      "pieces": 34
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "math-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.4,
+      "total_s": 9.715,
+      "prompt_tokens": 20441,
+      "reused_tokens": 0,
+      "read_tokens": 20441,
+      "generated_tokens": 29,
+      "prompt_tps": 2186.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9350.4,
+      "decode_ms": 337.1,
+      "drafts_offered": 21,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 9.400326963994303,
+      "total": 9.714994603993546,
+      "text": "17 * 24 = 408\n408 - 95 = 313\n\n313",
+      "usage": {
+        "prompt_tokens": 20441,
+        "completion_tokens": 29,
+        "total_tokens": 20470,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20441,
+        "prompt_ms": 9350.4,
+        "prompt_per_token_ms": 0.457,
+        "prompt_per_second": 2186.1,
+        "predicted_n": 29,
+        "predicted_ms": 337.1,
+        "predicted_per_token_ms": 11.624,
+        "predicted_per_second": 86.0,
+        "draft_n": 21,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 26
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "json-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.42,
+      "total_s": 9.687,
+      "prompt_tokens": 20437,
+      "reused_tokens": 0,
+      "read_tokens": 20437,
+      "generated_tokens": 28,
+      "prompt_tps": 2180.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 97.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9371.3,
+      "decode_ms": 288.5,
+      "drafts_offered": 21,
+      "drafts_accepted": 21
+    },
+    "response": {
+      "first": 9.419513902998006,
+      "total": 9.686985473999812,
+      "text": "{\n  \"name\": \"copper\",\n  \"quantity\": 17,\n  \"active\": true\n}",
+      "usage": {
+        "prompt_tokens": 20437,
+        "completion_tokens": 28,
+        "total_tokens": 20465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20437,
+        "prompt_ms": 9371.3,
+        "prompt_per_token_ms": 0.459,
+        "prompt_per_second": 2180.8,
+        "predicted_n": 28,
+        "predicted_ms": 288.5,
+        "predicted_per_token_ms": 10.304,
+        "predicted_per_second": 97.1,
+        "draft_n": 21,
+        "draft_n_accepted": 21
+      },
+      "err": null,
+      "pieces": 23
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "logic-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.432,
+      "total_s": 9.779,
+      "prompt_tokens": 20436,
+      "reused_tokens": 0,
+      "read_tokens": 20436,
+      "generated_tokens": 22,
+      "prompt_tps": 2178.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 59.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9382.6,
+      "decode_ms": 368.9,
+      "drafts_offered": 22,
+      "drafts_accepted": 16
+    },
+    "response": {
+      "first": 9.431929286998638,
+      "total": 9.77869534400088,
+      "text": "No, a glim cannot be a stone because all glims are lamps and no lamps are stones.",
+      "usage": {
+        "prompt_tokens": 20436,
+        "completion_tokens": 22,
+        "total_tokens": 20458,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20436,
+        "prompt_ms": 9382.6,
+        "prompt_per_token_ms": 0.459,
+        "prompt_per_second": 2178.1,
+        "predicted_n": 22,
+        "predicted_ms": 368.9,
+        "predicted_per_token_ms": 16.768,
+        "predicted_per_second": 59.6,
+        "draft_n": 22,
+        "draft_n_accepted": 16
+      },
+      "err": null,
+      "pieces": 21
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "tool-1024",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 9.436,
+      "total_s": 9.742,
+      "prompt_tokens": 20435,
+      "reused_tokens": 0,
+      "read_tokens": 20435,
+      "generated_tokens": 31,
+      "prompt_tps": 2176.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 94.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 9387.9,
+      "decode_ms": 326.8,
+      "drafts_offered": 24,
+      "drafts_accepted": 23
+    },
+    "response": {
+      "first": 9.435641898999165,
+      "total": 9.741757137002423,
+      "text": "{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Seoul\"\n  }\n}",
+      "usage": {
+        "prompt_tokens": 20435,
+        "completion_tokens": 31,
+        "total_tokens": 20466,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 20435,
+        "prompt_ms": 9387.9,
+        "prompt_per_token_ms": 0.459,
+        "prompt_per_second": 2176.7,
+        "predicted_n": 31,
+        "predicted_ms": 326.8,
+        "predicted_per_token_ms": 10.542,
+        "predicted_per_second": 94.9,
+        "draft_n": 24,
+        "draft_n_accepted": 23
+      },
+      "err": null,
+      "pieces": 25
+    }
+  }
+]

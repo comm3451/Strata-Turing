@@ -1,0 +1,1562 @@
+[
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.349,
+      "total_s": 6.935,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 104.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 72.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 324.3,
+      "decode_ms": 6602.4,
+      "drafts_offered": 315,
+      "drafts_accepted": 284
+    },
+    "response": {
+      "first": 0.3491891930025304,
+      "total": 6.934607248003886,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 324.3,
+        "prompt_per_token_ms": 9.538,
+        "prompt_per_second": 104.8,
+        "predicted_n": 478,
+        "predicted_ms": 6602.4,
+        "predicted_per_token_ms": 13.813,
+        "predicted_per_second": 72.4,
+        "draft_n": 315,
+        "draft_n_accepted": 284
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.365,
+      "total_s": 6.901,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 110.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 78.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 333.5,
+      "decode_ms": 6559.7,
+      "drafts_offered": 289,
+      "drafts_accepted": 231
+    },
+    "response": {
+      "first": 0.3645128999996814,
+      "total": 6.901228509996145,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **변경 가능 여부** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 사용** | 상대적으로 많음 | 상대적으로 적음 |\n| **성능** | 약간 느림 | 약간 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해시 가능 (dict 키로 사용 가능) |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱 (부분 추출)\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예: **동적으로 변경되는 데이터**\n```python\n# 사용자 입력을 수집하는 경우\nuser_inputs = []\n\nfor _ in range(3):\n    name = input(\"이름을 입력하세요: \")\n    user_inputs.append(name)  # 계속 추가 가능\n\nprint(user_inputs)  # ['홍길동', '김철수', '박영희']\n\n# 점수 목록에서 특정 점수를 수정하거나 제거하는 경우\nscores = [85, 92, 78, 95]\nscores[1] = 90          # 수정\nscores.remove(78)       # 삭제\nprint(scores)           # [85, 90, 95]\n```\n\n---\n\n## 2. 튜플 (Tuple) —",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 333.5,
+        "prompt_per_token_ms": 9.014,
+        "prompt_per_second": 110.9,
+        "predicted_n": 512,
+        "predicted_ms": 6559.7,
+        "predicted_per_token_ms": 12.812,
+        "predicted_per_second": 78.1,
+        "draft_n": 289,
+        "draft_n_accepted": 231
+      },
+      "err": null,
+      "pieces": 467
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.676,
+      "total_s": 5.695,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 115,
+      "prompt_tps": 1195.4,
+      "prompt_tps_source": "engine",
+      "decode_tps": 56.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3638.0,
+      "decode_ms": 2045.5,
+      "drafts_offered": 76,
+      "drafts_accepted": 51
+    },
+    "response": {
+      "first": 3.6757823400039342,
+      "total": 5.695037484001659,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and ledger. Several terms describe materials or textures, with frequent mentions of copper, velvet, and needle. Everyday objects and locations appear regularly, featuring items like lantern, anchor, market, and harbor. Finally, the vocabulary contains abstract or seasonal descriptors, such as winter, thunder, and garden, creating a diverse mix of concrete and conceptual terms.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 115,
+        "total_tokens": 4464,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3638.0,
+        "prompt_per_token_ms": 0.837,
+        "prompt_per_second": 1195.4,
+        "predicted_n": 115,
+        "predicted_ms": 2045.5,
+        "predicted_per_token_ms": 17.787,
+        "predicted_per_second": 56.2,
+        "draft_n": 76,
+        "draft_n_accepted": 51
+      },
+      "err": null,
+      "pieces": 114
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.14,
+      "total_s": 15.711,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 115,
+      "prompt_tps": 2245.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 72.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14079.1,
+      "decode_ms": 1593.9,
+      "drafts_offered": 93,
+      "drafts_accepted": 54
+    },
+    "response": {
+      "first": 14.139869539998472,
+      "total": 15.710693430999527,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and ledger. Several terms describe specific objects or materials, with frequent mentions of copper, velvet, needle, lantern, and anchor. Abstract or seasonal concepts are present as well, notably winter, market, garden, and harbor. Finally, the vocabulary features a variety of colors and textures, specifically highlighting violet, ember, and thunder throughout the sequence.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 115,
+        "total_tokens": 31725,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14079.1,
+        "prompt_per_token_ms": 0.445,
+        "prompt_per_second": 2245.2,
+        "predicted_n": 115,
+        "predicted_ms": 1593.9,
+        "predicted_per_token_ms": 13.86,
+        "predicted_per_second": 72.2,
+        "draft_n": 93,
+        "draft_n_accepted": 54
+      },
+      "err": null,
+      "pieces": 114
+    }
+  },
+  {
+    "round": 0,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.548,
+      "total_s": 8.054,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 372,
+      "prompt_tps": 1250.1,
+      "prompt_tps_source": "engine",
+      "decode_tps": 82.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3514.2,
+      "decode_ms": 4528.4,
+      "drafts_offered": 262,
+      "drafts_accepted": 233
+    },
+    "response": {
+      "first": 3.5484046040000976,
+      "total": 8.05412717100262,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge of two sorted lists\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 372,
+        "total_tokens": 4765,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3514.2,
+        "prompt_per_token_ms": 0.8,
+        "prompt_per_second": 1250.1,
+        "predicted_n": 372,
+        "predicted_ms": 4528.4,
+        "predicted_per_token_ms": 12.173,
+        "predicted_per_second": 82.1,
+        "draft_n": 262,
+        "draft_n_accepted": 233
+      },
+      "err": null,
+      "pieces": 340
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.303,
+      "total_s": 5.918,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 121.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 84.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 279.2,
+      "decode_ms": 5631.0,
+      "drafts_offered": 368,
+      "drafts_accepted": 322
+    },
+    "response": {
+      "first": 0.30323127200244926,
+      "total": 5.917816275003133,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 279.2,
+        "prompt_per_token_ms": 8.212,
+        "prompt_per_second": 121.8,
+        "predicted_n": 478,
+        "predicted_ms": 5631.0,
+        "predicted_per_token_ms": 11.78,
+        "predicted_per_second": 84.9,
+        "draft_n": 368,
+        "draft_n_accepted": 322
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.289,
+      "total_s": 5.638,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 141.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 95.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 261.5,
+      "decode_ms": 5369.0,
+      "drafts_offered": 370,
+      "drafts_accepted": 296
+    },
+    "response": {
+      "first": 0.28850911100016674,
+      "total": 5.638035842996032,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (딕셔너리 키로 사용 불가) | 해시 가능 (딕셔너리 키로 사용 가능) |\n| **성능** | 약간 느림 | 약간 빠름 |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱 (부분 추출)\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예: **동적 데이터 관리**\n```python\n# 사용자 입력을 실시간으로 수집하는 경우\nuser_inputs = []\n\nwhile True:\n    data = input(\"데이터를 입력하세요 (종료하려면 'quit'): \")\n    if data == \"quit\":\n        break\n    user_inputs.append(data)  # 리스트에 계속 추가 가능\n\nprint(f\"수집된 데이터: {user_inputs}\")\n```\n\n---\n\n## 2. 튜플 (Tuple) — 변경 불가능한 시퀀스\n\n### 기본 예제\n```python\n# 튜플 생성\ncoordinates = (10, 20)\nrgb_color = (255, 128, 0)\n\n# 요소 접근 (읽기만",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 261.5,
+        "prompt_per_token_ms": 7.068,
+        "prompt_per_second": 141.5,
+        "predicted_n": 512,
+        "predicted_ms": 5369.0,
+        "predicted_per_token_ms": 10.486,
+        "predicted_per_second": 95.4,
+        "draft_n": 370,
+        "draft_n_accepted": 296
+      },
+      "err": null,
+      "pieces": 461
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.586,
+      "total_s": 5.325,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 113,
+      "prompt_tps": 1225.0,
+      "prompt_tps_source": "engine",
+      "decode_tps": 64.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3550.2,
+      "decode_ms": 1764.0,
+      "drafts_offered": 69,
+      "drafts_accepted": 52
+    },
+    "response": {
+      "first": 3.585911034999299,
+      "total": 5.3253653069987195,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several abstract or functional terms appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted towards outdoor and maritime themes, with repeated mentions of harbor, garden, and velvet. Overall, the words form a diverse collection of concrete items and concepts rather than forming a coherent narrative or specific category.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 113,
+        "total_tokens": 4462,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3550.2,
+        "prompt_per_token_ms": 0.816,
+        "prompt_per_second": 1225.0,
+        "predicted_n": 113,
+        "predicted_ms": 1764.0,
+        "predicted_per_token_ms": 15.611,
+        "predicted_per_second": 64.1,
+        "draft_n": 69,
+        "draft_n_accepted": 52
+      },
+      "err": null,
+      "pieces": 112
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 13.986,
+      "total_s": 15.483,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 111,
+      "prompt_tps": 2269.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 73.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 13926.9,
+      "decode_ms": 1517.9,
+      "drafts_offered": 87,
+      "drafts_accepted": 50
+    },
+    "response": {
+      "first": 13.986202733998653,
+      "total": 15.482688773001428,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including harbor, anchor, orbit, and signal. Several terms describe materials or objects, specifically copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references are present through words like market, winter, thunder, and ember. Overall, the vocabulary is repetitive and varied, mixing tangible physical items with environmental and commercial descriptors.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 111,
+        "total_tokens": 31721,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 13926.9,
+        "prompt_per_token_ms": 0.441,
+        "prompt_per_second": 2269.7,
+        "predicted_n": 111,
+        "predicted_ms": 1517.9,
+        "predicted_per_token_ms": 13.675,
+        "predicted_per_second": 73.1,
+        "draft_n": 87,
+        "draft_n_accepted": 50
+      },
+      "err": null,
+      "pieces": 110
+    }
+  },
+  {
+    "round": 0,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.486,
+      "total_s": 7.647,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 372,
+      "prompt_tps": 1272.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 88.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3452.7,
+      "decode_ms": 4183.3,
+      "drafts_offered": 262,
+      "drafts_accepted": 233
+    },
+    "response": {
+      "first": 3.4857907039986458,
+      "total": 7.647337204994983,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge of two sorted lists\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 372,
+        "total_tokens": 4765,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3452.7,
+        "prompt_per_token_ms": 0.786,
+        "prompt_per_second": 1272.3,
+        "predicted_n": 372,
+        "predicted_ms": 4183.3,
+        "predicted_per_token_ms": 11.245,
+        "predicted_per_second": 88.9,
+        "draft_n": 262,
+        "draft_n_accepted": 233
+      },
+      "err": null,
+      "pieces": 340
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.301,
+      "total_s": 5.83,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 122.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 86.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 276.7,
+      "decode_ms": 5546.1,
+      "drafts_offered": 372,
+      "drafts_accepted": 325
+    },
+    "response": {
+      "first": 0.3009745679955813,
+      "total": 5.830271922997781,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 276.7,
+        "prompt_per_token_ms": 8.138,
+        "prompt_per_second": 122.9,
+        "predicted_n": 478,
+        "predicted_ms": 5546.1,
+        "predicted_per_token_ms": 11.603,
+        "predicted_per_second": 86.2,
+        "draft_n": 372,
+        "draft_n_accepted": 325
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.288,
+      "total_s": 5.853,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 141.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 91.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 261.0,
+      "decode_ms": 5584.1,
+      "drafts_offered": 391,
+      "drafts_accepted": 288
+    },
+    "response": {
+      "first": 0.28811760999815306,
+      "total": 5.8528219669969985,
+      "text": "파이썬에서 **리스트(List)**와 **튜플(Tuple)**은 모두 여러 개의 데이터를 순서대로 저장하는 시퀀스 자료형이지만, 가장 큰 차이점은 **'변경 가능 여부(Mutability)'**입니다.\n\n아래에 핵심 차이점과 각각의 적합한 사용 예를 한국어로 설명해 드리겠습니다.\n\n---\n\n### 1. 핵심 차이점 비교\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n| :--- | :--- | :--- |\n| **문법** | 대괄호 `[]` 사용<br>예: `[1, 2, 3]` | 소괄호 `()` 사용<br>예: `(1, 2, 3)` |\n| **변경 가능 여부** | **가능 (Mutable)**<br>추가, 삭제, 수정 가능 | **불가 (Immutable)**<br>생성 후 내용 변경 불가 |\n| **속도** | 상대적으로 느림 | 상대적으로 빠름 |\n| **메모리 사용량** | 더 많이 차지함 | 더 적게 차지함 |\n| **주요 용도** | 데이터가 자주 바뀌는 경우 | 고정된 데이터, 키로 사용할 때 |\n\n---\n\n### 2. 리스트 (List)의 특징과 사용 예\n\n리스트는 요소의 추가(`append`), 삭제(`remove`, `pop`), 수정(`index`)이 가능합니다. 따라서 **데이터가 동적으로 변해야 할 때** 사용합니다.\n\n#### ✅ 적합한 사용 예:\n- 사용자 입력을 받아 목록으로 관리할 때\n- 반복문을 통해 데이터를 추가하거나 제거할 때\n- 정렬이나 필터링 등 데이터 조작이 필요할 때\n\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\"]\n\n# 요소 추가 (변경 가능)\nfruits.append(\"오렌지\")\nprint(fruits)  # 출력: ['사과', '바나나', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # 출력: ['딸기', '바나나', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # 출력: ['딸기', '오렌지']\n```\n\n---\n\n### 3. 튜플 (Tuple)의 특징과 사용 예\n\n튜플은 한 번 생성",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 261.0,
+        "prompt_per_token_ms": 7.054,
+        "prompt_per_second": 141.8,
+        "predicted_n": 512,
+        "predicted_ms": 5584.1,
+        "predicted_per_token_ms": 10.906,
+        "predicted_per_second": 91.7,
+        "draft_n": 391,
+        "draft_n_accepted": 288
+      },
+      "err": null,
+      "pieces": 474
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.593,
+      "total_s": 5.278,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 115,
+      "prompt_tps": 1223.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 67.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3555.1,
+      "decode_ms": 1709.6,
+      "drafts_offered": 80,
+      "drafts_accepted": 54
+    },
+    "response": {
+      "first": 3.5926451229970553,
+      "total": 5.278103058000852,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including lanterns, anchors, needles, copper, quartz, and velvet. Several abstract or functional terms appear frequently, specifically market, signal, ledger, orbit, and winter. The vocabulary is heavily weighted towards outdoor and maritime themes, with repeated mentions of harbor, garden, thunder, and ember. Overall, the words form a cohesive collection of descriptive items related to nature, navigation, and commerce.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 115,
+        "total_tokens": 4464,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3555.1,
+        "prompt_per_token_ms": 0.817,
+        "prompt_per_second": 1223.3,
+        "predicted_n": 115,
+        "predicted_ms": 1709.6,
+        "predicted_per_token_ms": 14.866,
+        "predicted_per_second": 67.3,
+        "draft_n": 80,
+        "draft_n_accepted": 54
+      },
+      "err": null,
+      "pieces": 114
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.062,
+      "total_s": 15.652,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 117,
+      "prompt_tps": 2257.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 72.6,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14000.8,
+      "decode_ms": 1611.8,
+      "drafts_offered": 99,
+      "drafts_accepted": 53
+    },
+    "response": {
+      "first": 14.062225764995674,
+      "total": 15.651907599996775,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a significant number of words related to maritime or nautical themes, including harbor, anchor, lantern, and signal. Several terms describe materials or objects, with frequent mentions of copper, quartz, velvet, needle, and ledger. Abstract concepts and seasonal references appear throughout the text, specifically featuring words like winter, market, orbit, and thunder. Finally, color names are present in the vocabulary, most notably violet, which appears alongside these other recurring categories.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 117,
+        "total_tokens": 31727,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14000.8,
+        "prompt_per_token_ms": 0.443,
+        "prompt_per_second": 2257.7,
+        "predicted_n": 117,
+        "predicted_ms": 1611.8,
+        "predicted_per_token_ms": 13.776,
+        "predicted_per_second": 72.6,
+        "draft_n": 99,
+        "draft_n_accepted": 53
+      },
+      "err": null,
+      "pieces": 116
+    }
+  },
+  {
+    "round": 1,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.498,
+      "total_s": 7.684,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 372,
+      "prompt_tps": 1267.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 88.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3465.3,
+      "decode_ms": 4207.4,
+      "drafts_offered": 265,
+      "drafts_accepted": 234
+    },
+    "response": {
+      "first": 3.4983485250049853,
+      "total": 7.683547897002427,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge of two sorted lists\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 372,
+        "total_tokens": 4765,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3465.3,
+        "prompt_per_token_ms": 0.789,
+        "prompt_per_second": 1267.7,
+        "predicted_n": 372,
+        "predicted_ms": 4207.4,
+        "predicted_per_token_ms": 11.31,
+        "predicted_per_second": 88.4,
+        "draft_n": 265,
+        "draft_n_accepted": 234
+      },
+      "err": null,
+      "pieces": 340
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.308,
+      "total_s": 5.787,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 119.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 87.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 283.8,
+      "decode_ms": 5496.1,
+      "drafts_offered": 387,
+      "drafts_accepted": 341
+    },
+    "response": {
+      "first": 0.3077534199983347,
+      "total": 5.78723732400249,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 283.8,
+        "prompt_per_token_ms": 8.347,
+        "prompt_per_second": 119.8,
+        "predicted_n": 478,
+        "predicted_ms": 5496.1,
+        "predicted_per_token_ms": 11.498,
+        "predicted_per_second": 87.0,
+        "draft_n": 387,
+        "draft_n_accepted": 341
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.284,
+      "total_s": 5.478,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 143.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 98.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 257.2,
+      "decode_ms": 5213.4,
+      "drafts_offered": 461,
+      "drafts_accepted": 334
+    },
+    "response": {
+      "first": 0.2838094429971534,
+      "total": 5.478045299001678,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **변경 가능 여부** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 사용** | 상대적으로 많음 | 상대적으로 적음 |\n| **성능** | 약간 느림 | 약간 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해시 가능 (dict 키로 사용 가능) |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱으로 부분 추출\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예: **동적으로 변경되는 데이터**\n```python\n# 사용자 입력을 실시간으로 수집하는 경우\nuser_inputs = []\n\nwhile True:\n    data = input(\"데이터를 입력하세요 (종료하려면 'quit'): \")\n    if data == \"quit\":\n        break\n    user_inputs.append(data)  # 리스트에 계속 추가 가능\n\nprint(f\"수집된 데이터: {user_inputs}\")\n```\n\n---\n\n## 2. 튜플 (Tuple) — 변경 불가능한 시퀀스\n\n### 기본 예제\n```python\n# 튜플 생성\ncoordinates = (10, 20)\nperson = (\"홍길동\", 30, \"서울\")\n\n# 요소 접근 (읽기만 가능)\nprint(coordinates[0])   # ",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 257.2,
+        "prompt_per_token_ms": 6.951,
+        "prompt_per_second": 143.9,
+        "predicted_n": 512,
+        "predicted_ms": 5213.4,
+        "predicted_per_token_ms": 10.182,
+        "predicted_per_second": 98.2,
+        "draft_n": 461,
+        "draft_n_accepted": 334
+      },
+      "err": null,
+      "pieces": 462
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.642,
+      "total_s": 5.517,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 118,
+      "prompt_tps": 1206.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 62.1,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3605.6,
+      "decode_ms": 1899.6,
+      "drafts_offered": 92,
+      "drafts_accepted": 59
+    },
+    "response": {
+      "first": 3.642028850998031,
+      "total": 5.517277834995184,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including lanterns, anchors, needles, copper, quartz, and velvet. Several abstract or functional terms appear frequently, specifically market, signal, ledger, orbit, and harbor. Seasonal and atmospheric concepts are present through words like winter, thunder, and ember. Overall, the vocabulary blends geological features, household items, financial or navigational terms, and weather-related phenomena into a diverse collection of single-word entries.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 118,
+        "total_tokens": 4467,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3605.6,
+        "prompt_per_token_ms": 0.829,
+        "prompt_per_second": 1206.2,
+        "predicted_n": 118,
+        "predicted_ms": 1899.6,
+        "predicted_per_token_ms": 16.098,
+        "predicted_per_second": 62.1,
+        "draft_n": 92,
+        "draft_n_accepted": 59
+      },
+      "err": null,
+      "pieces": 117
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.299,
+      "total_s": 16.039,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 121,
+      "prompt_tps": 2220.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 68.7,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14236.5,
+      "decode_ms": 1762.4,
+      "drafts_offered": 102,
+      "drafts_accepted": 55
+    },
+    "response": {
+      "first": 14.299205497001822,
+      "total": 16.038904667999304,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to maritime or nautical themes, including harbor, anchor, orbit, and signal. Several terms describe materials or objects, with frequent mentions of copper, quartz, velvet, lantern, needle, and ledger. Abstract concepts and seasonal references appear throughout the text, specifically highlighting winter, market, thunder, and ember. Finally, color-related words like violet are repeated extensively alongside these other thematic categories to form a dense, repetitive vocabulary set.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 121,
+        "total_tokens": 31731,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14236.5,
+        "prompt_per_token_ms": 0.45,
+        "prompt_per_second": 2220.3,
+        "predicted_n": 121,
+        "predicted_ms": 1762.4,
+        "predicted_per_token_ms": 14.565,
+        "predicted_per_second": 68.7,
+        "draft_n": 102,
+        "draft_n_accepted": 55
+      },
+      "err": null,
+      "pieces": 120
+    }
+  },
+  {
+    "round": 1,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.549,
+      "total_s": 7.58,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 372,
+      "prompt_tps": 1249.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 91.8,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3515.7,
+      "decode_ms": 4052.8,
+      "drafts_offered": 288,
+      "drafts_accepted": 256
+    },
+    "response": {
+      "first": 3.5489335329984897,
+      "total": 7.579784096000367,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge of two sorted lists\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 372,
+        "total_tokens": 4765,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3515.7,
+        "prompt_per_token_ms": 0.8,
+        "prompt_per_second": 1249.5,
+        "predicted_n": 372,
+        "predicted_ms": 4052.8,
+        "predicted_per_token_ms": 10.895,
+        "predicted_per_second": 91.8,
+        "draft_n": 288,
+        "draft_n_accepted": 256
+      },
+      "err": null,
+      "pieces": 340
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.349,
+      "total_s": 6.713,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 104.9,
+      "prompt_tps_source": "engine",
+      "decode_tps": 74.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 324.1,
+      "decode_ms": 6380.8,
+      "drafts_offered": 362,
+      "drafts_accepted": 322
+    },
+    "response": {
+      "first": 0.3490882020050776,
+      "total": 6.713052789003996,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 324.1,
+        "prompt_per_token_ms": 9.532,
+        "prompt_per_second": 104.9,
+        "predicted_n": 478,
+        "predicted_ms": 6380.8,
+        "predicted_per_token_ms": 13.349,
+        "predicted_per_second": 74.9,
+        "draft_n": 362,
+        "draft_n_accepted": 322
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.379,
+      "total_s": 6.035,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 106.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 90.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 348.3,
+      "decode_ms": 5678.0,
+      "drafts_offered": 383,
+      "drafts_accepted": 297
+    },
+    "response": {
+      "first": 0.3786658160024672,
+      "total": 6.034686881997914,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (dict 키로 사용 불가) | 해시 가능 (dict 키로 사용 가능) |\n| **연산 속도** | 약간 느림 | 약간 빠름 |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱 (부분 추출)\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예: **동적으로 변경되는 데이터**\n```python\n# 사용자 입력을 실시간으로 수집하는 경우\nuser_inputs = []\n\nwhile True:\n    data = input(\"데이터를 입력하세요 (종료하려면 'quit'): \")\n    if data == \"quit\":\n        break\n    user_inputs.append(data)  # 리스트에 계속 추가 가능\n\nprint(f\"수집된 데이터: {user_inputs}\")\n```\n\n---\n\n## 2. 튜플 (Tuple) — 변경 불가능한 시퀀스\n\n### 기본 예제\n```python\n# 튜플 생성\ncoordinates = (10, 20)\nrgb_color = (255, 128, 0)\n\n# 요소 접근 (읽기만 가능)\nprint(coordinates[",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 348.3,
+        "prompt_per_token_ms": 9.414,
+        "prompt_per_second": 106.2,
+        "predicted_n": 512,
+        "predicted_ms": 5678.0,
+        "predicted_per_token_ms": 11.09,
+        "predicted_per_second": 90.2,
+        "draft_n": 383,
+        "draft_n_accepted": 297
+      },
+      "err": null,
+      "pieces": 462
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.641,
+      "total_s": 5.587,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 116,
+      "prompt_tps": 1206.5,
+      "prompt_tps_source": "engine",
+      "decode_tps": 58.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3604.5,
+      "decode_ms": 1970.4,
+      "drafts_offered": 80,
+      "drafts_accepted": 53
+    },
+    "response": {
+      "first": 3.6408847109996714,
+      "total": 5.586557641996478,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and ledger. Several terms describe specific objects or materials, with frequent mentions of copper, velvet, lantern, needle, and anchor. Abstract or atmospheric descriptors like winter, thunder, ember, and violet appear repeatedly throughout the text. Finally, everyday commercial and location-based terms such as market, harbor, and garden are interspersed among these thematic groups.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 116,
+        "total_tokens": 4465,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3604.5,
+        "prompt_per_token_ms": 0.829,
+        "prompt_per_second": 1206.5,
+        "predicted_n": 116,
+        "predicted_ms": 1970.4,
+        "predicted_per_token_ms": 16.986,
+        "predicted_per_second": 58.9,
+        "draft_n": 80,
+        "draft_n_accepted": 53
+      },
+      "err": null,
+      "pieces": 115
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.301,
+      "total_s": 15.896,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 114,
+      "prompt_tps": 2219.7,
+      "prompt_tps_source": "engine",
+      "decode_tps": 70.5,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14240.8,
+      "decode_ms": 1617.7,
+      "drafts_offered": 108,
+      "drafts_accepted": 54
+    },
+    "response": {
+      "first": 14.30130123100389,
+      "total": 15.895656136002799,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and ledger. Several terms describe specific objects or materials, with frequent mentions of copper, velvet, needle, lantern, and anchor. Abstract or seasonal concepts are present as well, notably winter, market, garden, and harbor. Overall, the vocabulary is diverse but repetitive, cycling through these distinct categories of physical, natural, and commercial items.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 114,
+        "total_tokens": 31724,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14240.8,
+        "prompt_per_token_ms": 0.451,
+        "prompt_per_second": 2219.7,
+        "predicted_n": 114,
+        "predicted_ms": 1617.7,
+        "predicted_per_token_ms": 14.19,
+        "predicted_per_second": 70.5,
+        "draft_n": 108,
+        "draft_n_accepted": 54
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 2,
+    "arm": "baseline",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.561,
+      "total_s": 7.982,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 373,
+      "prompt_tps": 1245.6,
+      "prompt_tps_source": "engine",
+      "decode_tps": 84.0,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3526.9,
+      "decode_ms": 4443.1,
+      "drafts_offered": 254,
+      "drafts_accepted": 229
+    },
+    "response": {
+      "first": 3.5605181499995524,
+      "total": 7.981970636996266,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merges two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n        \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n        \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge with no overlaps\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 373,
+        "total_tokens": 4766,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3526.9,
+        "prompt_per_token_ms": 0.803,
+        "prompt_per_second": 1245.6,
+        "predicted_n": 373,
+        "predicted_ms": 4443.1,
+        "predicted_per_token_ms": 11.912,
+        "predicted_per_second": 84.0,
+        "draft_n": 254,
+        "draft_n_accepted": 229
+      },
+      "err": null,
+      "pieces": 341
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.3,
+      "total_s": 5.888,
+      "prompt_tokens": 34,
+      "reused_tokens": 0,
+      "read_tokens": 34,
+      "generated_tokens": 478,
+      "prompt_tps": 123.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 85.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 276.0,
+      "decode_ms": 5604.8,
+      "drafts_offered": 364,
+      "drafts_accepted": 321
+    },
+    "response": {
+      "first": 0.3001171029973193,
+      "total": 5.88844747699477,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n\n    Args:\n        list1: A sorted list of comparable elements.\n        list2: A sorted list of comparable elements.\n\n    Returns:\n        A new sorted list containing all elements from both input lists.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n\n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n\n    return merged\n\n\n# Test 1: Basic merge of two sorted lists\ndef test_merge_basic():\n    list1 = [1, 3, 5]\n    list2 = [2, 4, 6]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 2, 3, 4, 5, 6], f\"Expected [1, 2, 3, 4, 5, 6], got {result}\"\n\n\n# Test 2: Merge with overlapping values and different lengths\ndef test_merge_overlapping():\n    list1 = [1, 1, 3]\n    list2 = [1, 2, 4, 5]\n    result = merge_sorted_lists(list1, list2)\n    assert result == [1, 1, 1, 2, 3, 4, 5], f\"Expected [1, 1, 1, 2, 3, 4, 5], got {result}\"\n\n\nif __name__ == \"__main__\":\n    test_merge_basic()\n    test_merge_overlapping()\n    print(\"All tests passed.\")\n```",
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 478,
+        "total_tokens": 512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 276.0,
+        "prompt_per_token_ms": 8.118,
+        "prompt_per_second": 123.2,
+        "predicted_n": 478,
+        "predicted_ms": 5604.8,
+        "predicted_per_token_ms": 11.726,
+        "predicted_per_second": 85.3,
+        "draft_n": 364,
+        "draft_n_accepted": 321
+      },
+      "err": null,
+      "pieces": 434
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "korean",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 0.287,
+      "total_s": 5.607,
+      "prompt_tokens": 37,
+      "reused_tokens": 0,
+      "read_tokens": 37,
+      "generated_tokens": 512,
+      "prompt_tps": 142.3,
+      "prompt_tps_source": "engine",
+      "decode_tps": 95.9,
+      "decode_tps_source": "engine",
+      "prompt_ms": 260.1,
+      "decode_ms": 5339.4,
+      "drafts_offered": 365,
+      "drafts_accepted": 298
+    },
+    "response": {
+      "first": 0.28720757300470723,
+      "total": 5.607203058003506,
+      "text": "# 파이썬 리스트(List)와 튜플(Tuple)의 차이\n\n## 핵심 차이점 요약\n\n| 특징 | 리스트 (List) | 튜플 (Tuple) |\n|------|--------------|-------------|\n| **가변성** | 변경 가능 (mutable) | 변경 불가 (immutable) |\n| **문법** | `[ ]` 대괄호 | `( )` 소괄호 |\n| **메모리 효율** | 상대적으로 높음 | 더 작고 빠름 |\n| **해시 가능 여부** | 해시 불가 (딕셔너리 키로 사용 불가) | 해시 가능 (딕셔너리 키로 사용 가능) |\n| **성능** | 약간 느림 | 약간 빠름 |\n\n---\n\n## 1. 리스트 (List) — 변경 가능한 시퀀스\n\n### 기본 예제\n```python\n# 리스트 생성\nfruits = [\"사과\", \"바나나\", \"포도\"]\n\n# 요소 추가\nfruits.append(\"오렌지\")\nprint(fruits)  # ['사과', '바나나', '포도', '오렌지']\n\n# 요소 수정\nfruits[0] = \"딸기\"\nprint(fruits)  # ['딸기', '바나나', '포도', '오렌지']\n\n# 요소 삭제\nfruits.remove(\"바나나\")\nprint(fruits)  # ['딸기', '포도', '오렌지']\n\n# 슬라이싱 (부분 추출)\nprint(fruits[1:3])  # ['포도', '오렌지']\n```\n\n### 적합한 사용 예: **동적 데이터 관리**\n```python\n# 사용자 입력을 계속 수집하는 경우\nuser_inputs = []\n\nwhile True:\n    data = input(\"데이터를 입력하세요 (종료하려면 'quit'): \")\n    if data == \"quit\":\n        break\n    user_inputs.append(data)  # 리스트에 계속 추가 가능\n\nprint(f\"수집된 데이터: {user_inputs}\")\n```\n\n---\n\n## 2. 튜플 (Tuple) — 변경 불가능한 시퀀스\n\n### 기본 예제\n```python\n# 튜플 생성\ncoordinates = (10, 20)\nrgb_color = (255, 128, 0)\n\n# 요소 접근 (읽기만 가능",
+      "usage": {
+        "prompt_tokens": 37,
+        "completion_tokens": 512,
+        "total_tokens": 549,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 37,
+        "prompt_ms": 260.1,
+        "prompt_per_token_ms": 7.03,
+        "prompt_per_second": 142.3,
+        "predicted_n": 512,
+        "predicted_ms": 5339.4,
+        "predicted_per_token_ms": 10.429,
+        "predicted_per_second": 95.9,
+        "draft_n": 365,
+        "draft_n_accepted": 298
+      },
+      "err": null,
+      "pieces": 461
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long4k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.589,
+      "total_s": 5.405,
+      "prompt_tokens": 4349,
+      "reused_tokens": 0,
+      "read_tokens": 4349,
+      "generated_tokens": 120,
+      "prompt_tps": 1223.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 65.2,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3553.6,
+      "decode_ms": 1839.3,
+      "drafts_offered": 88,
+      "drafts_accepted": 59
+    },
+    "response": {
+      "first": 3.588852739005233,
+      "total": 5.404584924006485,
+      "text": "The list primarily consists of common nouns representing natural elements, such as stone, river, canyon, and meadow. It also includes a variety of man-made objects and materials, including copper, quartz, lantern, anchor, and needle. Several words relate to specific locations or structures, with terms like market, harbor, garden, and orbit appearing frequently. Abstract concepts and descriptive items are present as well, featuring words like signal, winter, velvet, violet, and ledger. Overall, the vocabulary is a diverse mix of geological features, household items, geographical places, and seasonal or color-related descriptors.",
+      "usage": {
+        "prompt_tokens": 4349,
+        "completion_tokens": 120,
+        "total_tokens": 4469,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4349,
+        "prompt_ms": 3553.6,
+        "prompt_per_token_ms": 0.817,
+        "prompt_per_second": 1223.8,
+        "predicted_n": 120,
+        "predicted_ms": 1839.3,
+        "predicted_per_token_ms": 15.327,
+        "predicted_per_second": 65.2,
+        "draft_n": 88,
+        "draft_n_accepted": 59
+      },
+      "err": null,
+      "pieces": 119
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long32k",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 14.116,
+      "total_s": 15.587,
+      "prompt_tokens": 31610,
+      "reused_tokens": 0,
+      "read_tokens": 31610,
+      "generated_tokens": 114,
+      "prompt_tps": 2249.8,
+      "prompt_tps_source": "engine",
+      "decode_tps": 76.3,
+      "decode_tps_source": "engine",
+      "prompt_ms": 14050.3,
+      "decode_ms": 1493.5,
+      "drafts_offered": 89,
+      "drafts_accepted": 55
+    },
+    "response": {
+      "first": 14.116086919995723,
+      "total": 15.587054727999202,
+      "text": "The list consists primarily of common nouns representing natural elements, such as stone, river, canyon, meadow, and garden. It also includes a significant number of words related to celestial or scientific concepts, including orbit, quartz, signal, and anchor. Several terms describe materials or textures, with frequent appearances of copper, velvet, needle, and lantern. Abstract or commercial concepts are present through the repeated use of market, ledger, winter, and harbor. Overall, the vocabulary is a diverse mix of physical objects, geographical features, and abstract ideas without forming coherent sentences.",
+      "usage": {
+        "prompt_tokens": 31610,
+        "completion_tokens": 114,
+        "total_tokens": 31724,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 31610,
+        "prompt_ms": 14050.3,
+        "prompt_per_token_ms": 0.444,
+        "prompt_per_second": 2249.8,
+        "predicted_n": 114,
+        "predicted_ms": 1493.5,
+        "predicted_per_token_ms": 13.101,
+        "predicted_per_second": 76.3,
+        "draft_n": 89,
+        "draft_n_accepted": 55
+      },
+      "err": null,
+      "pieces": 113
+    }
+  },
+  {
+    "round": 2,
+    "arm": "candidate",
+    "sm75_perf": 1,
+    "case": "long-code",
+    "metrics": {
+      "ok": true,
+      "err": null,
+      "ttft_s": 3.497,
+      "total_s": 7.638,
+      "prompt_tokens": 4393,
+      "reused_tokens": 0,
+      "read_tokens": 4393,
+      "generated_tokens": 372,
+      "prompt_tps": 1268.2,
+      "prompt_tps_source": "engine",
+      "decode_tps": 89.4,
+      "decode_tps_source": "engine",
+      "prompt_ms": 3463.9,
+      "decode_ms": 4162.0,
+      "drafts_offered": 262,
+      "drafts_accepted": 233
+    },
+    "response": {
+      "first": 3.497135324003466,
+      "total": 7.637635102000786,
+      "text": "```python\ndef merge_sorted_lists(list1: list, list2: list) -> list:\n    \"\"\"\n    Merge two sorted lists into a single sorted list.\n    \n    Args:\n        list1: The first sorted list.\n        list2: The second sorted list.\n        \n    Returns:\n        A new list containing all elements from both input lists, sorted in ascending order.\n    \"\"\"\n    merged = []\n    i, j = 0, 0\n    \n    while i < len(list1) and j < len(list2):\n        if list1[i] <= list2[j]:\n            merged.append(list1[i])\n            i += 1\n        else:\n            merged.append(list2[j])\n            j += 1\n    \n    # Append remaining elements from either list\n    while i < len(list1):\n        merged.append(list1[i])\n        i += 1\n    \n    while j < len(list2):\n        merged.append(list2[j])\n        j += 1\n    \n    return merged\n\n\n# Test cases\ndef test_merge_sorted_lists():\n    # Test 1: Basic merge of two sorted lists\n    assert merge_sorted_lists([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]\n    \n    # Test 2: Merge with overlapping values and different lengths\n    assert merge_sorted_lists([1, 1, 3], [1, 2, 4, 5]) == [1, 1, 1, 2, 3, 4, 5]\n\nif __name__ == \"__main__\":\n    test_merge_sorted_lists()\n```",
+      "usage": {
+        "prompt_tokens": 4393,
+        "completion_tokens": 372,
+        "total_tokens": 4765,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 4393,
+        "prompt_ms": 3463.9,
+        "prompt_per_token_ms": 0.789,
+        "prompt_per_second": 1268.2,
+        "predicted_n": 372,
+        "predicted_ms": 4162.0,
+        "predicted_per_token_ms": 11.188,
+        "predicted_per_second": 89.4,
+        "draft_n": 262,
+        "draft_n_accepted": 233
+      },
+      "err": null,
+      "pieces": 340
+    }
+  }
+]
