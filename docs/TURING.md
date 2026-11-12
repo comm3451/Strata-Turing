@@ -19,9 +19,36 @@ system service does not need a new unit or override.
 After the service restart, the actual engine arguments and environment
 matched this configuration. The authenticated API reported IQ3_XXS and
 262,144 context, and a short synthetic request returned the expected answer.
-The owner canceled the proposed model comparison. No new speed comparison,
-broad quality evaluation or near-limit context test was performed for this
-combination. This is a verified configuration change, not a measured speedup.
+The owner canceled the proposed model comparison. The model-only handoff
+used a short load check; it did not establish a speedup or broad quality.
+The subsequent cache validation below covers a synthetic near-limit input.
+
+The current IQ3_XXS service also uses an 8 GiB parked-conversation budget,
+up to eight parked conversations and eight prompt checkpoints. A park must
+leave at least 3 GiB of available host memory; older parked conversations
+are evicted when needed. The budget is a limit on demand, not an allocation
+at startup or the engine's maximum accepted value. Eight slots do not imply
+that eight full 256K conversations fit in 64 GB RAM.
+
+The [cache validation](../bench/results/2026-11-12-titan-rtx-iq3xxs-cache/README.md)
+stored and restored a 252K-token synthetic conversation while the service
+also processed user requests. All four content checks passed. Returning to
+the same 252,146-token input reused 252,139 tokens and read seven; its engine
+input phase took 1.021 seconds versus 127.655 seconds for the cold read.
+These are engine timings, not client TTFTs: other requests added queue time.
+The lowest sampled available RAM was 4.28 GiB, with no new swap-out pages.
+The short numeric answers are not a sustained decode or reasoning benchmark.
+
+`tools/qfn_iq3xxs_cache_profile.py` copies the IQ3_XXS/BF16 profile with these
+cache settings. It preserves the model, N-grams, environment, credentials,
+network settings and other engine arguments. The smaller IQ3_S profile
+generator below retains its separately measured settings.
+
+```sh
+bash tools/turing-run.sh /path/to/python tools/qfn_iq3xxs_cache_profile.py \
+  --source .turing/launch/qfn-iq3s-256k.json \
+  --out .turing/launch/qfn-iq3xxs-cache8g.json
+```
 
 ## Keep work inside the checkout
 

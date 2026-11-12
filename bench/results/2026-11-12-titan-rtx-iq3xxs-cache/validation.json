@@ -1,0 +1,21 @@
+{
+  "api_ready": true,
+  "model": "qwen3.8-flash-next-iq3_xxs",
+  "context": 262144,
+  "cache_budget_mib": 8192,
+  "cache_slots": 8,
+  "prompt_checkpoints": 8,
+  "minimum_free_mib": 3072,
+  "checks_passed": 4,
+  "large_conversation_parked_and_restored": true,
+  "minimum_sampled_available_ram_mib": 4386.61328125,
+  "swap_in_pages_delta": 24,
+  "swap_out_pages_delta": 0,
+  "note": "One synthetic near-limit park/restore check on the running service; not a throughput comparison or eight full-context conversations.",
+  "engine_sha256": "1b50bc01e1f3b6957b6fe8a58b577096bb5546278899691e3ab6f2578cfc4c49",
+  "source_commit_before_change": "bf4cb51bb406b4f29e814d4e5e1746f8f795b4a7",
+  "actual_process_settings_verified": true,
+  "power_limits_observed_w": [
+    220.0
+  ]
+}
